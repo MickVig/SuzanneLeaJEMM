@@ -1,17 +1,30 @@
 package bean;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Personne {
-	protected Integer ID;
-	protected String nom;
-	protected String prenom;
-	protected String email;
-	protected String adresse;
-	protected String tel;
-	protected String mdp;
+	@Id
+	@Column(name="ID_Personne", nullable=false)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+    protected Integer ID;
+	@Column(name="Nom", length=25, nullable=false)
+    protected String nom;
+	@Column(name="Prenom", length=25, nullable=false)
+    protected String prenom;
+	@Column(name="Email", length=50, nullable=false)
+    protected String email;
+	@Column(name="Adresse", length=225, nullable=false)
+    protected String adresse;
+	@Column(name="Telephone", length=12, nullable=false)
+    protected String tel;
+	@Column(name="Password", length=25, nullable=false)
+    protected String mdp;
 	
 	
-	//Constructeur
-	
+	//Constructeur	
 	public Personne() {
 		
 	}
