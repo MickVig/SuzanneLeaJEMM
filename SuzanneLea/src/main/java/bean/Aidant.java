@@ -1,12 +1,24 @@
 package bean;
 
-
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+@Entity
 public class Aidant extends Personne {
-	protected Integer ID_Aidant;
-	//récupérer ID et type de la personne aidante (pas de classe type)
+	@Id
+	@Column(name="ID_Aidant", nullable=false)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+    protected Integer ID_Aidant;
+    //récupérer ID et type de la personne aidante (pas de classe type)
+    @Column(name="ID_Type", nullable=false)
 	protected Integer ID_Type; 
-	protected String type;
+	@Column(name="Type", nullable=false)
+    protected String type;
 	
 	//Constructeur
 	public Aidant() {

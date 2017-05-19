@@ -2,16 +2,27 @@ package bean;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class CompteRendu {
-	
-	protected Integer ID;
-	protected Date date;
-	protected String commentaire;
-	//si non null : aidant = auteur du CR sinon auteur = aidee
-	protected Aidant aidant;
-	protected Aidee aidee;
-
+	@Id
+	@Column(name="ID_CompteRendu", nullable=false)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+    protected Integer ID;
+	@Column(name="DateCR", nullable=false)
+    protected Date date;
+	@Column(name="Commentaire", length=225, nullable=false)
+    protected String commentaire;
+    //si non null : aidant = auteur du CR sinon auteur = aidee
+	@Column(name="ID_Aidant", nullable=false)
+    protected Integer ID_Aidant;
+	@Column(name="ID_Aidee", nullable=false)
+    protected Integer ID_Aidee;
 		
 	
 	
@@ -47,21 +58,23 @@ public class CompteRendu {
 		this.commentaire = commentaire;
 	}
 
-	public Aidant getAidant() {
-		return aidant;
+	public Integer getID_Aidant() {
+		return ID_Aidant;
 	}
 
-	public void setAidant(Aidant aidant) {
-		this.aidant = aidant;
+	public void setID_Aidant(Integer iD_Aidant) {
+		ID_Aidant = iD_Aidant;
 	}
 
-	public Aidee getAidee() {
-		return aidee;
+	public Integer getID_Aidee() {
+		return ID_Aidee;
 	}
 
-	public void setAidee(Aidee aidee) {
-		this.aidee = aidee;
+	public void setID_Aidee(Integer iD_Aidee) {
+		ID_Aidee = iD_Aidee;
 	}
+
+	
 	
 	
 	

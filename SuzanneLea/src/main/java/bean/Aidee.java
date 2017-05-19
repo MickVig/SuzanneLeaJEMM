@@ -1,15 +1,31 @@
 package bean;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import java.util.Set;
 
 
+@Entity
 public class Aidee extends Personne {
-	protected Integer ID_Aidee;
-	protected List<Aidant> listeAidant = new ArrayList<Aidant>();
-	protected Aidant refMedecin;
-	protected Aidant refProche;
+	@Id
+	@Column(name="ID_Aidee", nullable=false)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+    protected Integer ID_Aidee;
+	@OneToMany(mappedBy = "Aidee", cascade = { CascadeType.ALL })
+    protected Set<Aidant> listeAidant = new HashSet<Aidant>();
+	@Column(name="ID_Aidant", nullable=false)
+	protected Integer ID_MedecinRef;
+	@Column(name="ID_Aidant", nullable=false)
+    protected Integer ID_ProcheRef;
 
 	// Constructeur
 	public Aidee() {
@@ -28,30 +44,36 @@ public class Aidee extends Personne {
 		ID_Aidee = iD_Aidee;
 	}
 
-	public List<Aidant> getListeAidant() {
-		return listeAidant;
+
+	public Integer getID_MedecinRef() {
+		return ID_MedecinRef;
 	}
 
-	public void setListeAidant(List<Aidant> listeAidant) {
+
+
+	public void setID_MedecinRef(Integer iD_MedecinRef) {
+		ID_MedecinRef = iD_MedecinRef;
+	}
+
+
+
+	public Integer getID_ProcheRef() {
+		return ID_ProcheRef;
+	}
+
+
+
+	public void setID_ProcheRef(Integer iD_ProcheRef) {
+		ID_ProcheRef = iD_ProcheRef;
+	}
+
+
+
+	public void setListeAidant(Set<Aidant> listeAidant) {
 		this.listeAidant = listeAidant;
 	}
 
-	public Aidant getRefMedecin() {
-		return refMedecin;
-	}
-
-	public void setRefMedecin(Aidant refMedecin) {
-		this.refMedecin = refMedecin;
-	}
-
-	public Aidant getRefProche() {
-		return refProche;
-	}
-
-	public void setRefProche(Aidant refProche) {
-		this.refProche = refProche;
-	}
-
+	
 	
 	
 	
