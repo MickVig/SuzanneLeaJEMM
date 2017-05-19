@@ -18,8 +18,8 @@
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="root" />
 			
-			<!-- création automatique du schéma -->
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<!-- mise à jour automatique du schéma -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			
 			<!-- Dialecte -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
