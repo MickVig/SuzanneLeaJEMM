@@ -10,7 +10,7 @@ import javax.persistence.Query;
 
 import bean.Personne;
 
-public class AidantDAO implements IAidantDAO {
+public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	
 	private static IAidantDAO instance=null;
 	private AidantDAO(){
@@ -22,7 +22,41 @@ public class AidantDAO implements IAidantDAO {
 		return instance;
 	}
 	
+	/////// Autres Requetes \\\\\\\
 	
+	
+	/////// CRUD \\\\\\\
+	
+	@Override
+	public void createAidant(Personne p, Integer ID_Type) {
+		// TODO Auto-generated method stub
+		/*
+		 * Si la personne n'existe pas la créer avant de le mettre aidant
+		 */
+		
+	}
+	@Override
+	public Personne readAidant(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void updateAidant(Personne p, Integer ID_Type) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void supprAidant(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
+	
+	
+	/* 
 	public List<Personne> getListPersonne() {
 		System.out.println("bonjour!");
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
@@ -35,7 +69,7 @@ public class AidantDAO implements IAidantDAO {
         }
         return liste;
 	}
-	
+	*/
 	
 	
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 import bean.CompteRendu;
 
-public class CompteRenduDAO implements ICompteRenduDAO {
+public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	
 	/////// SINGLETON \\\\\\\
 	private static ICompteRenduDAO instance=null;

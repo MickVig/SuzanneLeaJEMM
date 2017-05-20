@@ -36,6 +36,13 @@ public class Aidee extends Personne {
 	
 	//Accesseurs
 	
+	public Aidee(Integer iD_MedecinRef, Integer iD_ProcheRef) {
+		ID_MedecinRef = iD_MedecinRef;
+		ID_ProcheRef = iD_ProcheRef;
+	}
+
+
+
 	public Integer getID_Aidee() {
 		return ID_Aidee;
 	}

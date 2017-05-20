@@ -21,7 +21,8 @@ public class AidantService implements IAidantService{
 	}
 	
 	public List<Personne> getListPersonne() {
-		return AidantDAO.getInstance().getListPersonne();
+		//return AidantDAO.getInstance().getListPersonne();
+		return null;
 	}
 	
 	
