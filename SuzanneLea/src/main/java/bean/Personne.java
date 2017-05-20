@@ -8,6 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Personne {
+	
 	@Id
 	@Column(name="ID_Personne", nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -30,6 +31,17 @@ public class Personne {
 	public Personne() {
 		
 	}
+
+	public Personne(String nom, String prenom, String email, String adresse, String tel, String mdp) {
+		
+		setNom(nom);
+		setPrenom(prenom);
+		setEmail(email);
+		setTel(tel);
+		setMdp(mdp);
+		
+	}
+
 
 
 	//Accesseurs
