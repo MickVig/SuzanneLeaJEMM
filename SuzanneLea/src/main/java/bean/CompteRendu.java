@@ -25,13 +25,20 @@ public class CompteRendu {
     protected Integer ID_Aidee;
 		
 	
-	
-	
 	//Constructeur
 	public CompteRendu() {
 		
 	}
 	
+	public CompteRendu(Date date, String commentaire, Integer iD_Aidant, Integer iD_Aidee) {
+		setDate(date);
+		setCommentaire(commentaire);
+		setID_Aidant(iD_Aidant);
+		setID_Aidee(iD_Aidee);
+	}
+
+
+
 	//Accesseurs
 
 	public Integer getID() {
