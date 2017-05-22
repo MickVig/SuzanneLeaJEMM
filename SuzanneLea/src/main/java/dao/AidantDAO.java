@@ -1,6 +1,7 @@
 package dao;
 
 
+import bean.Aidant;
 import bean.Personne;
 
 public class AidantDAO extends ConnexionDAO implements IAidantDAO {
@@ -22,7 +23,8 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	/////// CRUD \\\\\\\
 	
 	@Override
-	public void createAidant(Integer ID_pers, Integer ID_Type) {
+	public Aidant createAidant(Integer ID_pers, Integer ID_Type) {
+		Aidant aidant=new Aidant();
 		connexion.connexion();
 		// TODO Auto-generated method stub
 		/*
@@ -30,7 +32,7 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 		 */
 		connexion.commit();
 		connexion.deconnexion();
-		
+		return aidant;
 	}
 	
 	@Override

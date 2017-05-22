@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import bean.Aidant;
+import bean.Aidee;
 import bean.Personne;
 
 public class AideeDAO extends ConnexionDAO implements IAideeDAO {
@@ -32,13 +33,15 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	/////// CRUD \\\\\\\
 	
 	@Override
-	public void createAidee(Integer ID_Pers) {
+	public Aidee createAidee(Integer ID_Pers) {
+		Aidee aidee=new Aidee();
 		connexion.connexion();
 		/*
 		 * Si la personne n'existe pas la créer avant de le mettre aidee
 		 */
 		connexion.commit();
 		connexion.deconnexion();
+		return aidee;
 	}
 	
 	@Override

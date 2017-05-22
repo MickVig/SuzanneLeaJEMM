@@ -1,5 +1,10 @@
 package dao;
 
+import java.util.Iterator;
+import java.util.List;
+
+import javax.persistence.Query;
+
 import bean.Personne;
 
 public class PersonneDAO implements IPersonneDAO {
@@ -18,23 +23,30 @@ public class PersonneDAO implements IPersonneDAO {
 	ConnexionDAO connexion=new ConnexionDAO();
 	/////// Autres Requetes \\\\\\\
 	
+	public Personne getPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp) {
+		Personne p = new Personne(nom, prenom, email, adresse, tel, mdp);
+		connexion.getEm().persist(p);
+		return p;
+	}
+	
+	
+	
+	
 	/*
 	 * La fonction renvoie la personne si celle-ci existe dans la BDD
 	 */
-	@Override
-    public Boolean personneExiste(String mail, String mdp) {
+	@Override	
+	public Personne personneExiste(String mail, String mdp) {
 		connexion.connexion();
-		Personne p = new Personne();
-    	Boolean bool=false;
-    	/*Query requete=(Query) em.createQuery("SELECT p FROM personne p where id=3").getResultList();
-    	if (requete!=null) {
-    		bool=true;
-    	}
-    	System.out.println(bool);*/
-    	connexion.commit();
+				
+    	Query requete=connexion.getEm().createQuery("SELECT p FROM Personne p WHERE p.email='"+mail+"' AND p.mdp='"+mdp+"'");
+    	
+    	List liste = requete.getResultList();
+    	Personne p = (Personne) liste.get(0);
+    	System.out.println(p);
+		connexion.commit();
 		connexion.deconnexion();
-    	return bool;
-        
+    	return p;
     }
 	
 	

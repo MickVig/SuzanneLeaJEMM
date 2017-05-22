@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import bean.Aidant;
+import bean.Aidee;
 import bean.Personne;
 
 public interface IAideeDAO {
@@ -25,7 +26,7 @@ public interface IAideeDAO {
 	 * @param iD_MedecinRef		le numéro unique du medecin référents
 	 * @param iD_ProcheRef		le numéro unique du proche référents
 	 */
-	public void createAidee(Integer ID_Pers);
+	public Aidee createAidee(Integer ID_Pers);
 	
 	/**
 	 * Fonction pour LIRE un aidee dans la BDD

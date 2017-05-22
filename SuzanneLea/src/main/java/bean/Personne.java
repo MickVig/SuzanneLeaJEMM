@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Iterator;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -118,6 +120,35 @@ public class Personne {
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
+
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Personne [ID=");
+		builder.append(ID);
+		builder.append(", nom=");
+		builder.append(nom);
+		builder.append(", prenom=");
+		builder.append(prenom);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", adresse=");
+		builder.append(adresse);
+		builder.append(", tel=");
+		builder.append(tel);
+		builder.append(", mdp=");
+		builder.append(mdp);
+		builder.append("]");
+		return builder.toString();
+	}
+
+	public Iterator iterate(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 	
 	
 	

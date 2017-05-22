@@ -1,5 +1,6 @@
 package dao;
 
+import bean.Aidant;
 import bean.Personne;
 
 public interface IAidantDAO {
@@ -14,7 +15,7 @@ public interface IAidantDAO {
 	 * @param p			la personne qui va devenir aidant
 	 * @param ID_Type	le type d'aidant (dans ce cas on ne peut rajouter que des proches)
 	 */
-	public void createAidant(Integer ID_pers, Integer ID_Type);
+	public Aidant createAidant(Integer ID_pers, Integer ID_Type);
 	
 	/**
 	 * Fonction pour LIRE un aidant dans la BDD

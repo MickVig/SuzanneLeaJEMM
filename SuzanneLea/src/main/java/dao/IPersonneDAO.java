@@ -1,9 +1,16 @@
 package dao;
 
+import java.util.List;
+
 import bean.Personne;
 
 public interface IPersonneDAO {
 	/////// Autres Requetes \\\\\\\
+	
+	
+	
+	public Personne getPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp);
+	
 	
 	/**
 	 * La fonction renvoie la personne si celle-ci existe dans la BDD
@@ -11,7 +18,7 @@ public interface IPersonneDAO {
 	 * @param mdp	Le mot de passe rentré par la personne
 	 * @return		La personne qui se connecte
 	 */
-	public Boolean personneExiste(String mail, String mdp);
+	public Personne personneExiste(String mail, String mdp);
 	
 	
 /////// CRUD \\\\\\\
