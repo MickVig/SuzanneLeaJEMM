@@ -51,6 +51,7 @@ public class PersonneDAO implements IPersonneDAO {
 	
 	
 	
+	
 	/////// CRUD \\\\\\\
 	
     /*
@@ -79,23 +80,15 @@ public class PersonneDAO implements IPersonneDAO {
 	@Override
     public Personne readPersonne(Integer id) {
 		connexion.connexion();
-    	Personne p = new Personne();
+		
+    	Query requete=connexion.getEm().createQuery("SELECT p FROM Personne p WHERE p.ID="+id);
     	
-        
-        /* 
-         * TODO
-         * Code a finir récupérer la personne du résultat
-         * 
-         * em.createQuery("select p from personne where id = '" + id + "'"
-                +");
-         * 
-         * Récupérer la personne avec la requete
-         * 
-         * 
-         */ 
-    	connexion.commit();
+    	List liste = requete.getResultList();
+    	Personne p = (Personne) liste.get(0);
+    	System.out.println(p);
+		connexion.commit();
 		connexion.deconnexion();
-        return p;
+    	return p;
     }
     
     

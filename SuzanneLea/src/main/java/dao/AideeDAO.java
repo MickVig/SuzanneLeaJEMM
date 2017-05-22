@@ -36,9 +36,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	public Aidee createAidee(Integer ID_Pers) {
 		Aidee aidee=new Aidee();
 		connexion.connexion();
-		/*
-		 * Si la personne n'existe pas la créer avant de le mettre aidee
-		 */
+		aidee.setPersonne(PersonneDAO.getInstance().readPersonne(ID_Pers));
 		connexion.commit();
 		connexion.deconnexion();
 		return aidee;

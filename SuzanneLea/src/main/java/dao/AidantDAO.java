@@ -23,13 +23,11 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	/////// CRUD \\\\\\\
 	
 	@Override
-	public Aidant createAidant(Integer ID_pers, Integer ID_Type) {
+	public Aidant createAidant(Integer ID_Pers, Integer ID_Type) {
 		Aidant aidant=new Aidant();
 		connexion.connexion();
-		// TODO Auto-generated method stub
-		/*
-		 * Si la personne n'existe pas la créer avant de le mettre aidant
-		 */
+		aidant.setPersonne(PersonneDAO.getInstance().readPersonne(ID_Pers));
+		aidant.setType(TypeDAO.getInstance().readType(ID_Type));
 		connexion.commit();
 		connexion.deconnexion();
 		return aidant;

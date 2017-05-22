@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import javax.persistence.Query;
 
 import bean.Personne;
@@ -45,8 +47,9 @@ public class TypeDAO implements ITypeDAO {
 	@Override
 	public Type readType(Integer id) {
 		connexion.connexion();
-		Type t = new Type();
 		Query requete=connexion.getEm().createQuery("'SELECT t FROM Type t where id = " + id + "'");
+		List liste = requete.getResultList();
+    	Type t = (Type) liste.get(0);
 		connexion.commit();
 		connexion.deconnexion();
 		return t;
