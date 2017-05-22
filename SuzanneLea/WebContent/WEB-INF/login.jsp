@@ -25,7 +25,7 @@
               <h2>Connexion</h2>
           </div>
           <div class="w3-container w3-white w3-col s10">
-            <form id="formlogin" class="w3-container" method="post" action="">
+            <form id="formlogin" class="w3-container" method="post" action="login">
               <label for="mail" class="w3-text-teal"><b>Mail</b></label>
               <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="mail" >
 

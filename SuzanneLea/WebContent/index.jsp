@@ -26,7 +26,7 @@
           </div>
           <div class="w3-container">
               <button id="btnlogin" class="w3-btn w3-green w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Connexion</button>
-              <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-plus" aria-hidden="true"></i> Créer</button>
+              <button id="btninscription" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-plus" aria-hidden="true"></i> Créer</button>
           </div>
       </main>
 

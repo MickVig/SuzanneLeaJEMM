@@ -15,9 +15,9 @@ function init(){
 		$(location).attr('href',"login");
 	})
 
-	$("#btncreate").on('click',function(){
+	$("#btninscription").on('click',function(){
 		console.log("create");
-		$(location).attr('href',"createaidee");
+		$(location).attr('href',"inscription");
 	})
 
 	$("#btnaccueil").on('click',function(){
