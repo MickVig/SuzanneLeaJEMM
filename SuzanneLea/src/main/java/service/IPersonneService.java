@@ -6,4 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 public interface IPersonneService {
 
 	public boolean connexion(HttpServletRequest request, HttpServletResponse response);
+	
+	public boolean inscription(HttpServletRequest request, HttpServletResponse response);
+	
+	
 }
