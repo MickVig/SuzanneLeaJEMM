@@ -37,6 +37,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		Aidee aidee=new Aidee();
 		connexion.connexion();
 		aidee.setPersonne(PersonneDAO.getInstance().readPersonne(ID_Pers));
+		connexion.getEm().persist(aidee);
 		connexion.commit();
 		connexion.deconnexion();
 		return aidee;

@@ -28,6 +28,7 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 		connexion.connexion();
 		aidant.setPersonne(PersonneDAO.getInstance().readPersonne(ID_Pers));
 		aidant.setType(TypeDAO.getInstance().readType(ID_Type));
+		connexion.getEm().persist(aidant);
 		connexion.commit();
 		connexion.deconnexion();
 		return aidant;
