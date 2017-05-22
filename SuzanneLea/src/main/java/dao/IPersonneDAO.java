@@ -7,11 +7,6 @@ import bean.Personne;
 public interface IPersonneDAO {
 	/////// Autres Requetes \\\\\\\
 	
-	
-	
-	public Personne getPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp);
-	
-	
 	/**
 	 * La fonction renvoie la personne si celle-ci existe dans la BDD
 	 * @param mail	L'email rentré par la personne

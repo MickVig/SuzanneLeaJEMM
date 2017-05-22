@@ -7,7 +7,7 @@ import javax.persistence.Query;
 
 import bean.Personne;
 
-public class PersonneDAO implements IPersonneDAO {
+public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
 	
 	/////// SINGLETON \\\\\\\
 	private static IPersonneDAO instance=null;
@@ -20,36 +20,24 @@ public class PersonneDAO implements IPersonneDAO {
 		return instance;
 	}
 	
-	ConnexionDAO connexion=new ConnexionDAO();
 	/////// Autres Requetes \\\\\\\
-	
-	public Personne getPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp) {
-		Personne p = new Personne(nom, prenom, email, adresse, tel, mdp);
-		connexion.getEm().persist(p);
-		return p;
-	}
-	
-	
-	
-	
+		
 	/*
 	 * La fonction renvoie la personne si celle-ci existe dans la BDD
 	 */
 	@Override	
 	public Personne personneExiste(String mail, String mdp) {
-		connexion.connexion();
+		this.connexion();
 				
-    	Query requete=connexion.getEm().createQuery("SELECT p FROM Personne p WHERE p.email='"+mail+"' AND p.mdp='"+mdp+"'");
+    	Query requete=this.getEm().createQuery("SELECT p FROM Personne p WHERE p.email='"+mail+"' AND p.mdp='"+mdp+"'");
     	
     	List liste = requete.getResultList();
     	Personne p = (Personne) liste.get(0);
     	System.out.println(p);
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
     	return p;
     }
-	
-	
 	
 	
 	/////// CRUD \\\\\\\
@@ -58,7 +46,7 @@ public class PersonneDAO implements IPersonneDAO {
      * Fonction pour CREER une nouvelle personne dans la BDD
      */
 	public Personne createPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp) {
-		connexion.connexion();		
+		this.connexion();		
 		Personne p=new Personne();
     	p.setAdresse(adresse);
     	p.setEmail(email);
@@ -67,9 +55,9 @@ public class PersonneDAO implements IPersonneDAO {
     	p.setPrenom(prenom);
     	p.setTel(tel);
     	System.out.println(p);
-    	connexion.getEm().persist(p);
-    	connexion.commit();
-		connexion.deconnexion();
+    	this.getEm().persist(p);
+    	this.commit();
+		this.deconnexion();
     	return p;
     		
 	}
@@ -79,15 +67,15 @@ public class PersonneDAO implements IPersonneDAO {
      */
 	@Override
     public Personne readPersonne(Integer id) {
-		connexion.connexion();
+		this.connexion();
 		
-    	Query requete=connexion.getEm().createQuery("SELECT p FROM Personne p WHERE p.ID="+id);
+    	Query requete=this.getEm().createQuery("SELECT p FROM Personne p WHERE p.ID="+id);
     	
     	List liste = requete.getResultList();
     	Personne p = (Personne) liste.get(0);
     	System.out.println(p);
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
     	return p;
     }
     
@@ -97,7 +85,7 @@ public class PersonneDAO implements IPersonneDAO {
      */
 	@Override
     public void updatePersonne(Integer id, String nom, String prenom, String email, String adresse, String tel, String mdp) {
-		connexion.connexion();
+		this.connexion();
         /* 
          * TODO
          * Code a finir récupérer la personne du résultat
@@ -108,8 +96,8 @@ public class PersonneDAO implements IPersonneDAO {
          * 
          * 
          */ 
-		connexion.commit();
-		connexion.deconnexion(); 
+		this.commit();
+		this.deconnexion(); 
     }
     
     
@@ -119,7 +107,7 @@ public class PersonneDAO implements IPersonneDAO {
      */
 	@Override
     public void supprPersonne(Integer id) {
-		connexion.connexion();
+		this.connexion();
         
         /* 
          * TODO
@@ -130,8 +118,8 @@ public class PersonneDAO implements IPersonneDAO {
          * 
          * 
          */ 
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
         
     }
     

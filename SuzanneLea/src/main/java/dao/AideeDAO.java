@@ -18,13 +18,13 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		}
 		return instance;
 	}
+		
 	
-	ConnexionDAO connexion=new ConnexionDAO();
 	/////// Autres Requetes \\\\\\\
 	
 	@Override
 	public List<Aidant> allAidant(Integer id) {
-		connexion.connexion();
+		this.connexion();
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -35,36 +35,36 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	@Override
 	public Aidee createAidee(Integer ID_Pers) {
 		Aidee aidee=new Aidee();
-		connexion.connexion();
+		this.connexion();
 		aidee.setPersonne(PersonneDAO.getInstance().readPersonne(ID_Pers));
-		connexion.getEm().persist(aidee);
-		connexion.commit();
-		connexion.deconnexion();
+		this.em.persist(aidee);
+		this.commit();
+		this.deconnexion();
 		return aidee;
 	}
 	
 	@Override
 	public Personne readAidee(Integer id) {
-		connexion.connexion();
+		this.connexion();
 		// TODO Auto-generated method stub
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
 		return null;
 	}
 	
 	@Override
 	public void updateAidee(Personne p, Integer iD_MedecinRef, Integer iD_ProcheRef) {
-		connexion.connexion();
+		this.connexion();
 		// TODO Auto-generated method stub
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
 	}
 	
 	@Override
 	public void supprAidee(Integer id) {
-		connexion.connexion();
+		this.connexion();
 		// TODO Auto-generated method stub
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
 	}
 }

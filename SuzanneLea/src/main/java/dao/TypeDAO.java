@@ -7,7 +7,7 @@ import javax.persistence.Query;
 import bean.Personne;
 import bean.Type;
 
-public class TypeDAO implements ITypeDAO {
+public class TypeDAO extends ConnexionDAO implements ITypeDAO {
 
 	/////// SINGLETON \\\\\\\
 	private static ITypeDAO instance = null;
@@ -22,7 +22,6 @@ public class TypeDAO implements ITypeDAO {
 		return instance;
 	}
 
-	ConnexionDAO connexion = new ConnexionDAO();
 
 	/////// CRUD \\\\\\\
 
@@ -30,13 +29,13 @@ public class TypeDAO implements ITypeDAO {
 	 * Fonction pour CREER un nouveau type
 	 */
 	public Type createType(String type) {
-		connexion.deconnexion();
+		this.deconnexion();
 		Type t = new Type();
 		t.setType(type);
-		connexion.getEm().persist(t);
+		this.getEm().persist(t);
 		System.out.println(t);
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
 		return t;
 
 	}
@@ -46,12 +45,12 @@ public class TypeDAO implements ITypeDAO {
 	 */
 	@Override
 	public Type readType(Integer id) {
-		connexion.connexion();
-		Query requete=connexion.getEm().createQuery("SELECT t FROM Type t where t.ID_Type =" + id);
+		this.connexion();
+		Query requete=this.getEm().createQuery("SELECT t FROM Type t where t.ID_Type =" + id);
 		List liste = requete.getResultList();
     	Type t = (Type) liste.get(0);
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
 		return t;
 	}
 }

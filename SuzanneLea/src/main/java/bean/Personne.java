@@ -143,10 +143,7 @@ public class Personne {
 		return builder.toString();
 	}
 
-	public Iterator iterate(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	
 	

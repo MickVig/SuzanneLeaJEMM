@@ -7,11 +7,10 @@ import javax.servlet.http.HttpSession;
 import bean.Aidant;
 import bean.Aidee;
 import bean.Personne;
-import bean.Referent;
 import dao.AidantDAO;
 import dao.AideeDAO;
-import dao.IPersonneDAO;
 import dao.PersonneDAO;
+import dao.RelationDAO;
 
 public class PersonneService implements IPersonneService {
 	/////// SINGLETON \\\\\\\
@@ -90,10 +89,16 @@ public class PersonneService implements IPersonneService {
 		 Aidee aidee = AideeDAO.getInstance().createAidee(pAidee.getID());
 
 		/*
-		 * Creer le referent
+		 * Creer la relation referent proche
 		 */
+		 RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), aidee.getID_Aidee(), true);
 		 
-	
+		 /*
+		 * Creer la relation referent medecin
+		 */
+		 Integer ID_medecin = Integer.valueOf(request.getParameter("medecin"));
+		 RelationDAO.getInstance().createRelation(ID_medecin, aidee.getID_Aidee(), true);
+
 		 
 	}
 

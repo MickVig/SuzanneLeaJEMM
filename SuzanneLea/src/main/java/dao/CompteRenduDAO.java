@@ -25,11 +25,9 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 		return instance;
 	}
 	
-	ConnexionDAO connexion=new ConnexionDAO();
 	
-
 	public List<CompteRendu> getListCompteRendu(){
-		connexion.connexion();
+		this.connexion();
 		CompteRendu cr = new CompteRendu();
 		em.persist(cr);
 		return (List<CompteRendu>) cr;	
@@ -39,7 +37,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	/////// Autres Requetes \\\\\\\
 	@Override
 	public List<CompteRendu> comptesRendusAidee(Integer id) {
-		connexion.connexion();
+		this.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
 		
 		CompteRendu cr = new CompteRendu();
@@ -55,14 +53,14 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
          * 
          * 
          */
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
 		return listeCR;
 	}
 
 	@Override
 	public List<CompteRendu> comptesRendusAidant(Integer id) {
-		connexion.connexion();
+		this.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
 		/* 
          * TODO
@@ -73,8 +71,8 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
          * 
          * 
          */
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
 		return listeCR;
 	}
 	
@@ -85,7 +83,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	
 	@Override
 	public CompteRendu readCompteRendu(Integer id) {
-		connexion.connexion();
+		this.connexion();
 		CompteRendu cr = new CompteRendu();
 		/* 
          * TODO
@@ -97,15 +95,15 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
          * 
          */
 		//return cr;
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
 		return (CompteRendu) em.createQuery("select cr from CompteRendu where (id ='" +id+ "').getResultList()");
 	}
 
 	
 	@Override
 	public void createCompteRendu(Date date, String commentaire, Integer iD_Aidant, Integer iD_Aidee) {
-		connexion.connexion();
+		this.connexion();
 		CompteRendu cr = new CompteRendu();
 		/* 
          * TODO
@@ -116,8 +114,8 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
          * 
          * 
          */
-		connexion.commit();
-		connexion.deconnexion();
+		this.commit();
+		this.deconnexion();
 	}
 
 }

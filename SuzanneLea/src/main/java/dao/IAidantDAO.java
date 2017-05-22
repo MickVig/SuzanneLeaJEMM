@@ -1,12 +1,19 @@
 package dao;
 
+import java.util.List;
+
 import bean.Aidant;
 import bean.Personne;
 
 public interface IAidantDAO {
 	
 	/////// Autres Requetes \\\\\\\
-	
+	/**
+	 * Fonction pour récupérer tout les aidants du type choisi
+	 * @param ID_Type 	numéro du type d'aidant sélectionner
+	 * @return			une liste d'aidants
+	 */
+	public List<Personne> readAllAidantType(Integer ID_Type);
 	
 	/////// CRUD \\\\\\\
 	
