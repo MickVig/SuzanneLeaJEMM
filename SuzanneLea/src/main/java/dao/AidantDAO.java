@@ -25,7 +25,7 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	public List<Personne> readAllAidantType(Integer ID_Type) {
 		this.connexion();
 		
-    	Query requete=this.getEm().createQuery("SELECT p FROM Personne p INNER JOIN Aidants a WHERE p.ID=a.personne AND ID_Type = 2");
+    	Query requete=this.getEm().createQuery("SELECT p FROM Personne p JOIN p.Aidants");
     	
     	List liste = requete.getResultList();
     	System.out.println(liste);
