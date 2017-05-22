@@ -31,6 +31,15 @@ public class ConnexionDAO {
 		}
 		return instance;
 	}*/
+    
+    //accesseurs pour l'entity manager
+    public EntityManager getEm() {
+		return em;
+	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
 
     /**
      * 
@@ -42,7 +51,9 @@ public class ConnexionDAO {
         tx.begin();
     }
 
-    /**
+    
+
+	/**
      * 
      */
     public void commit(){
@@ -58,47 +69,10 @@ public class ConnexionDAO {
         emf.close();
     }
  
-    
-    /*
-	 * La fonction renvoie la personne si celle-ci existe dans la BDD
-	 */
-	
-    public Boolean personneExiste(String mail, String mdp) {
-    	Personne p = new Personne();
-    	Boolean bool=false;
-    	Query requete = em.createQuery("SELECT p FROM Personne p WHERE nom=truc");
-    	if (requete!=null) {
-    		bool=true;
-    	}
-    	System.out.println(bool);
-    	return bool;
-        
-    }
-    
-    public Personne createPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp) {
-    	Personne p=new Personne();
-    	p.setAdresse(adresse);
-    	p.setEmail(email);
-    	p.setMdp(mdp);
-    	p.setNom(nom);
-    	p.setPrenom(prenom);
-    	p.setTel(tel);
-    	System.out.println(p);
-    	em.persist(p);
-    	return p;
-    		
-	}
+
     
     
-    
-    public Type createType(String type) {
-    	Type t=new Type();
-    	t.setType(type);   	
-    	em.persist(t);
-    	System.out.println(t);
-    	return t;
-    		
-	}
+   
     
     public Aidant createAidant(Personne p, Type t) {
     	Aidant aidant=new Aidant();

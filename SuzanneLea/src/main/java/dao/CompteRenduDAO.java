@@ -14,13 +14,8 @@ import bean.CompteRendu;
 
 public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	
-	EntityManagerFactory emf;
-	EntityManager em;
-	EntityTransaction tx;
-	
-	
 	/////// SINGLETON \\\\\\\
-	/*private static ICompteRenduDAO instance=null;
+	private static ICompteRenduDAO instance=null;
 	private CompteRenduDAO(){
 	}
 	public static synchronized ICompteRenduDAO getInstance() {
@@ -28,37 +23,23 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 			instance=new CompteRenduDAO();
 		}
 		return instance;
-	}*/
-	
-	
-	public void Connexion() {
-	emf = Persistence.createEntityManagerFactory("jpa");
-	em = emf.createEntityManager();
-	tx = em.getTransaction();
-	tx.begin();	
 	}
-
 	
-	public void closeAll(){
-		em.close();
-		emf.close();
-	}
+	ConnexionDAO connexion=new ConnexionDAO();
+	
 
 	public List<CompteRendu> getListCompteRendu(){
+		connexion.connexion();
 		CompteRendu cr = new CompteRendu();
 		em.persist(cr);
 		return (List<CompteRendu>) cr;	
 	}	
-	
-	
-	public void commit() {
-		tx.commit();
-		tx.begin();
-	}
+
 	
 	/////// Autres Requetes \\\\\\\
 	@Override
 	public List<CompteRendu> comptesRendusAidee(Integer id) {
+		connexion.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
 		
 		CompteRendu cr = new CompteRendu();
@@ -74,11 +55,14 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
          * 
          * 
          */
+		connexion.commit();
+		connexion.deconnexion();
 		return listeCR;
 	}
 
 	@Override
 	public List<CompteRendu> comptesRendusAidant(Integer id) {
+		connexion.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
 		/* 
          * TODO
@@ -89,6 +73,8 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
          * 
          * 
          */
+		connexion.commit();
+		connexion.deconnexion();
 		return listeCR;
 	}
 	
@@ -99,6 +85,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	
 	@Override
 	public CompteRendu readCompteRendu(Integer id) {
+		connexion.connexion();
 		CompteRendu cr = new CompteRendu();
 		/* 
          * TODO
@@ -110,13 +97,15 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
          * 
          */
 		//return cr;
-		return em.createQuery("select cr from CompteRendu where (id ='" +id+ "').getResultList();"
+		connexion.commit();
+		connexion.deconnexion();
+		return (CompteRendu) em.createQuery("select cr from CompteRendu where (id ='" +id+ "').getResultList()");
 	}
 
 	
 	@Override
 	public void createCompteRendu(Date date, String commentaire, Integer iD_Aidant, Integer iD_Aidee) {
-		
+		connexion.connexion();
 		CompteRendu cr = new CompteRendu();
 		/* 
          * TODO
@@ -127,7 +116,8 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
          * 
          * 
          */
-		
+		connexion.commit();
+		connexion.deconnexion();
 	}
 
 }

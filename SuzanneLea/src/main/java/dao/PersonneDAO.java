@@ -23,13 +23,16 @@ public class PersonneDAO implements IPersonneDAO {
 	 */
 	@Override
     public Boolean personneExiste(String mail, String mdp) {
-    	Personne p = new Personne();
+		connexion.connexion();
+		Personne p = new Personne();
     	Boolean bool=false;
     	/*Query requete=(Query) em.createQuery("SELECT p FROM personne p where id=3").getResultList();
     	if (requete!=null) {
     		bool=true;
     	}
     	System.out.println(bool);*/
+    	connexion.commit();
+		connexion.deconnexion();
     	return bool;
         
     }
@@ -41,10 +44,8 @@ public class PersonneDAO implements IPersonneDAO {
     /*
      * Fonction pour CREER une nouvelle personne dans la BDD
      */
-	//Ne fonctionne pas : erreur avec le persist
 	public Personne createPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp) {
-		connexion.connexion();
-		
+		connexion.connexion();		
 		Personne p=new Personne();
     	p.setAdresse(adresse);
     	p.setEmail(email);
@@ -53,7 +54,7 @@ public class PersonneDAO implements IPersonneDAO {
     	p.setPrenom(prenom);
     	p.setTel(tel);
     	System.out.println(p);
-    	connexion.em.persist(p);
+    	connexion.getEm().persist(p);
     	connexion.commit();
 		connexion.deconnexion();
     	return p;
@@ -65,6 +66,7 @@ public class PersonneDAO implements IPersonneDAO {
      */
 	@Override
     public Personne readPersonne(Integer id) {
+		connexion.connexion();
     	Personne p = new Personne();
     	
         
@@ -79,6 +81,8 @@ public class PersonneDAO implements IPersonneDAO {
          * 
          * 
          */ 
+    	connexion.commit();
+		connexion.deconnexion();
         return p;
     }
     
@@ -88,7 +92,7 @@ public class PersonneDAO implements IPersonneDAO {
      */
 	@Override
     public void updatePersonne(Integer id, String nom, String prenom, String email, String adresse, String tel, String mdp) {
-    	
+		connexion.connexion();
         /* 
          * TODO
          * Code a finir récupérer la personne du résultat
@@ -99,7 +103,8 @@ public class PersonneDAO implements IPersonneDAO {
          * 
          * 
          */ 
-        
+		connexion.commit();
+		connexion.deconnexion(); 
     }
     
     
@@ -109,7 +114,7 @@ public class PersonneDAO implements IPersonneDAO {
      */
 	@Override
     public void supprPersonne(Integer id) {
-    	
+		connexion.connexion();
         
         /* 
          * TODO
@@ -120,6 +125,8 @@ public class PersonneDAO implements IPersonneDAO {
          * 
          * 
          */ 
+		connexion.commit();
+		connexion.deconnexion();
         
     }
     

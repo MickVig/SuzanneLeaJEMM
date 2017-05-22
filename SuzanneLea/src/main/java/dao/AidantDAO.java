@@ -5,7 +5,7 @@ import bean.Personne;
 
 public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	
-	/*private static IAidantDAO instance=null;
+	private static IAidantDAO instance=null;
 	private AidantDAO(){
 	}
 	public static synchronized IAidantDAO getInstance() {
@@ -13,8 +13,9 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 			instance=new AidantDAO();
 		}
 		return instance;
-	}*/
+	}
 	
+	ConnexionDAO connexion=new ConnexionDAO();
 	/////// Autres Requetes \\\\\\\
 	
 	
@@ -22,26 +23,39 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	
 	@Override
 	public void createAidant(Integer ID_pers, Integer ID_Type) {
+		connexion.connexion();
 		// TODO Auto-generated method stub
 		/*
 		 * Si la personne n'existe pas la créer avant de le mettre aidant
 		 */
+		connexion.commit();
+		connexion.deconnexion();
 		
 	}
+	
 	@Override
 	public Personne readAidant(Integer id) {
+		connexion.connexion();
 		// TODO Auto-generated method stub
+		connexion.commit();
+		connexion.deconnexion();
 		return null;
 	}
+	
 	@Override
 	public void updateAidant(Personne p, Integer ID_Type) {
+		connexion.connexion();
 		// TODO Auto-generated method stub
-		
+		connexion.commit();
+		connexion.deconnexion();
 	}
+	
 	@Override
 	public void supprAidant(Integer id) {
+		connexion.connexion();
 		// TODO Auto-generated method stub
-		
+		connexion.commit();
+		connexion.deconnexion();
 	}
 	
 	
