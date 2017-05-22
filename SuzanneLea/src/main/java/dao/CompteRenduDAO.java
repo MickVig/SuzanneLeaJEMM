@@ -4,9 +4,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
 import bean.CompteRendu;
 
 public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
+	
+	EntityManagerFactory emf;
+	EntityManager em;
+	EntityTransaction tx;
+	
 	
 	/////// SINGLETON \\\\\\\
 	private static ICompteRenduDAO instance=null;
@@ -20,10 +31,40 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	}
 	
 	
+	public void Connexion() {
+	emf = Persistence.createEntityManagerFactory("jpa");
+	em = emf.createEntityManager();
+	tx = em.getTransaction();
+	tx.begin();	
+	}
+
+	
+	public void closeAll(){
+		em.close();
+		emf.close();
+	}
+
+	public List<CompteRendu> getListCompteRendu(){
+		CompteRendu cr = new CompteRendu();
+		em.persist(cr);
+		return (List<CompteRendu>) cr;	
+	}	
+	
+	
+	public void commit() {
+		tx.commit();
+		tx.begin();
+	}
+	
 	/////// Autres Requetes \\\\\\\
 	@Override
 	public List<CompteRendu> comptesRendusAidee(Integer id) {
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
+		
+		CompteRendu cr = new CompteRendu();
+		
+		//String requete = "INSERT INTO COMPTERENDUS (date, commentaire, ID_aidant, ID_aidee)" + "VALUES (?,?,?,?)"; 
+		//Query requete = em.createQuery("select cr from compterendu where id_aidee = '1'" + id + "'" +"");
 		/* 
          * TODO
          * Code a finir pour récupérer la liste des CR ecrit sur l'aidee et les retourner
@@ -68,12 +109,15 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
          * 
          * 
          */
-		return cr;
+		//return cr;
+		return em.createQuery("select cr from CompteRendu where (id ='" +id+ "').getResultList();"
 	}
 
 	
 	@Override
 	public void createCompteRendu(Date date, String commentaire, Integer iD_Aidant, Integer iD_Aidee) {
+		
+		CompteRendu cr = new CompteRendu();
 		/* 
          * TODO
          * Code a finir pour créer le CR 
@@ -87,3 +131,4 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	}
 
 }
+
