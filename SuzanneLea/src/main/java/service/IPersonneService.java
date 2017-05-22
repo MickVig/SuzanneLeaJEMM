@@ -7,7 +7,7 @@ public interface IPersonneService {
 
 	public boolean connexion(HttpServletRequest request, HttpServletResponse response);
 	
-	public boolean inscription(HttpServletRequest request, HttpServletResponse response);
+	public void inscription(HttpServletRequest request, HttpServletResponse response);
 	
 	
 }

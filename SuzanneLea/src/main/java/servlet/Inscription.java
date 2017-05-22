@@ -27,12 +27,12 @@ public class Inscription extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(PersonneService.getInstance().inscription(request, response)){
+		PersonneService.getInstance().inscription(request, response);
 			//Pour rediriger vers la servlet Dashboard via l'url dashboard
 			response.sendRedirect("dashboard");
-		}else{
-			this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward (request, response);
-		}
+		
+			
+		
 	}
 
 }

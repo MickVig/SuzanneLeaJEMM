@@ -17,7 +17,7 @@ function init(){
 
 	$("#btncreate").on('click',function(){
 		console.log("create");
-		$(location).attr('href',"createaidee");
+		$(location).attr('href',"inscription");
 	})
 
 	$("#btnaccueil").on('click',function(){

@@ -18,8 +18,8 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>CreateAidee</servlet-name>
-    <servlet-class>servlet.CreateAidee</servlet-class>
+    <servlet-name>Inscription</servlet-name>
+    <servlet-class>servlet.Inscription</servlet-class>
     <init-param>
       <param-name>auteur</param-name>
       <param-value>Emilie</param-value>
@@ -27,8 +27,8 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CreateAidee</servlet-name>
-    <url-pattern>/createAidee</url-pattern>
+    <servlet-name>Inscription</servlet-name>
+    <url-pattern>/inscription</url-pattern>
   </servlet-mapping>
   
   <servlet>

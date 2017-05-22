@@ -47,7 +47,7 @@ public class TypeDAO implements ITypeDAO {
 	@Override
 	public Type readType(Integer id) {
 		connexion.connexion();
-		Query requete=connexion.getEm().createQuery("'SELECT t FROM Type t where id = " + id + "'");
+		Query requete=connexion.getEm().createQuery("SELECT t FROM Type t where t.ID_Type =" + id);
 		List liste = requete.getResultList();
     	Type t = (Type) liste.get(0);
 		connexion.commit();
