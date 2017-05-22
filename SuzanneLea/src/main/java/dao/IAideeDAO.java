@@ -25,7 +25,7 @@ public interface IAideeDAO {
 	 * @param iD_MedecinRef		le numéro unique du medecin référents
 	 * @param iD_ProcheRef		le numéro unique du proche référents
 	 */
-	public void createAidee(Personne p, Integer iD_MedecinRef, Integer iD_ProcheRef);
+	public void createAidee(Integer ID_Pers);
 	
 	/**
 	 * Fonction pour LIRE un aidee dans la BDD

@@ -8,9 +8,9 @@
 			<!-- Classes persistantes -->
 			<property name="hibernate.archive.autodetection" value="class, hbm" />
 
-<!-- 			<property name="hibernate.show_sql" value="true" /> -->
-<!-- 			<property name="hibernate.format_sql" value="true" /> -->
-<!-- 			<property name="use_sql_comments" value="true" /> -->
+ 			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="use_sql_comments" value="true" />
 
 			<!-- connexion JDBC -->
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />

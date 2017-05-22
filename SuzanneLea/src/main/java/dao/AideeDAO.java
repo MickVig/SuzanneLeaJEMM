@@ -8,7 +8,7 @@ import bean.Personne;
 public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	
 	/////// SINGLETON \\\\\\\
-	private static IAideeDAO instance=null;
+	/*private static IAideeDAO instance=null;
 	private AideeDAO(){
 	}
 	public static synchronized IAideeDAO getInstance() {
@@ -17,7 +17,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		}
 		return instance;
 	}
-	
+	*/
 	
 	/////// Autres Requetes \\\\\\\
 	
@@ -31,8 +31,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	/////// CRUD \\\\\\\
 	
 	@Override
-	public void createAidee(Personne p, Integer iD_MedecinRef, Integer iD_ProcheRef) {
-		// TODO Auto-generated method stub
+	public void createAidee(Integer ID_Pers) {
 		/*
 		 * Si la personne n'existe pas la créer avant de le mettre aidee
 		 */

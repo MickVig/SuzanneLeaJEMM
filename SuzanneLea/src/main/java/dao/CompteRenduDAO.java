@@ -9,7 +9,7 @@ import bean.CompteRendu;
 public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	
 	/////// SINGLETON \\\\\\\
-	private static ICompteRenduDAO instance=null;
+	/*private static ICompteRenduDAO instance=null;
 	private CompteRenduDAO(){
 	}
 	public static synchronized ICompteRenduDAO getInstance() {
@@ -17,7 +17,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 			instance=new CompteRenduDAO();
 		}
 		return instance;
-	}
+	}*/
 	
 	
 	/////// Autres Requetes \\\\\\\

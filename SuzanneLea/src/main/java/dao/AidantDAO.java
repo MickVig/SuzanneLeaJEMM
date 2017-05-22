@@ -1,18 +1,11 @@
 package dao;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 import bean.Personne;
 
 public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	
-	private static IAidantDAO instance=null;
+	/*private static IAidantDAO instance=null;
 	private AidantDAO(){
 	}
 	public static synchronized IAidantDAO getInstance() {
@@ -20,7 +13,7 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 			instance=new AidantDAO();
 		}
 		return instance;
-	}
+	}*/
 	
 	/////// Autres Requetes \\\\\\\
 	
@@ -28,7 +21,7 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	/////// CRUD \\\\\\\
 	
 	@Override
-	public void createAidant(Personne p, Integer ID_Type) {
+	public void createAidant(Integer ID_pers, Integer ID_Type) {
 		// TODO Auto-generated method stub
 		/*
 		 * Si la personne n'existe pas la créer avant de le mettre aidant

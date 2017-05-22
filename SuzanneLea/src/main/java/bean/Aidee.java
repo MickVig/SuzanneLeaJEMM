@@ -1,48 +1,43 @@
 package bean;
 
-import java.util.HashSet;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import java.util.Set;
 
 
 @Entity
-public class Aidee extends Personne {
+@Table(name="aidees")
+public class Aidee {
 	@Id
 	@Column(name="ID_Aidee", nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
     protected Integer ID_Aidee;
-	@OneToMany(mappedBy = "Aidee", cascade = { CascadeType.ALL })
-    protected Set<Aidant> listeAidant = new HashSet<Aidant>();
-	@Column(name="ID_Aidant", nullable=false)
-	protected Integer ID_MedecinRef;
-	@Column(name="ID_Aidant", nullable=false)
-    protected Integer ID_ProcheRef;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_Personne")
+    private Personne personne;
+	
 
 	// Constructeur
 	public Aidee() {
 		super();
 	}
-
 	
-	
-	//Accesseurs
-	
-	public Aidee(Integer iD_MedecinRef, Integer iD_ProcheRef) {
-		ID_MedecinRef = iD_MedecinRef;
-		ID_ProcheRef = iD_ProcheRef;
+	public Aidee(Personne personne) {
+		super();
+		this.personne = personne;
 	}
 
 
 
+	//Accesseurs
 	public Integer getID_Aidee() {
 		return ID_Aidee;
 	}
@@ -51,41 +46,12 @@ public class Aidee extends Personne {
 		ID_Aidee = iD_Aidee;
 	}
 
-
-	public Integer getID_MedecinRef() {
-		return ID_MedecinRef;
+	public Personne getPersonne() {
+		return personne;
 	}
 
-
-
-	public void setID_MedecinRef(Integer iD_MedecinRef) {
-		ID_MedecinRef = iD_MedecinRef;
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
 	}
-
-
-
-	public Integer getID_ProcheRef() {
-		return ID_ProcheRef;
-	}
-
-
-
-	public void setID_ProcheRef(Integer iD_ProcheRef) {
-		ID_ProcheRef = iD_ProcheRef;
-	}
-
-
-
-	public void setListeAidant(Set<Aidant> listeAidant) {
-		this.listeAidant = listeAidant;
-	}
-
-	
-	
-	
-	
-	
-	
-	
 
 }

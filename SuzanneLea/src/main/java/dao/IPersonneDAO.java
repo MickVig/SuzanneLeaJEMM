@@ -3,7 +3,6 @@ package dao;
 import bean.Personne;
 
 public interface IPersonneDAO {
-	
 	/////// Autres Requetes \\\\\\\
 	
 	/**
@@ -12,7 +11,7 @@ public interface IPersonneDAO {
 	 * @param mdp	Le mot de passe rentré par la personne
 	 * @return		La personne qui se connecte
 	 */
-	public Personne personneExiste(String mail, String mdp);
+	public Boolean personneExiste(String mail, String mdp);
 	
 	
 /////// CRUD \\\\\\\
@@ -26,7 +25,7 @@ public interface IPersonneDAO {
    * @param tel		le téléphone de la personne à inscrire
    * @param mdp		le MDP de la personne à inscrire
    */
-	public void createPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp);
+	public Personne createPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp);
 	
 	/**
    * Fonction pour LIRE une personne de la BDD

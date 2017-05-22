@@ -2,7 +2,7 @@ package dao;
 
 import bean.Personne;
 
-public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
+public class PersonneDAO implements IPersonneDAO {
 	
 	/////// SINGLETON \\\\\\\
 	private static IPersonneDAO instance=null;
@@ -15,27 +15,23 @@ public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
 		return instance;
 	}
 	
+	ConnexionDAO connexion=new ConnexionDAO();
 	/////// Autres Requetes \\\\\\\
 	
 	/*
 	 * La fonction renvoie la personne si celle-ci existe dans la BDD
 	 */
 	@Override
-    public Personne personneExiste(String mail, String mdp) {
+    public Boolean personneExiste(String mail, String mdp) {
     	Personne p = new Personne();
-    	
+    	Boolean bool=false;
+    	/*Query requete=(Query) em.createQuery("SELECT p FROM personne p where id=3").getResultList();
+    	if (requete!=null) {
+    		bool=true;
+    	}
+    	System.out.println(bool);*/
+    	return bool;
         
-        /* 
-         * TODO
-         * Code a finir récupérer la personne du résultat
-         * 
-         * 
-         * List resultat = em.createQuery("select p from personne where mail = '" + mail + "'"
-                + " AND mdp = MD5('" + mdp + "')").getResultList();
-         * 
-         */ 
-        
-        return p;
     }
 	
 	
@@ -45,20 +41,24 @@ public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
     /*
      * Fonction pour CREER une nouvelle personne dans la BDD
      */
-	@Override
-    public void createPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp) {
-    	
-        /* 
-         * TODO
-         * Code a finir créer la personne et la récupérer pour la retourner
-         * 
-         * em.createQuery(" INSERT INTO personne (nom_colonne_1, nom_colonne_2, ...
- 				VALUES ('valeur 1', 'valeur 2', ...)");
-         * 
-         * 
-         */ 
-        
-    }
+	//Ne fonctionne pas : erreur avec le persist
+	public Personne createPersonne(String nom, String prenom, String email, String adresse, String tel, String mdp) {
+		connexion.connexion();
+		
+		Personne p=new Personne();
+    	p.setAdresse(adresse);
+    	p.setEmail(email);
+    	p.setMdp(mdp);
+    	p.setNom(nom);
+    	p.setPrenom(prenom);
+    	p.setTel(tel);
+    	System.out.println(p);
+    	connexion.em.persist(p);
+    	connexion.commit();
+		connexion.deconnexion();
+    	return p;
+    		
+	}
     
     /*
      * Fonction pour LIRE une personne de la BDD
@@ -66,6 +66,7 @@ public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
 	@Override
     public Personne readPersonne(Integer id) {
     	Personne p = new Personne();
+    	
         
         /* 
          * TODO

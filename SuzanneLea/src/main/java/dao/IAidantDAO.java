@@ -14,7 +14,7 @@ public interface IAidantDAO {
 	 * @param p			la personne qui va devenir aidant
 	 * @param ID_Type	le type d'aidant (dans ce cas on ne peut rajouter que des proches)
 	 */
-	public void createAidant(Personne p, Integer ID_Type);
+	public void createAidant(Integer ID_pers, Integer ID_Type);
 	
 	/**
 	 * Fonction pour LIRE un aidant dans la BDD
