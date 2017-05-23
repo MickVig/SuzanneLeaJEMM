@@ -16,6 +16,20 @@ public interface IAideeDAO {
 	 */
 	public List<Personne> allAidant(Integer id);
 	
+	/**
+	 * 
+	 * @param ID_Aidee
+	 * @return on récupère la personne proche référente de la personne Aidee
+	 */
+	public Personne readProcheRef(Integer ID_Aidee);
+	
+	/**
+	 * 
+	 * @param ID_Aidee
+	 * @return retourne le medecin referent de la personne aidee
+	 */
+	public Personne readMedecinRef(Integer ID_Aidee);
+	
 	
 	
 	/////// CRUD \\\\\\\

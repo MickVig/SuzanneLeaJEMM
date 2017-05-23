@@ -22,18 +22,12 @@ public class Exec {
 		IPersonneDAO dao = PersonneDAO.getInstance();		
 		//dao.personneExiste("marc.bonraisin@free.fr", "taxi1");	
 		
-		//AideeDAO.getInstance().allAidant(1);
-		AideeDAO.getInstance().readAideeByPersonne(55);
-		
-		
-		
+		Personne p=AideeDAO.getInstance().readProcheRef(2);
+		System.out.println(p.getPrenom());
+		/*Personne p1=AideeDAO.getInstance().readMedecinRef(1);
+		System.out.println(p1.getNom());*/
 		
 		System.out.println("fait");
-		
-		
-
-		
-		
 		
 
 	}
