@@ -1,5 +1,6 @@
 package dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,38 +40,24 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	public List<CompteRendu> comptesRendusAidee(Integer id) {
 		this.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
-		
 		CompteRendu cr = new CompteRendu();
+		Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE cr.iD_Aidee =" +id);
+		listeCR = requete.getResultList();
 		
-		//String requete = "INSERT INTO COMPTERENDUS (date, commentaire, ID_aidant, ID_aidee)" + "VALUES (?,?,?,?)"; 
-		//Query requete = em.createQuery("select cr from compterendu where id_aidee = '1'" + id + "'" +"");
-		/* 
-         * TODO
-         * Code a finir pour récupérer la liste des CR ecrit sur l'aidee et les retourner
-         * 
-         * em.createQuery("select cr from compterendu where id_aidee = '" + id + "'"
-                +");
-         * 
-         * 
-         */
 		this.commit();
 		this.deconnexion();
 		return listeCR;
 	}
 
+	
 	@Override
 	public List<CompteRendu> comptesRendusAidant(Integer id) {
 		this.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
-		/* 
-         * TODO
-         * Code a finir pour récupérer la liste des CR ecrit par l'aidant et les retourner
-         * 
-         * em.createQuery("select cr from compterendu where id_aidant = '" + id + "'"
-                +");
-         * 
-         * 
-         */
+		CompteRendu cr = new CompteRendu();
+		Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE cr.ID_Aidant =" +id);
+		listeCR = requete.getResultList();
+		System.out.println(listeCR);
 		this.commit();
 		this.deconnexion();
 		return listeCR;
@@ -84,36 +71,30 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	@Override
 	public CompteRendu readCompteRendu(Integer id) {
 		this.connexion();
-		CompteRendu cr = new CompteRendu();
-		/* 
-         * TODO
-         * Code a finir pour récupérer le CR et le retourner
-         * 
-         * em.createQuery("select cr from compterendu where id = '" + id + "'"
-                +");
-         * 
-         * 
-         */
-		//return cr;
-		this.commit();
+		CompteRendu cr = this.getEm().find(CompteRendu.class, id);
+		
 		this.deconnexion();
-		return (CompteRendu) em.createQuery("select cr from CompteRendu where (id ='" +id+ "').getResultList()");
+		return cr;
 	}
 
 	
+	
 	@Override
-	public void createCompteRendu(Date date, String commentaire, Integer iD_Aidant, Integer iD_Aidee) {
+	public void createCompteRendu(Date date, String commentaire, Integer ID_Aidant, Integer ID_Aidee) {
 		this.connexion();
 		CompteRendu cr = new CompteRendu();
-		/* 
-         * TODO
-         * Code a finir pour créer le CR 
-         * 
-         * em.createQuery(" INSERT INTO personne (nom_colonne_1, nom_colonne_2, ...
- 				VALUES ('valeur 1', 'valeur 2', ...)");
-         * 
-         * 
-         */
+		
+//		SimpleDateFormat formater = null;
+//		Date aujourdhui = new Date();
+//		formater = new SimpleDateFormat("dd-MM-yyyy");
+//		System.out.println(formater.format(aujourdhui));
+		
+		cr.setDate(date);
+		cr.setCommentaire(commentaire);
+		cr.setAidant(AidantDAO.getInstance().readAidant(ID_Aidant));
+		cr.setAidee(AideeDAO.getInstance().readAidee(ID_Aidee));
+		this.getEm().persist(cr);
+		
 		this.commit();
 		this.deconnexion();
 	}
