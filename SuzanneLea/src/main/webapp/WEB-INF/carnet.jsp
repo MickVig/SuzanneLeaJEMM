@@ -55,12 +55,23 @@
                 <span class="w3-large">Lise</span><br>
                 <span>Proche</span>
               </li>
+              
               <li class="w3-padding-16">
                 <span onclick="this.parentElement.style.display='none'" class="w3-button w3-white w3-xlarge w3-right">&times;</span>
                 <img src="images/avatar.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
                 <span class="w3-large">Arnaud</span><br>
                 <span>Plombier</span>
               </li>
+              for
+              <li>
+              	<ul>
+              		<li>Nom prenom</li>
+              		<li>adresse</li>
+              		<li>tél</li>
+              		<li>mail</li>
+              	</ul>
+              </li>
+              
             </ul>
           </div> 
       </div>
