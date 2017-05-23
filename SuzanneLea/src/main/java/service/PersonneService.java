@@ -50,7 +50,7 @@ public class PersonneService implements IPersonneService {
 			HttpSession session = request.getSession();
 			session.setAttribute("personne", p);
 			IDAidee = AideeDAO.getInstance().readAideeByPersonne(p.getID());
-			
+			System.out.println(session.getAttribute("personne"));
 			System.out.println("connexion OK");
 			return true;
 

@@ -95,6 +95,17 @@
     <servlet-name>Compterendu</servlet-name>
     <url-pattern>/compterendu</url-pattern>
   </servlet-mapping>
-  
-  
+   <servlet>
+    <servlet-name>Deconnexion</servlet-name>
+    <servlet-class>servlet.Deconnexion</servlet-class>
+    <init-param>
+      <param-name>auteur</param-name>
+      <param-value>Emilie</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Deconnexion</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
 </web-app>
