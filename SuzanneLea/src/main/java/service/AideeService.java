@@ -33,6 +33,27 @@ public class AideeService implements IAideeService {
 		return aidantsProches;
 	}
 	
+	
+	/*
+	 * Recuperer le proche referent d'un aidee
+	 */
+	
+	public Personne procheReferent (Integer IDAidee){
+		Personne procheReferent = AideeDAO.getInstance().readProcheRef(IDAidee);
+		System.out.println(procheReferent);
+		return procheReferent;
+	}
 
+	/*
+	 * Recuperer le medecin referent d'un aidee
+	 */
+	
+	public Personne medecinReferent (Integer IDAidee) {
+		Personne medecinReferent = AideeDAO.getInstance().readMedecinRef(IDAidee);
+		System.out.println(medecinReferent);	
+		return medecinReferent;
+	}
+	
+	
 	
 }

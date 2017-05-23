@@ -8,7 +8,9 @@ public interface IAideeService {
 
 	public List allAidantsProches(Integer IDAidee);
 	
+	public Personne procheReferent (Integer IDAidee);
 	
+	public Personne medecinReferent (Integer IDAidee);
 	
 	
 }
