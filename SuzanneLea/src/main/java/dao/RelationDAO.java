@@ -21,8 +21,9 @@ public class RelationDAO extends ConnexionDAO implements IRelationDAO {
 		Relation r = new Relation();
 		r.setAidant(AidantDAO.getInstance().readAidant(ID_Aidant));
 		r.setAidee(AideeDAO.getInstance().readAidee(ID_Aidee));
+		r.setReferent(Referent);
 		// Mettre le boolean dans la relation
-		this.getEm().persist(p);
+		this.getEm().persist(r);
     	this.commit();
 		this.deconnexion();
 	}

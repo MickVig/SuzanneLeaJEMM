@@ -12,7 +12,6 @@ import bean.Aidant;
 import bean.Aidee;
 import bean.CompteRendu;
 import bean.Personne;
-import bean.Referent;
 import bean.Relation;
 import bean.Type;
 
@@ -90,15 +89,6 @@ public class ConnexionDAO {
     	em.persist(aidee);
     	System.out.println(aidee);
     	return aidee;
-    }
-    
-    public Referent createReferent(Aidant aidant, Aidee aidee) {
-    	Referent r=new Referent();
-    	r.setAidee(aidee);
-    	r.setAidant(aidant);
-    	em.persist(r);
-    	System.out.println(r);
-    	return r;
     }
     
     public Relation createRelation(Aidant aidant, Aidee aidee) {

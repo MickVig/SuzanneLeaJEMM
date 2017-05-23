@@ -28,7 +28,7 @@ public interface IAidantDAO {
 	 * Fonction pour LIRE un aidant dans la BDD
 	 * @param id	Numéro unique de l'aidant à lire
 	 */
-	public Personne readAidant(Integer id);
+	public Aidant readAidant(Integer id);
 	
 	/**
 	 * Fonction pour MODIFIER un aidant dans la BDD

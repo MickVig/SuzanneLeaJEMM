@@ -27,13 +27,17 @@ public class Relation {
     @JoinColumn(name = "ID_Aidant")
     private Aidant aidant;
 	
+	@Column(name="Referent")
+	private Boolean referent;
+	
 	public Relation() {
 	}
 	
-	public Relation(Aidee aidee, Aidant aidant) {
+	public Relation(Aidee aidee, Aidant aidant, Boolean referent) {
 		super();
 		this.aidee = aidee;
 		this.aidant = aidant;
+		this.referent=referent;
 	}
 
 
@@ -62,6 +66,16 @@ public class Relation {
 	public void setAidant(Aidant aidant) {
 		this.aidant = aidant;
 	}
+
+	public Boolean getReferent() {
+		return referent;
+	}
+
+	public void setReferent(Boolean referent) {
+		this.referent = referent;
+	}
+	
+	
 	
 	
 	

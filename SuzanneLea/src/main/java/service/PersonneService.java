@@ -87,8 +87,8 @@ public class PersonneService implements IPersonneService {
 		 RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), aidee.getID_Aidee(), true);
 		 
 		 /* Creer la relation aidee referent medecin */
-		 Integer ID_medecin = Integer.valueOf(request.getParameter("medecin"));
-		 RelationDAO.getInstance().createRelation(ID_medecin, aidee.getID_Aidee(), true);
+		 /*Integer ID_medecin = Integer.valueOf(request.getParameter("medecin"));
+		 RelationDAO.getInstance().createRelation(ID_medecin, aidee.getID_Aidee(), true);*/
 		 
 		 
 	}

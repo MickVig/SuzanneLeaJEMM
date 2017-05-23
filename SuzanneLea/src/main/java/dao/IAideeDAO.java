@@ -32,7 +32,7 @@ public interface IAideeDAO {
 	 * Fonction pour LIRE un aidee dans la BDD
 	 * @param id	Numéro unique de l'aidee à lire
 	 */
-	public Personne readAidee(Integer id);
+	public Aidee readAidee(Integer id);
 	
 	/**
 	 * Fonction pour MODIFIER un aidee dans la BDD

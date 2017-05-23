@@ -69,7 +69,6 @@ public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
 		this.connexion();
 		Personne p = this.getEm().find(Personne.class, id);
 		System.out.println(p);
-		this.commit();
 		this.deconnexion();
 		
     	return p;

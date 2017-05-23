@@ -25,11 +25,12 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	public List<Personne> readAllAidantType(Integer ID_Type) {
 		this.connexion();
 		
-    	Query requete=this.getEm().createQuery("SELECT p FROM Personne p JOIN p.Aidants");
+    	//Query requete=this.getEm().createQuery("SELECT p FROM Personne p INNER JOIN Aidant a WHERE a.ID_Type="+ID_Type);
+		Query requete=this.getEm().createQuery("SELECT p FROM Personne p INNER JOIN Aidant a ON p.ID=a.personne.ID WHERE a.ID_Type=2");
+    	
     	
     	List liste = requete.getResultList();
     	System.out.println(liste);
-		this.commit();
 		this.deconnexion();
     	return liste;
 	}
@@ -52,12 +53,12 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	}
 	
 	@Override
-	public Personne readAidant(Integer id) {
+	public Aidant readAidant(Integer id) {
 		this.connexion();
-		// TODO Auto-generated method stub
-		this.commit();
-		this.deconnexion();
-		return null;
+		Aidant a = this.getEm().find(Aidant.class, id);
+		System.out.println(a);
+		this.deconnexion();		
+    	return a;
 	}
 	
 	@Override

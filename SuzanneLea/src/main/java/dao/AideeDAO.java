@@ -44,12 +44,12 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	}
 	
 	@Override
-	public Personne readAidee(Integer id) {
+	public Aidee readAidee(Integer id) {
 		this.connexion();
-		// TODO Auto-generated method stub
-		this.commit();
-		this.deconnexion();
-		return null;
+		Aidee a = this.getEm().find(Aidee.class, id);
+		System.out.println(a);
+		this.deconnexion();		
+    	return a;
 	}
 	
 	@Override
