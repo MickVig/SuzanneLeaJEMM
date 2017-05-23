@@ -22,10 +22,13 @@ public class Exec2 {
 		System.out.println(dao.readCompteRendu(3));
 		System.out.println("ok");
 		
-		//lire tous les CR (liste)
-		CompteRenduDAO.getInstance().comptesRendusAidant(1);
-		dao.comptesRendusAidant(1);
+		//lire tous les CR (aidant)
+		CompteRenduDAO.getInstance().comptesRendusAidant(3);
+		//dao.comptesRendusAidant(3).get(3);
 		
+		//lire tous les CR (aidee)
+		CompteRenduDAO.getInstance().comptesRendusAidee(1);
+		//dao.comptesRendusAidee(1).get(1);
 		
 		
 		//date
