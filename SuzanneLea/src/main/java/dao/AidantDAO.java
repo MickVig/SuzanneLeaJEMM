@@ -25,10 +25,11 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	@Override
 	public List readAllAidantType(Integer ID_Type) {
 		this.connexion();
-		//On selectionne les aidant d'un certain type
-		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.type.ID_Type="+ID_Type);
-    	
+		//On selectionne les aidants d'un certain type
+		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.type.ID_Type="+ID_Type);   	
     	List liste = requete.getResultList();
+    	
+    	//on cree une nouvelle liste avec les informations qui nous intéresse
     	List resultat = new ArrayList();
     	for (int i=0; i<liste.size(); i++) {
 			Aidant a=(Aidant) liste.get(i);

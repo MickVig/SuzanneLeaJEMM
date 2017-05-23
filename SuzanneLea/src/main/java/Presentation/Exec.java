@@ -9,6 +9,7 @@ import bean.Personne;
 import bean.Relation;
 import bean.Type;
 import dao.AidantDAO;
+import dao.AideeDAO;
 import dao.ConnexionDAO;
 import dao.IPersonneDAO;
 import dao.PersonneDAO;
@@ -19,14 +20,14 @@ public class Exec {
 	public static void main(String[] args) {
 
 		IPersonneDAO dao = PersonneDAO.getInstance();		
-		dao.personneExiste("marc.bonraisin@free.fr", "taxi1");	
+		//dao.personneExiste("marc.bonraisin@free.fr", "taxi1");	
 		
-		dao.readPersonne(2);
-		System.out.println("fini");
+		//AideeDAO.getInstance().allAidant(1);
+		AideeDAO.getInstance().readAideeByPersonne(55);
 		
-		AidantDAO.getInstance().readAllAidantType(2);
-		//Personne p=a.getPersonne();
-		//System.out.println(p);
+		
+		
+		
 		System.out.println("fait");
 		
 		

@@ -72,13 +72,6 @@ public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
 		this.deconnexion();
 		
     	return p;
-	    
-    	/*Query requete=this.getEm().createQuery("SELECT p FROM Personne p WHERE p.ID="+id);
-    	
-    	List liste = requete.getResultList();
-    	Personne p = (Personne) liste.get(0);
-    	
-    	return p;*/
     }
     
     

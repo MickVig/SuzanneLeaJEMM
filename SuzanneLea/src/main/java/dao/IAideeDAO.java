@@ -14,7 +14,7 @@ public interface IAideeDAO {
 	 * @param id		le numéro unique de l'aidee
 	 * @return			la liste des aidants
 	 */
-	public List<Aidant> allAidant(Integer id);
+	public List<Personne> allAidant(Integer id);
 	
 	
 	
@@ -34,6 +34,12 @@ public interface IAideeDAO {
 	 */
 	public Aidee readAidee(Integer id);
 	
+	/**
+	 * 
+	 * @param ID_Personne
+	 * @return l'id_aidee à partir de l'id_personne
+	 */
+	public Integer readAideeByPersonne(Integer ID_Personne);
 	/**
 	 * Fonction pour MODIFIER un aidee dans la BDD
 	 * @param p			la personne aidee
