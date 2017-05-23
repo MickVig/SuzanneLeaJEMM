@@ -6,7 +6,6 @@ import java.util.List;
 import bean.Agenda;
 import bean.Aidant;
 import bean.Aidee;
-import bean.Personne;
 
 public interface IAgendaDAO {
 

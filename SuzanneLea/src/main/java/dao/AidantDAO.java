@@ -7,7 +7,6 @@ import java.util.List;
 import javax.persistence.Query;
 
 import bean.Aidant;
-import bean.Aidee;
 import bean.Personne;
 
 public class AidantDAO extends ConnexionDAO implements IAidantDAO {

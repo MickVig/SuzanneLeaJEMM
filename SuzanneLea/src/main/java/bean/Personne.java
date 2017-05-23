@@ -1,7 +1,5 @@
 package bean;
 
-import java.util.Iterator;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

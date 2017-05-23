@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-import bean.Personne;
 import bean.Type;
 
 public class TypeDAO extends ConnexionDAO implements ITypeDAO {

@@ -2,11 +2,7 @@ package service;
 
 import java.util.List;
 
-
-
-import bean.Personne;
 import dao.AidantDAO;
-import dao.IAidantDAO;
 
 public class AidantService implements IAidantService{
 	

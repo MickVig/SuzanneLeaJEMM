@@ -1,7 +1,5 @@
 package dao;
 
-import java.util.List;
-
 import bean.Personne;
 
 public interface IPersonneDAO {

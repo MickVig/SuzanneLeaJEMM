@@ -2,8 +2,6 @@ package Presentation;
 
 import java.util.List;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
 import bean.Agenda;
 import dao.AgendaDAO;
 

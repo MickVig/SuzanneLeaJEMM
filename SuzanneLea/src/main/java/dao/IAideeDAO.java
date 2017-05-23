@@ -2,7 +2,6 @@ package dao;
 
 import java.util.List;
 
-import bean.Aidant;
 import bean.Aidee;
 import bean.Personne;
 

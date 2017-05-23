@@ -9,7 +9,6 @@ import javax.persistence.Query;
 import bean.Agenda;
 import bean.Aidant;
 import bean.Aidee;
-import bean.Personne;
 
 public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 

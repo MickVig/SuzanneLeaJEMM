@@ -1,16 +1,5 @@
 package Presentation;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import bean.CompteRendu;
-import dao.AidantDAO;
-import dao.AideeDAO;
-import dao.CompteRenduDAO;
-import dao.ICompteRenduDAO;
-import dao.IPersonneDAO;
-import dao.PersonneDAO;
-
 public class Exec2 {
 
 	public static void main(String[] args) {
