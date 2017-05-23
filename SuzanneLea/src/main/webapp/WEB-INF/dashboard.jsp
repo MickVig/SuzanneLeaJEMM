@@ -36,6 +36,12 @@
           <div class="w3-container">
             <h2>Bonjour Mick</h2>
           </div> 
+          <div>
+            <div><h3><i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord</h3></div>
+            <div><h3><i class="fa fa-address-book" aria-hidden="true"></i> Carnet d'adresses</h3></div>
+            <div><h3><i class="fa fa-clipboard" aria-hidden="true"></i> Comptes Rendus</h3></div>
+            <div><h3><i class="fa fa-calendar" aria-hidden="true"></i> Agenda</h3></div>
+          </div>
       </div>
 
 
