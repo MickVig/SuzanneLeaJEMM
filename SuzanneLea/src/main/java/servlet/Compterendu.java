@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.CompteRendu;
 import dao.CompteRenduDAO;
+import service.AideeService;
 
 
 //@WebServlet("/Compterendu")
@@ -28,14 +29,15 @@ public class Compterendu extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>(CompteRenduDAO.getInstance().comptesRendusAidant(3));
 		request.getAttribute("ID_Aidee");
-		HttpSession session = request.getSession();
 		session.setAttribute("CompteRendu", listeCR);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/compterendu.jsp").forward (request, response);
 	}
 	
-
+	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
