@@ -21,7 +21,8 @@ public class Exec {
 
 		IPersonneDAO dao = PersonneDAO.getInstance();		
 		dao.personneExiste("marc.bonraisin@free.fr", "taxi1");	
-		AidantDAO.getInstance().readAllAidantType(2);
+		
+		dao.readPersonne(2);
 		System.out.println("fini");
 
 		

@@ -26,17 +26,17 @@ public class PersonneService implements IPersonneService {
 		return instance;
 	}
 
+	/////// Méthodes \\\\\\\
 	@Override
 	public boolean connexion(HttpServletRequest request, HttpServletResponse response) {
 
 		String mail = request.getParameter("mail");
 		String mdp = request.getParameter("mdp");
 
-		/*
-		 * envoi vers PersonneDAO pour récupérer la personne si personne existe
-		 * : la mettre en session et renvoyer true sinon retourner false
+		/* Envoi vers PersonneDAO pour récupérer la personne si personne existe
+		 * La mettre en session et renvoyer true 
+		 * Sinon retourner false
 		 */
-
 		Personne p = PersonneDAO.getInstance().personneExiste(mail, mdp);
 
 		if (p != null) {
@@ -70,35 +70,26 @@ public class PersonneService implements IPersonneService {
 		String mailref = request.getParameter("mailref");
 		String mdpref = request.getParameter("mdpref");
 
-		/*
-		 * On créé les 2 personnes à partir des 2 méthodes create des classes
+		/* On créé les 2 personnes à partir des 2 méthodes create des classes
 		 * DAO on différencie en aidee et aidant
 		 */
-
-		Personne pAidant = PersonneDAO.getInstance().createPersonne(nomref, prenomref, mailref, adresseref, telref,
-				mdpref);
+		Personne pAidant = PersonneDAO.getInstance().createPersonne(nomref, prenomref, mailref, adresseref, telref, mdpref);
 		Personne pAidee = PersonneDAO.getInstance().createPersonne(nom, prenom, mail, adresse, tel, mdp);
 
-		/*
-		 * Créer la personne aidee et la personne aidant à partir des 2
+		/* Créer la personne aidee et la personne aidant à partir des 2
 		 * personnes crees au dessus
+		 * En attibut, penser à mettre l'ID_Type en proche ID_Type = 1
 		 */
-
-		//En attibut, penser à mettre l'ID_Type en dernier ID_Type = 1
 		 Aidant aidant = AidantDAO.getInstance().createAidant(pAidant.getID(),1);
 		 Aidee aidee = AideeDAO.getInstance().createAidee(pAidee.getID());
 
-		/*
-		 * Creer la relation referent proche
-		 */
+		/* Creer la relation aidee referent proche */
 		 RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), aidee.getID_Aidee(), true);
 		 
-		 /*
-		 * Creer la relation referent medecin
-		 */
+		 /* Creer la relation aidee referent medecin */
 		 Integer ID_medecin = Integer.valueOf(request.getParameter("medecin"));
 		 RelationDAO.getInstance().createRelation(ID_medecin, aidee.getID_Aidee(), true);
-
+		 
 		 
 	}
 

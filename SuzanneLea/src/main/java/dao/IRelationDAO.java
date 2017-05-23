@@ -18,16 +18,14 @@ public interface IRelationDAO {
 		 * Fonction pour LIRE un référent de l'aidee et selon le type d'aidant choisi
 		 * @param ID_Aidee	Numéro unique de l'aidee
 		 * @param ID_Type	Numéro unique selon le type de referent (médecin ou proche)
-		 * @param Referent 	True pour trouver les réferents 
 		 */
-		public Relation readRef(Integer ID_Aidee, Integer ID_Type, Boolean Referent);
+		public Relation readRef(Integer ID_Aidee, Integer ID_Type);
 		
 		/**
 		 * Fonction pour LIRE tout les référents de l'aidee dans la BDD
 		 * @param ID_Aidee	Numéro unique de l'aidee
-		 * @param Referent 	True pour trouver les 2 réferents (médecin et proche)
 		 */ 
-		public Relation readAllRef(Integer ID_Aidee, Boolean Referent);
+		public Relation readAllRef(Integer ID_Aidee);
 		
 		/**
 		 * Fonction pour LIRE tout les relations de l'aidee dans la BDD

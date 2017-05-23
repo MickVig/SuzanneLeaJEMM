@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -68,15 +67,19 @@ public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
 	@Override
     public Personne readPersonne(Integer id) {
 		this.connexion();
+		Personne p = this.getEm().find(Personne.class, id);
+		System.out.println(p);
+		this.commit();
+		this.deconnexion();
 		
-    	Query requete=this.getEm().createQuery("SELECT p FROM Personne p WHERE p.ID="+id);
+    	return p;
+	    
+    	/*Query requete=this.getEm().createQuery("SELECT p FROM Personne p WHERE p.ID="+id);
     	
     	List liste = requete.getResultList();
     	Personne p = (Personne) liste.get(0);
-    	System.out.println(p);
-		this.commit();
-		this.deconnexion();
-    	return p;
+    	
+    	return p;*/
     }
     
     
