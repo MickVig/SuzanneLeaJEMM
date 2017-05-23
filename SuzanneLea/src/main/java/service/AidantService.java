@@ -24,6 +24,7 @@ public class AidantService implements IAidantService{
 	// Méthodes
 	public List allMedecins() {
 		List medecins = AidantDAO.getInstance().readAllAidantType(2); // 2 = type médecin
+		System.out.println(medecins);
 		return medecins;
 				
 	}

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.AidantService;
 import service.PersonneService;
 
 
@@ -23,7 +24,7 @@ public class Inscription extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<String> liste = new ArrayList<String>();
+		List<String> liste = new ArrayList<String>(AidantService.getInstance().allMedecins());
 		request.setAttribute("medecins", liste);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward (request, response);
 		

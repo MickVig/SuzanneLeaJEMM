@@ -30,18 +30,22 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
     	List liste = requete.getResultList();
     	
     	//on cree une nouvelle liste avec les informations qui nous intéresse
-    	List resultat = new ArrayList();
+    	List aidants = new ArrayList();
     	for (int i=0; i<liste.size(); i++) {
+    		List aidant = new ArrayList();
+    		
 			Aidant a=(Aidant) liste.get(i);
-			resultat.add(a.getID_Aidant());
+			aidant.add(a.getID_Aidant());
 			Personne p=a.getPersonne();
-			resultat.add(p.getID());
-			resultat.add(p.getNom());
-			resultat.add(p.getPrenom());
+			aidant.add(p.getID());
+			aidant.add(p.getNom());
+			aidant.add(p.getPrenom());
+    		
+    		aidants.add(aidant);
     	}
-    	System.out.println(resultat);
+    	System.out.println(aidants);
 		this.deconnexion();
-    	return resultat;
+    	return aidants;
 	}
 	
 	
