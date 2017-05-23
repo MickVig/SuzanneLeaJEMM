@@ -73,15 +73,12 @@
               <br>
               <hr>
 				
-				<p>${medecins}</p>
               <h3>Medecin traitant</h3>
               <select class="w3-select" name="medecin">
-	              	<c:forEach items="${medecins}" var="medecin">
-		                <option value="" disabled selected>Choisir un médecin</option>
-		                <option value="1">Médecin 1</option>
-		                <option value="2">Médecin 2</option>
-		                <option value="3">Médecin 3</option>
-		            </c:forEach>
+	                <option value="" disabled selected>Choisir un médecin</option>
+	                <c:forEach items="${medecins}" var="medecin">
+	                	<option value="${medecin.get(0)}">${medecin.get(2)} ${medecin.get(3)}</option>
+	            	</c:forEach>
               </select>
 
               <br><br>
