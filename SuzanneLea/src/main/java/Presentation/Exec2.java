@@ -16,7 +16,7 @@ public class Exec2 {
 	public static void main(String[] args) {
 		
 		//lire les CR écrits dans la BDD
-		ICompteRenduDAO dao = CompteRenduDAO.getInstance();
+		/*ICompteRenduDAO dao = CompteRenduDAO.getInstance();
 		System.out.println(dao.readCompteRendu(1));
 		System.out.println(dao.readCompteRendu(2));
 		System.out.println(dao.readCompteRendu(3));
@@ -37,6 +37,6 @@ public class Exec2 {
 		dao.createCompteRendu(DateCR, "blablabla", 2, 1);
 
 		
-		
+		*/
 	}
 }

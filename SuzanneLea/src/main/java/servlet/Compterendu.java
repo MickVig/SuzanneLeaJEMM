@@ -28,12 +28,14 @@ public class Compterendu extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		HttpSession session = request.getSession();
-
-		List<CompteRendu> listeCR = new ArrayList<CompteRendu>(CompteRenduDAO.getInstance().comptesRendusAidant(3));
-		request.getAttribute("ID_Aidee");
-		session.setAttribute("CompteRendu", listeCR);
+		Integer ID = (Integer) session.getAttribute("ID_Aidee");
+		System.out.println(ID);
+		
+		List<CompteRendu> listeCR = new ArrayList<CompteRendu>(CompteRenduDAO.getInstance().comptesRendusAidee(1));
+		
+		request.setAttribute("Comptesrendus", listeCR);
+		System.out.println(listeCR);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/compterendu.jsp").forward (request, response);
 	}
 	

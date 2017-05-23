@@ -40,28 +40,54 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	public List<CompteRendu> comptesRendusAidee(Integer id) {
 		this.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
-		CompteRendu cr = new CompteRendu();
 		Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE ID_Aidee =" +id);
 		listeCR = requete.getResultList();
 		System.out.println(listeCR);
+		//Création liste CR tout récupérer dans les CR (date, commentaire, ID_aidee, ID_aidant)
+		List ComptesRendus = new ArrayList();
+		for(int i=0; i<listeCR.size(); i++){
+			List CompteRendu = new ArrayList();
+			CompteRendu cr = listeCR.get(i);
+			CompteRendu.add(cr.getDate());
+			CompteRendu.add(cr.getCommentaire());
+			CompteRendu.add(cr.getAidant());
+			CompteRendu.add(cr.getAidee());		
+			
+			ComptesRendus.add(CompteRendu);
+		}
+		System.out.println(ComptesRendus);
 		this.commit();
 		this.deconnexion();
-		return listeCR;
+		return ComptesRendus;
 	}
+
 
 	
 	@Override
 	public List<CompteRendu> comptesRendusAidant(Integer id) {
 		this.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
-		CompteRendu cr = new CompteRendu();
 		Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE ID_Aidant =" +id);
 		listeCR = requete.getResultList();
 		System.out.println(listeCR);
+		//Création liste CR tout récupérer dans les CR (date, commentaire, ID_aidee, ID_aidant)
+		List ComptesRendus = new ArrayList();
+		for(int i=0; i<listeCR.size(); i++){
+			List CompteRendu = new ArrayList();
+			CompteRendu cr = listeCR.get(i);
+			CompteRendu.add(cr.getDate());
+			CompteRendu.add(cr.getCommentaire());
+			CompteRendu.add(cr.getAidant());
+			CompteRendu.add(cr.getAidee());		
+			
+			ComptesRendus.add(CompteRendu);
+		}
+		System.out.println(ComptesRendus);
 		this.commit();
 		this.deconnexion();
-		return listeCR;
+		return ComptesRendus;
 	}
+
 	
 	
 	
