@@ -6,7 +6,6 @@ import bean.Aidant;
 import bean.Aidee;
 import bean.CompteRendu;
 import bean.Personne;
-import bean.Referent;
 import bean.Relation;
 import bean.Type;
 import dao.AidantDAO;
@@ -24,6 +23,13 @@ public class Exec {
 		
 		dao.readPersonne(2);
 		System.out.println("fini");
+		
+		AidantDAO.getInstance().readAllAidantType(2);
+		//Personne p=a.getPersonne();
+		//System.out.println(p);
+		System.out.println("fait");
+		
+		
 
 		
 		

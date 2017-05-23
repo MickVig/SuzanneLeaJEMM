@@ -13,7 +13,7 @@ public interface IAidantDAO {
 	 * @param ID_Type 	numéro du type d'aidant sélectionner
 	 * @return			une liste d'aidants
 	 */
-	public List<Personne> readAllAidantType(Integer ID_Type);
+	public List<Aidant> readAllAidantType(Integer ID_Type);
 	
 	/////// CRUD \\\\\\\
 	

@@ -1,6 +1,7 @@
 package dao;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -22,17 +23,24 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	
 	/////// Autres Requetes \\\\\\\
 	@Override
-	public List<Personne> readAllAidantType(Integer ID_Type) {
+	public List readAllAidantType(Integer ID_Type) {
 		this.connexion();
-		
-    	//Query requete=this.getEm().createQuery("SELECT p FROM Personne p INNER JOIN Aidant a WHERE a.ID_Type="+ID_Type);
-		Query requete=this.getEm().createQuery("SELECT p FROM Personne p INNER JOIN Aidant a ON p.ID=a.personne.ID WHERE a.ID_Type=2");
-    	
+		//On selectionne les aidant d'un certain type
+		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.type.ID_Type="+ID_Type);
     	
     	List liste = requete.getResultList();
-    	System.out.println(liste);
+    	List resultat = new ArrayList();
+    	for (int i=0; i<liste.size(); i++) {
+			Aidant a=(Aidant) liste.get(i);
+			resultat.add(a.getID_Aidant());
+			Personne p=a.getPersonne();
+			resultat.add(p.getID());
+			resultat.add(p.getNom());
+			resultat.add(p.getPrenom());
+    	}
+    	System.out.println(resultat);
 		this.deconnexion();
-    	return liste;
+    	return resultat;
 	}
 	
 	
