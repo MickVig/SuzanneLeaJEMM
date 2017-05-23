@@ -41,7 +41,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 		this.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
 		CompteRendu cr = new CompteRendu();
-		Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE cr.iD_Aidee =" +id);
+		Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE cr.ID_Aidee =" +id);
 		listeCR = requete.getResultList();
 		
 		this.commit();
