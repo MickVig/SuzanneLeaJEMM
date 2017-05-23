@@ -6,7 +6,7 @@ import bean.Personne;
 
 public interface IAideeService {
 
-	public List allAidantsProches(Integer IDAidee);
+	public List<Personne> allAidantsProches(Integer IDAidee);
 	
 	public Personne procheReferent (Integer IDAidee);
 	

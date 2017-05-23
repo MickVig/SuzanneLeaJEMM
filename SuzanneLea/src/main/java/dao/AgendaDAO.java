@@ -28,10 +28,10 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 		this.connexion();
 		//On selectionne les aidants d'un certain type
 		Query requete=this.getEm().createQuery("SELECT a FROM Agenda a WHERE a.aidee.ID_Aidee="+ID_Aidee);   	
-    	List liste = requete.getResultList();
+    	List<?> liste = requete.getResultList();
     	
     	//on cree une nouvelle liste avec les informations qui nous intéresse
-    	List<Agenda> listeAgenda = new ArrayList();
+    	List<Agenda> listeAgenda = new ArrayList<Agenda>();
     	for (int i=0; i<liste.size(); i++) {
     		Agenda a=(Agenda) liste.get(i);			
 			listeAgenda.add(a);

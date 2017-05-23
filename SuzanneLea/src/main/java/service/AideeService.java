@@ -26,8 +26,8 @@ public class AideeService implements IAideeService {
 	/*
 	 * Recuperer la liste de tous les aidants d'un aidee (choisi avec son ID) sauf le referent
 	 */
-	public List allAidantsProches(Integer IDAidee) {
-		List aidantsProches = AideeDAO.getInstance().allAidant(IDAidee); 
+	public List<Personne> allAidantsProches(Integer IDAidee) {
+		List<Personne> aidantsProches = AideeDAO.getInstance().allAidant(IDAidee); 
 		System.out.println(aidantsProches);
 		return aidantsProches;
 	}

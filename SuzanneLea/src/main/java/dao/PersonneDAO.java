@@ -30,7 +30,7 @@ public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
 				
     	Query requete=this.getEm().createQuery("SELECT p FROM Personne p WHERE p.email='"+mail+"' AND p.mdp='"+mdp+"'");
     	
-    	List liste = requete.getResultList();
+    	List<?> liste = requete.getResultList();
     	Personne p = (Personne) liste.get(0);
     	System.out.println(p);
 		this.commit();

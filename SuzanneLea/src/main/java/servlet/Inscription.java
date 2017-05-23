@@ -24,7 +24,7 @@ public class Inscription extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<String> liste = new ArrayList<String>(AidantService.getInstance().allMedecins());
+		List<?> liste = new ArrayList(AidantService.getInstance().allMedecins());
 		request.setAttribute("medecins", liste);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward (request, response);
 		

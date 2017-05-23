@@ -46,7 +46,7 @@ public class TypeDAO extends ConnexionDAO implements ITypeDAO {
 	public Type readType(Integer id) {
 		this.connexion();
 		Query requete=this.getEm().createQuery("SELECT t FROM Type t where t.ID_Type =" + id);
-		List liste = requete.getResultList();
+		List<?> liste = requete.getResultList();
     	Type t = (Type) liste.get(0);
 		this.commit();
 		this.deconnexion();

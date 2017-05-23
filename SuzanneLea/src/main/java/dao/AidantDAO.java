@@ -53,10 +53,10 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 		this.connexion();
 		//On selectionne les aidants d'un certain type
 		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.type.ID_Type="+ID_Type);   	
-    	List liste = requete.getResultList();
+    	List<?> liste = requete.getResultList();
     	
     	//on cree une nouvelle liste avec les informations qui nous intéresse
-    	List<Personne> listePersonne = new ArrayList();
+    	List<Personne> listePersonne = new ArrayList<Personne>();
     	for (int i=0; i<liste.size(); i++) {
 			Aidant a=(Aidant) liste.get(i);
 			Personne p=a.getPersonne();
@@ -70,7 +70,7 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	
 	public Integer readAidantByPersonne(Integer ID_Personne) {
 		this.connexion();
-		Personne p1 = this.getEm().find(Personne.class, ID_Personne);
+		//Personne p = this.getEm().find(Personne.class, ID_Personne);TODO A supprimer ?
 		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.personne.ID="+ID_Personne);
 		Aidant a=(Aidant) requete.getResultList().get(0);
 		this.deconnexion();
