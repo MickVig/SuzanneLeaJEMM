@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -71,13 +72,16 @@
           
               <br>
               <hr>
-
+				
+				<p>${medecins}</p>
               <h3>Medecin traitant</h3>
               <select class="w3-select" name="medecin">
-                <option value="" disabled selected>Choisir un médecin</option>
-                <option value="1">Médecin 1</option>
-                <option value="2">Médecin 2</option>
-                <option value="3">Médecin 3</option>
+	              	<c:forEach items="${medecins}" var="medecin">
+		                <option value="" disabled selected>Choisir un médecin</option>
+		                <option value="1">Médecin 1</option>
+		                <option value="2">Médecin 2</option>
+		                <option value="3">Médecin 3</option>
+		            </c:forEach>
               </select>
 
               <br><br>

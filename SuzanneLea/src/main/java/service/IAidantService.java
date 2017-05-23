@@ -6,6 +6,6 @@ import bean.Personne;
 
 public interface IAidantService {
 	
-	public List<Personne> getListPersonne() ;
+	public List allMedecins();
 
 }

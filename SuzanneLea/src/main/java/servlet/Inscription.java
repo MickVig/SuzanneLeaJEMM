@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +23,8 @@ public class Inscription extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<String> liste = new ArrayList<String>();
+		request.setAttribute("medecins", liste);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward (request, response);
 		
 
@@ -29,7 +34,7 @@ public class Inscription extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PersonneService.getInstance().inscription(request, response);
 			//Pour rediriger vers la servlet Dashboard via l'url dashboard
-			response.sendRedirect("dashboard");
+			response.sendRedirect("login");
 		
 			
 		

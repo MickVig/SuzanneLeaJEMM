@@ -10,6 +10,7 @@ import dao.IAidantDAO;
 
 public class AidantService implements IAidantService{
 	
+	// Singleton \\
 	private static IAidantService instance=null;
 	private AidantService(){
 	}
@@ -20,9 +21,11 @@ public class AidantService implements IAidantService{
 		return instance;
 	}
 	
-	public List<Personne> getListPersonne() {
-		//return AidantDAO.getInstance().getListPersonne();
-		return null;
+	// Méthodes
+	public List allMedecins() {
+		List medecins = AidantDAO.getInstance().readAllAidantType(2); // 2 = type médecin
+		return medecins;
+				
 	}
 	
 	
