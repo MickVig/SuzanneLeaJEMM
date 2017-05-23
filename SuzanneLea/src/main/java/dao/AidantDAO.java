@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import bean.Aidant;
+import bean.Aidee;
 import bean.Personne;
 
 public class AidantDAO extends ConnexionDAO implements IAidantDAO {
@@ -22,8 +23,9 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	}
 	
 	/////// Autres Requetes \\\\\\\
+	
 	@Override
-	public List readAllAidantType(Integer ID_Type) {
+	/*public List readAllAidantType(Integer ID_Type) {
 		this.connexion();
 		//On selectionne les aidants d'un certain type
 		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.type.ID_Type="+ID_Type);   	
@@ -46,11 +48,36 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
     	System.out.println(aidants);
 		this.deconnexion();
     	return aidants;
+	}*/
+	
+	public List<Personne> readAllAidantType(Integer ID_Type) {
+		this.connexion();
+		//On selectionne les aidants d'un certain type
+		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.type.ID_Type="+ID_Type);   	
+    	List liste = requete.getResultList();
+    	
+    	//on cree une nouvelle liste avec les informations qui nous intéresse
+    	List<Personne> listePersonne = new ArrayList();
+    	for (int i=0; i<liste.size(); i++) {
+			Aidant a=(Aidant) liste.get(i);
+			Personne p=a.getPersonne();
+			System.out.println(p);
+			listePersonne.add(p);
+    	}
+    	System.out.println(listePersonne);
+		this.deconnexion();
+    	return listePersonne;
 	}
 	
-	
-	
-	
+	public Integer readAidantByPersonne(Integer ID_Personne) {
+		this.connexion();
+		Personne p1 = this.getEm().find(Personne.class, ID_Personne);
+		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.personne.ID="+ID_Personne);
+		Aidant a=(Aidant) requete.getResultList().get(0);
+		this.deconnexion();
+		return a.getID_Aidant();	
+	}
+
 	/////// CRUD \\\\\\\
 	
 	@Override
@@ -89,27 +116,5 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 		this.commit();
 		this.deconnexion();
 	}
-
-	
-	
-	
-	
-	
-	/* 
-	public List<Personne> getListPersonne() {
-		System.out.println("bonjour!");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();       
-        tx.begin();
-		List<Personne> liste=em.createQuery("select p from Personne p order by p.nom asc").getResultList();
-		for (Personne p : liste) {
-            System.out.println(p);
-        }
-        return liste;
-	}
-	*/
-	
-	
 
 }

@@ -11,10 +11,16 @@ public interface IAidantDAO {
 	/**
 	 * Fonction pour récupérer tout les aidants du type choisi
 	 * @param ID_Type 	numéro du type d'aidant sélectionner
-	 * @return			une liste d'aidants
+	 * @return			une liste de personne correspondant aux aidants
 	 */
-	public List<Aidant> readAllAidantType(Integer ID_Type);
+	public List<Personne> readAllAidantType(Integer ID_Type);
 	
+	/**
+	 * Foncgtion pour récuperer l'ID d'un Aidant à partir de l'Ide d'une personne
+	 * @param ID_Personne
+	 * @return ID_Aidant correspondant
+	 */
+	public Integer readAidantByPersonne(Integer ID_Personne);
 	/////// CRUD \\\\\\\
 	
 	/**

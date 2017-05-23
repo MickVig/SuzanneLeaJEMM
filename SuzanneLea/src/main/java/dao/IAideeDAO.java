@@ -10,7 +10,7 @@ public interface IAideeDAO {
 	
 	/////// Autres Requetes \\\\\\\
 	/**
-	 * Fonction pour récupérer la liste de tout les aidants d'un aidee
+	 * Fonction pour récupérer la liste de tout les aidants d'un aidee sauf le referent proche
 	 * @param id		le numéro unique de l'aidee
 	 * @return			la liste des aidants
 	 */
