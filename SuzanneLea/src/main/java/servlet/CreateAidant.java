@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.PersonneService;
+
 
 //@WebServlet("/CreateAidant")
 public class CreateAidant extends HttpServlet {
@@ -25,9 +27,9 @@ public class CreateAidant extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	//Ajouter methode createAidant puis 
-		//response.sendRedirect("dashboard");
-		doGet(request, response);
+	PersonneService.getInstance().inscriptionAidant(request,response);
+	response.sendRedirect("carnet");
+	
 	}
 
 }

@@ -9,5 +9,7 @@ public interface IPersonneService {
 	
 	public void inscription(HttpServletRequest request, HttpServletResponse response);
 	
+	public void inscriptionAidant (HttpServletRequest request, HttpServletResponse response);
+	
 	
 }
