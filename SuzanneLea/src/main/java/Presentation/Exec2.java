@@ -32,21 +32,10 @@ public class Exec2 {
 		
 		
 		//date
-//		SimpleDateFormat formater = null;
-//		Date DateCR = new Date();
-//		formater = new SimpleDateFormat("yyyy-MM-dd");
-//		System.out.println(formater.format(DateCR));
-//		//écrire CR dans BDD
-//		CompteRendu cr = new CompteRendu();
-//		dao.createCompteRendu(DateCR, "blablabla", 4, 3);
+		Date DateCR = new Date();
+		//écrire CR dans BDD
+		dao.createCompteRendu(DateCR, "blablabla", 2, 1);
 
-		
-		
-		
-		
-		
-		
-		
 		
 		
 	}

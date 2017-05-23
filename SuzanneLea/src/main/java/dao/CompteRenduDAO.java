@@ -83,7 +83,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	public void createCompteRendu(Date date, String commentaire, Integer ID_Aidant, Integer ID_Aidee) {
 		this.connexion();
 		CompteRendu cr = new CompteRendu();
-		
+
 //		SimpleDateFormat formater = null;
 //		Date aujourdhui = new Date();
 //		formater = new SimpleDateFormat("dd-MM-yyyy");
