@@ -30,6 +30,19 @@ function initbtn(){
 		$(location).attr('href',"createAidant");
 	})
 	
+	$("#btnaddevent").on('click',function(){
+		console.log("formulaire ajout evenement");
+		$(location).attr('href',"addEven");
+	})
+	
+	$("#btnaddcr").on('click',function(){
+		console.log("formulaire ajout CR");
+		$(location).attr('href',"addCR");
+	})
+	
+	
+	
+	
 }
 
 

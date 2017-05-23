@@ -35,7 +35,7 @@
             <h1>Comptes rendus</h1>
           </div>
           <div class="w3-container">
-            <button class="w3-button w3-large w3-amber">Nouveau Compte Rendu <i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button id="btnaddcr" class="w3-button w3-large w3-amber">Nouveau Compte Rendu <i class="fa fa-plus" aria-hidden="true"></i></button>
           </div> 
           <div class="w3-container">
             <ul class="w3-ul">

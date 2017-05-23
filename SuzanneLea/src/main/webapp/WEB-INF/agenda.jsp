@@ -35,7 +35,7 @@
             <h1>Agenda</h1>
           </div>
           <div class="w3-container">
-            <button class="w3-button w3-large w3-amber">Ajouter un événement <i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button id="btnaddevent"class="w3-button w3-large w3-amber">Ajouter un événement <i class="fa fa-plus" aria-hidden="true"></i></button>
           </div> 
           <div class="w3-container">
             <ul class="w3-ul">
