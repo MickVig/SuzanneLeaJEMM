@@ -76,9 +76,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		//on cree une nouvelle liste avec les personnes aidantes
 		Personne p=new Personne();
 		Relation r=(Relation) liste.get(0);
-		System.out.println(r);
 		Aidant a=r.getAidant();
-		System.out.println(a);
 		p=a.getPersonne();
 		System.out.println(p);
 		this.deconnexion();
@@ -94,10 +92,9 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		//on cree une nouvelle liste avec les personnes aidantes
 		Personne p=new Personne();
 		Relation r=(Relation) liste.get(0);
-		System.out.println(r);
 		Aidant a=r.getAidant();
-		System.out.println(a);
 		p=a.getPersonne();
+		System.out.println(p);
 		this.deconnexion();
 		return p;
 	}
