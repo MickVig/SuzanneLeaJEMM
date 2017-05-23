@@ -27,26 +27,6 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	/////// Autres Requetes \\\\\\\
 	
 	@Override
-	/*public List<Personne> allAidant(Integer id) {
-		this.connexion();
-		//On selectionne les aidants d'un certain type
-		Query requete=this.getEm().createQuery("SELECT r.aidant FROM Relation r WHERE r.aidee.ID_Aidee="+id);	
-		List liste = requete.getResultList();
-		    	
-		//on cree une nouvelle liste avec les informations qui nous intéresse
-		List resultat = new ArrayList();
-		    for (int i=0; i<liste.size(); i++) {
-		    	Personne p=new Personne();
-		    	Aidant aidant=(Aidant) liste.get(i);
-		    	p=aidant.getPersonne();
-		    	System.out.println(p);
-				resultat.add(p);
-		    }
-		System.out.println(resultat);
-		this.deconnexion();
-		return resultat;
-	}*/
-	
 	public List<Personne> allAidant(Integer id) {
 		this.connexion();
 		//On selectionne les aidants d'un certain type

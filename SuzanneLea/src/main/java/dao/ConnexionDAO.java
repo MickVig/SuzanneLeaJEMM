@@ -6,8 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 
+import bean.Agenda;
 import bean.Aidant;
 import bean.Aidee;
 import bean.CompteRendu;
@@ -109,6 +109,18 @@ public class ConnexionDAO {
     	em.persist(cr);
     	System.out.println(cr);
     	return cr;
+    }
+    
+    public Agenda createAgenda(Date date, String titre, String contenu, Aidant aidant, Aidee aidee) {
+    	Agenda a=new Agenda();
+    	a.setAidant(aidant);
+    	a.setAidee(aidee);
+    	a.setContenu(contenu);
+    	a.setDate(date);
+    	a.setTitre(titre);
+    	em.persist(a);
+    	System.out.println(a);
+    	return a;
     }
     
     

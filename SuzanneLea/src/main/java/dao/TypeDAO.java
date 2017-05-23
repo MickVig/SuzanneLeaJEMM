@@ -29,7 +29,7 @@ public class TypeDAO extends ConnexionDAO implements ITypeDAO {
 	 * Fonction pour CREER un nouveau type
 	 */
 	public Type createType(String type) {
-		this.deconnexion();
+		this.connexion();
 		Type t = new Type();
 		t.setType(type);
 		this.getEm().persist(t);
