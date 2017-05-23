@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -62,17 +63,22 @@
                 <span class="w3-large">Arnaud</span><br>
                 <span>Plombier</span>
               </li>
-              for
-              <li>
-              	<ul>
-              		<li>Nom prenom</li>
-              		<li>adresse</li>
-              		<li>tél</li>
-              		<li>mail</li>
-              	</ul>
-              </li>
-              
-            </ul>
+
+				<li>
+				<p>Liste des aidants proches</p> 
+					<c:forEach items="${aidantsProches}" var="aidant">
+						<ul>
+							<li>NOM et PRENOM : ${aidant.nom} ${aidant.prenom}</li>
+							<li>Adresse : ${aidant.adresse}</li>
+							<li>Telephone : ${aidant.tel}</li>
+							<li>Email : ${aidant.email }</li>
+						</ul>
+						<br/>
+					</c:forEach>
+				</li>
+
+
+			</ul>
           </div> 
       </div>
 
@@ -80,8 +86,8 @@
   </body>
 
   <script>
-    
-  </script>
+			
+		</script>
 
 
 
