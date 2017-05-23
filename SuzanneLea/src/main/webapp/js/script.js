@@ -27,7 +27,7 @@ function initbtn(){
 	
 	$("#btnaddcontact").on('click',function(){
 		console.log("formulaire ajout aidant");
-		$(location).attr('href',"createaidant.jsp");
+		$(location).attr('href',"createAidant");
 	})
 	
 }

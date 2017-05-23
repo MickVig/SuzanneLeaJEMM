@@ -30,7 +30,6 @@
     <servlet-name>Inscription</servlet-name>
     <url-pattern>/inscription</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>CreateAidant</servlet-name>
     <servlet-class>servlet.CreateAidant</servlet-class>
@@ -44,8 +43,6 @@
     <servlet-name>CreateAidant</servlet-name>
     <url-pattern>/createAidant</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <servlet-name>Dashboard</servlet-name>
     <servlet-class>servlet.Dashboard</servlet-class>
@@ -59,4 +56,45 @@
     <servlet-name>Dashboard</servlet-name>
     <url-pattern>/dashboard</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Carnet</servlet-name>
+    <servlet-class>servlet.Carnet</servlet-class>
+    <init-param>
+      <param-name>auteur</param-name>
+      <param-value>Emilie</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Carnet</servlet-name>
+    <url-pattern>/carnet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Agenda</servlet-name>
+    <servlet-class>servlet.Agenda</servlet-class>
+    <init-param>
+      <param-name>auteur</param-name>
+      <param-value>Emilie</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Agenda</servlet-name>
+    <url-pattern>/agenda</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Compterendu</servlet-name>
+    <servlet-class>servlet.Compterendu</servlet-class>
+    <init-param>
+      <param-name>auteur</param-name>
+      <param-value>Emilie</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Compterendu</servlet-name>
+    <url-pattern>/compterendu</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
