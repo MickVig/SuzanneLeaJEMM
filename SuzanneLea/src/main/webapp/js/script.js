@@ -7,7 +7,7 @@ function w3_close() {
 
 
 /******** Init programme **********/
-function init(){
+function initbtn(){
 	console.log( "ready!" );
 
 	$("#btnlogin").on('click',function(){
@@ -25,6 +25,11 @@ function init(){
 		$(location).attr('href',"index");
 	})
 	
+	$("#btnaddcontact").on('click',function(){
+		console.log("formulaire ajout aidant");
+		$(location).attr('href',"createaidant.jsp");
+	})
+	
 }
 
 
@@ -33,7 +38,7 @@ function init(){
 
 /******** Programme ************/
 $(document).ready(function() {
-    init();
+    initbtn();
 
     
 });
