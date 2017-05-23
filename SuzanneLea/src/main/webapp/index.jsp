@@ -22,11 +22,39 @@
       
       <main class="w3-main">
           <div class="w3-container ">
-              <h2>Bonjour</h2>
+              <p>Suzanne &amp; Léa est une solution innovante d'entraide destinée à <b>accompagner et sécuriser le quotidien</b> des personnes fragilisées et <b>faciliter l'intervention </b> des aidants.</p>
           </div>
           <div class="w3-container">
+            <h2>LA PREMIERE APPLICATION DEDIE AUX AIDEES ET AUX AIDANTS !</h2>
+            <p> Vous pouvez dès maintenant vous enregistrer</p>
               <button id="btnlogin" class="w3-btn w3-green w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Connexion</button>
               <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-plus" aria-hidden="true"></i> Créer</button>
+          </div>
+          <div class="w3-container">
+            <p>Les outils mis à votre disposition par Suzanne &amp; Léa</p>
+            <ul>
+              <li>
+                <h4>Tableau de bord de synthèse dédié aux aidants</h4>
+                <ul>
+                  <li>Accès aux comptes rendus : famille, assitant à domicile, employé d'un agence, ...</li>
+                  <li>Suivi et stockage des données physiologiques</li>
+                </ul>
+              </li>
+              <li>
+                <h4>Gestion du quotidien</h4>
+                <ul>
+                  <li>Agenda familial : organisation des visites et des événnements, RDV médical, ...</li>
+                  <li> Moyen de Paiement partagé ("cagnotte") et sécurisé pour la gestion des aléas du quotidien</li>
+                </ul>
+              </li>
+              <li>
+                <h4>Système d'alerte</h4>
+                <ul>
+                  <li>Traitement des appels d'urgence </li>
+                  <li>Détection de situation anormales (chutes, durée de sortie supérieur à la normale,...)</li>
+                </ul>
+              </li>
+            </ul>
           </div>
       </main>
 
