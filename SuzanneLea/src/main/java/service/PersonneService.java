@@ -39,9 +39,9 @@ public class PersonneService implements IPersonneService {
 		/* Envoi vers PersonneDAO pour récupérer la personne si personne existe
 		 * La mettre en session et renvoyer true 
 		 * Sinon retourner false
-		 * Une fois la personne en session, recuperer l'ID AIdee à partir de l'ID personne avec la meth 
+		 * Une fois la personne en session, recuperer l'ID AIdee à partir de l'ID personne avec la methode 
 		 * readAideeByPersonne
-		 * ID Aidee utile pour creer relation quand ajout d'un nouvel aidant
+		 * ID Aidee utilisee pour creer relation quand ajout d'un nouvel aidant
 		 */
 		Personne p = PersonneDAO.getInstance().personneExiste(mail, mdp);
 
@@ -50,7 +50,8 @@ public class PersonneService implements IPersonneService {
 			HttpSession session = request.getSession();
 			session.setAttribute("personne", p);
 			IDAidee = AideeDAO.getInstance().readAideeByPersonne(p.getID());
-			System.out.println(session.getAttribute("personne"));
+			session.setAttribute("IDAidee", IDAidee);
+			
 			System.out.println("connexion OK");
 			return true;
 
@@ -96,8 +97,9 @@ public class PersonneService implements IPersonneService {
 		 RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), aidee.getID_Aidee(), true);
 		 
 		 /* Creer la relation aidee referent medecin */
-		 /*Integer ID_medecin = Integer.valueOf(request.getParameter("medecin"));
-		 RelationDAO.getInstance().createRelation(ID_medecin, aidee.getID_Aidee(), true);*/
+		 Integer ID_medecin = Integer.valueOf(request.getParameter("medecin"));
+		 System.out.println(ID_medecin);
+		 RelationDAO.getInstance().createRelation(ID_medecin, aidee.getID_Aidee(), true);
 		 
 	}
 
