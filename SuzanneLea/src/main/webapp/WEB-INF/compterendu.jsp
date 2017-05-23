@@ -41,6 +41,11 @@
             <ul class="w3-ul">
               <li>
                 <h3>CR N°4</h3>
+                	<select class="w3-select" name="compterendu">
+						<c:forEach items="${compterendu}" var="compterendu">
+							<option value="${compterendu.get(0)}"></option>
+						</c:forEach>
+                	</select>
                 <p>Auteur : Jeanne</p>
                 <p>Contenu : Duis ut orci non tortor faucibus egestas. Nullam aliquet massa in dictum hendrerit. Fusce dignissim ex vulputate hendrerit tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a lacus efficitur, eleifend mauris vitae, consequat risus. Integer feugiat massa ac ultrices suscipit. Cras rutrum nisl nec ligula vestibulum gravida.</p>
               </li>
