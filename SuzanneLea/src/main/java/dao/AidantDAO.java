@@ -53,8 +53,6 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	public Integer readAidantByPersonne(Integer ID_Personne) {
 		this.connexion();
 		Aidant a = new Aidant();
-		// Personne p = this.getEm().find(Personne.class, ID_Personne);TODO A
-		// supprimer ?
 		try {
 			Query requete = this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.personne.ID=" + ID_Personne);
 			a = (Aidant) requete.getResultList().get(0);

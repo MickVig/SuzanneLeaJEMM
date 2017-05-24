@@ -103,8 +103,6 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	// Lire un aidee à partir d'un personne
 	public Integer readAideeByPersonne(Integer ID_Personne) {
 		this.connexion();
-		// Personne p1 = this.getEm().find(Personne.class, ID_Personne);TODO à
-		// supprimer ??
 		Aidee a = new Aidee();
 		try {
 			Query requete = this.getEm().createQuery("SELECT a FROM Aidee a WHERE a.personne.ID=" + ID_Personne);
