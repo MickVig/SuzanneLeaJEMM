@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -28,6 +28,7 @@
         <a href="agenda" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-calendar" aria-hidden="true"></i> Agenda</a>
         <a href="deconnexion" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-times" aria-hidden="true"></i> Déconnexion</a>
       </div>
+
 
 
       <div class="w3-main" style="margin-left:200px">
@@ -60,6 +61,19 @@
                 <span class="w3-large">Arnaud</span><br>
                 <span>Plombier</span>
               </li>
+              
+              <li>
+				<p>Liste des aidants partenaires</p> 
+					<c:forEach items="${partenaires}" var="medecin">
+						<ul>
+							<li>NOM et PRENOM : ${medecin.get(2)} ${medecin.get(3)}</li>
+							<li>Adresse : ${medecin.get(4)}</li>
+							<li>Téléphone : ${medecin.get(5)}</li>
+							<li>Email : ${medecin.get(6)}</li>
+						</ul>
+						<br/>
+					</c:forEach>
+				</li>
             </ul>
           </div> 
       </div>

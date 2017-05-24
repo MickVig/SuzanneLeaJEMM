@@ -121,6 +121,19 @@
     <servlet-name>AddEvent</servlet-name>
     <url-pattern>/addEvent</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CarnetPartenaires</servlet-name>
+    <servlet-class>servlet.CarnetPartenaires</servlet-class>
+    <init-param>
+      <param-name>auteur</param-name>
+      <param-value>Jerome</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CarnetPartenaires</servlet-name>
+    <url-pattern>/carnetpartenaires</url-pattern>
+  </servlet-mapping>
   
   
   

@@ -60,6 +60,9 @@ public class AidantService implements IAidantService{
 			a.add(p.getID());
 			a.add(p.getNom());
 			a.add(p.getPrenom());
+			a.add(p.getAdresse());
+			a.add(p.getTel());
+			a.add(p.getEmail());
     		
 			aidants.add(a);
 		}

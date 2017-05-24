@@ -29,29 +29,12 @@ public class CarnetPartenaires extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("la redirection vers carnet est OK");
-		
-//		HttpSession session = request.getSession();
-//		Integer ID = (Integer) session.getAttribute("ID_Aidee");
-//		List<CompteRendu> listeCR = new ArrayList<CompteRendu>(CompteRenduDAO.getInstance().comptesRendusAidee(1));
-//		request.setAttribute("comptesRendus", listeCR);
-//		System.out.println(listeCR);
+		System.out.println("la redirection vers carnetPart est OK");
 		
 		HttpSession session = request.getSession();
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
 		List listeMed = new ArrayList(AidantService.getInstance().allAidantsByType(2));
-//		List<Personne> listeInf = new ArrayList<Personne>(AidantService.getInstance().allAidantsByType(3));
-//		List<Personne> listeTax = new ArrayList<Personne>(AidantService.getInstance().allAidantsByType(4));
-//		List<Personne> listePlo = new ArrayList<Personne>(AidantService.getInstance().allAidantsByType(5));
-//		List<Personne> listeEle = new ArrayList<Personne>(AidantService.getInstance().allAidantsByType(6));
-//		List<Personne> listeSer = new ArrayList<Personne>(AidantService.getInstance().allAidantsByType(7));
-
 		request.setAttribute("partenaires", listeMed);
-//		request.setAttribute("partenaires", listeInf);
-//		request.setAttribute("partenaires", listeTax);
-//		request.setAttribute("partenaires", listePlo);
-//		request.setAttribute("partenaires", listeEle);
-//		request.setAttribute("partenaires", listeSer);
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/carnetPart.jsp").forward (request, response);
 	}
