@@ -29,6 +29,12 @@
 
               <label for="titre" class="w3-text-teal"><b>Titre</b></label>
               <input class="w3-input w3-border w3-light-grey" id="titre" name="titre" type="text" >
+			
+			<label for="date" class="w3-text-teal"><b>Date</b></label>
+             <input class="w3-input w3-border w3-light-grey" id="date" name="date" type="date" >
+
+			<label for="time" class="w3-text-teal"><b>Heure</b></label>
+             <input class="w3-input w3-border w3-light-grey" id="time" name="time" type="time" >
 
               <label for="contenu" class="w3-text-teal"><b>Contenu</b></label>
               <textarea id="contenu" name="contenu" class="w3-input w3-border" placeholder="Vous pouvez faire votre compte rendu"></textarea>

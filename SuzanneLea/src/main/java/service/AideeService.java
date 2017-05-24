@@ -1,5 +1,8 @@
 package service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.Aidant;
 import bean.Personne;
+import dao.AgendaDAO;
 import dao.AidantDAO;
 import dao.AideeDAO;
 import dao.PersonneDAO;
@@ -99,13 +103,22 @@ public class AideeService implements IAideeService {
 		String contenu = request.getParameter("contenu");
 		String accompagnant = request.getParameter("accompagnant");
 		
+		//pour récupérer l'ID_Aidant de l'aidant (accompagnant) sélectionné dans le formulaire
+		Integer IDAidant = Integer.valueOf(request.getParameter("accompagnant"));
+		System.out.println(IDAidant);
 		
+		//pour recuperer l'ID_Aidee de la personne qui s'est connectée pour ajouter un évènement
+		HttpSession session = request.getSession();
+		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
 		
-		
-		
+		//recuperer la date
+		//DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+		//Date date = new Date();
+		//String date2 = sdf.format(date);
 		
 		
 		//creer un evenement
+		//AgendaDAO.getInstance().createEvenement(date2, titre, contenu, IDAidee, IDAidant);
 		
 	}
 	

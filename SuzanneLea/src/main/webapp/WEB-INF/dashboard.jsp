@@ -47,7 +47,7 @@
 			<h1>Tableau de bord</h1>
 		</div>
 		<div class="w3-container">
-			<h2>Bonjour ${personne.prenom} ${personne.nom}</h2>
+			<h2>Bonjour ${personne.prenom} ${personne.nom} - Bienvenue dans votre espace personnel</h2>
 		</div>
 		<div>
 			<div>
