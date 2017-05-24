@@ -27,7 +27,20 @@ public interface IAgendaDAO {
 	 * @return
 	 */
 	public Agenda readEvenement(Integer ID_Agenda);
+	
+	/**
+	 * Liste de tous les évenement à venir pour une personne aidee
+	 * @param ID_Aidee
+	 * @return
+	 */
+	public List<Agenda> nextAllEvenement(Integer ID_Aidee);
 
+	/**
+	 * Retourne le prochain evenement à venir pour une personne aidee
+	 * @param ID_Aidee
+	 * @return
+	 */
+	public Agenda nextEvenement (Integer ID_Aidee);
 	/**
 	 * retourne tous les evenements concernant une personne aidee
 	 * @param ID_Aidee
