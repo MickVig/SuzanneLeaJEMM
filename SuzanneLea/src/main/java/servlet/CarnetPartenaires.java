@@ -34,6 +34,10 @@ public class CarnetPartenaires extends HttpServlet {
 		HttpSession session = request.getSession();
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
 		List listeMed = new ArrayList(AidantService.getInstance().allAidantsByType(2));
+		/*List listeMed = new ArrayList(AidantService.getInstance().allAidantsByType(3));
+		List listeMed = new ArrayList(AidantService.getInstance().allAidantsByType(4));
+		List listeMed = new ArrayList(AidantService.getInstance().allAidantsByType(5));
+		List listeMed = new ArrayList(AidantService.getInstance().allAidantsByType(6));*/
 		request.setAttribute("partenaires", listeMed);
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/carnetPart.jsp").forward (request, response);
