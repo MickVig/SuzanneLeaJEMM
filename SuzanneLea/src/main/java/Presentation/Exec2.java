@@ -24,7 +24,7 @@ public class Exec2 {
 		CompteRenduDAO.getInstance().comptesRendusAidee(1);
 		//dao.comptesRendusAidee(1).get(1);
 		
-		
+		sryjkryqkjqryjrsyksrykstu;kltsuldyul
 		//date
 		Date DateCR = new Date();
 		//écrire CR dans BDD
