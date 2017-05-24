@@ -28,7 +28,7 @@ public interface IAgendaDAO {
 	 */
 	public Agenda readEvenement(Integer ID_Agenda);
 	
-	public List readAllEvenement2(Integer ID_Aidee);
+	
 	
 	/**
 	 * Liste de tous les évenement à venir pour une personne aidee
@@ -48,7 +48,7 @@ public interface IAgendaDAO {
 	 * @param ID_Aidee
 	 * @return
 	 */
-	public List<Agenda> readAllEvenement(Integer ID_Aidee);
+	public List readAllEvenement(Integer ID_Aidee);
 	
 	/**
 	 * Modifier un evenement de l'agenda

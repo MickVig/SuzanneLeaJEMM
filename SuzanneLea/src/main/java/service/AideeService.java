@@ -1,14 +1,13 @@
 package service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.Agenda;
 import bean.Aidant;
 import bean.Personne;
 import dao.AgendaDAO;
@@ -16,6 +15,7 @@ import dao.AidantDAO;
 import dao.AideeDAO;
 import dao.PersonneDAO;
 import dao.RelationDAO;
+
 
 public class AideeService implements IAideeService {
 	
@@ -72,6 +72,19 @@ public class AideeService implements IAideeService {
 	}
 	
 	
+	
+	/*
+	 * Recuperer la liste de tous les evenements d'un aidee
+	 */
+	
+	public List allRDV (Integer IDAidee){
+		List allRDV = AgendaDAO.getInstance().readAllEvenement(IDAidee);
+		System.out.println("allRDV");
+		System.out.println(allRDV);
+		return allRDV;
+	}
+	
+	
 	/*
 	 * Recuperer le proche referent d'un aidee
 	 */
@@ -121,5 +134,7 @@ public class AideeService implements IAideeService {
 		//AgendaDAO.getInstance().createEvenement(date2, titre, contenu, IDAidee, IDAidant);
 		
 	}
+	
+	
 	
 }
