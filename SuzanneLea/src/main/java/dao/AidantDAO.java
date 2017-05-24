@@ -24,31 +24,6 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 	/////// Autres Requetes \\\\\\\
 	
 	@Override
-	/*public List readAllAidantType(Integer ID_Type) {
-		this.connexion();
-		//On selectionne les aidants d'un certain type
-		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.type.ID_Type="+ID_Type);   	
-    	List liste = requete.getResultList();
-    	
-    	//on cree une nouvelle liste avec les informations qui nous intéresse
-    	List aidants = new ArrayList();
-    	for (int i=0; i<liste.size(); i++) {
-    		List aidant = new ArrayList();
-    		
-			Aidant a=(Aidant) liste.get(i);
-			aidant.add(a.getID_Aidant());
-			Personne p=a.getPersonne();
-			aidant.add(p.getID());
-			aidant.add(p.getNom());
-			aidant.add(p.getPrenom());
-    		
-    		aidants.add(aidant);
-    	}
-    	System.out.println(aidants);
-		this.deconnexion();
-    	return aidants;
-	}*/
-	
 	public List<Personne> readAllAidantType(Integer ID_Type) {
 		this.connexion();
 		//On selectionne les aidants d'un certain type
