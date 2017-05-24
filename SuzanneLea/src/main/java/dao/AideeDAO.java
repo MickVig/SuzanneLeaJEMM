@@ -1,6 +1,5 @@
 package dao;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		List<Personne> resultat = new ArrayList<Personne>();
 		// On selectionne les aidants d'un certain type
 		try {
-			Query requete = this.getEm().createQuery("SELECT r FROM Relation r WHERE r.aidee.ID_Aidee=" + ID_Aidee);
+			Query requete = this.getEm().createQuery("SELECT r FROM Relation r WHERE r.aidee.ID_Aidee=" + ID_Aidee+"AND r.aidant.type.ID_Type=1");
 			List<?> liste = requete.getResultList();
 
 			// on cree une nouvelle liste avec les personnes aidantes

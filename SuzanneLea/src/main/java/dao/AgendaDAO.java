@@ -28,47 +28,64 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 	// Recuperer tous les evenement d'une personne aidee
 	public List<Agenda> readAllEvenement(Integer ID_Aidee) {
 		this.connexion();
-		// On selectionne les aidants d'un certain type
-		Query requete = this.getEm().createQuery("SELECT a FROM Agenda a WHERE a.aidee.ID_Aidee=" + ID_Aidee);
-		List<Agenda> liste = requete.getResultList();
-
-		// on cree une nouvelle liste avec les informations qui nous intéresse
 		List<Agenda> listeAgenda = new ArrayList<Agenda>();
-		for (int i = 0; i < liste.size(); i++) {
-			Agenda a = (Agenda) liste.get(i);
-			listeAgenda.add(a);
-			// System.out.println(a.getTitre()+" : "+a.getContenu());
+		try {
+			// On selectionne les aidants d'un certain type
+			Query requete = this.getEm().createQuery("SELECT a FROM Agenda a WHERE a.aidee.ID_Aidee=" + ID_Aidee);
+			List<Agenda> liste = requete.getResultList();
+
+			// on cree une nouvelle liste avec les informations qui nous
+			// intéresse
+
+			for (int i = 0; i < liste.size(); i++) {
+				Agenda a = (Agenda) liste.get(i);
+				listeAgenda.add(a);
+				// System.out.println(a.getTitre()+" : "+a.getContenu());
+			}
+		} catch (Exception e) {
+			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
 		this.deconnexion();
 		return listeAgenda;
 	}
 
-	//Retourne tous les évenement à venir
+	// Retourne tous les évenement à venir
 	public List<Agenda> nextAllEvenement(Integer ID_Aidee) {
 		this.connexion();
-		// On selectionne les aidants d'un certain type
-		Query requete = this.getEm()
-				.createQuery("SELECT a FROM Agenda a WHERE a.aidee.ID_Aidee=" + ID_Aidee + "AND a.date>CURRENT_DATE ORDER BY a.date");
-		List<Agenda> liste = requete.getResultList();
-
-		// on cree une nouvelle liste avec les informations qui nous intéresse
 		List<Agenda> listeAgenda = new ArrayList<Agenda>();
-		for (int i = 0; i < liste.size(); i++) {
-			Agenda a = (Agenda) liste.get(i);
-			listeAgenda.add(a);
-			System.out.println(a.getTitre() + " : " + a.getContenu() + " (" + a.getDate() + ")");
+		try {
+			// On selectionne les aidants d'un certain type
+			Query requete = this.getEm().createQuery("SELECT a FROM Agenda a WHERE a.aidee.ID_Aidee=" + ID_Aidee
+					+ "AND a.date>CURRENT_DATE ORDER BY a.date");
+			List<Agenda> liste = requete.getResultList();
+
+			// on cree une nouvelle liste avec les informations qui nous
+			// intéresse
+
+			for (int i = 0; i < liste.size(); i++) {
+				Agenda a = (Agenda) liste.get(i);
+				listeAgenda.add(a);
+				System.out.println(a.getTitre() + " : " + a.getContenu() + " (" + a.getDate() + ")");
+			}
+		} catch (Exception e) {
+			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
 		this.deconnexion();
 		return listeAgenda;
 	}
 
-	//Retourne le prochain evenement
-	public Agenda nextEvenement (Integer ID_Aidee) {
-		Agenda a=new Agenda();
-		if (nextAllEvenement(ID_Aidee).size()!=0) {
-			a=nextAllEvenement(ID_Aidee).get(0);
+	// Retourne le prochain evenement
+	public Agenda nextEvenement(Integer ID_Aidee) {
+		Agenda a = new Agenda();
+		try {
+			if (nextAllEvenement(ID_Aidee).size() != 0) {
+				a = nextAllEvenement(ID_Aidee).get(0);
+			}
+			// System.out.println(a.getTitre() + " : " + a.getContenu() + " (" +
+			// a.getDate() + ")");
+		} catch (Exception e) {
+			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
-		System.out.println(a.getTitre() + " : " + a.getContenu() + " (" + a.getDate() + ")");
 		return a;
 	}
 	/////// CRUD \\\\\\\
@@ -77,13 +94,17 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 	public Agenda createEvenement(Date date, String titre, String contenu, Integer ID_Aidee, Integer ID_Aidant) {
 		Agenda agenda = new Agenda();
 		this.connexion();
-		agenda.setAidant(AidantDAO.getInstance().readAidant(ID_Aidant));
-		agenda.setAidee(AideeDAO.getInstance().readAidee(ID_Aidee));
-		agenda.setContenu(contenu);
-		agenda.setDate(date);
-		agenda.setTitre(titre);
-		this.getEm().persist(agenda);
-		this.commit();
+		try {
+			agenda.setAidant(AidantDAO.getInstance().readAidant(ID_Aidant));
+			agenda.setAidee(AideeDAO.getInstance().readAidee(ID_Aidee));
+			agenda.setContenu(contenu);
+			agenda.setDate(date);
+			agenda.setTitre(titre);
+			this.getEm().persist(agenda);
+			this.commit();
+		} catch (Exception e) {
+			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
+		}
 		this.deconnexion();
 		return agenda;
 	}
@@ -91,8 +112,13 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 	@Override
 	public Agenda readEvenement(Integer ID_Agenda) {
 		this.connexion();
-		Agenda a = this.getEm().find(Agenda.class, ID_Agenda);
-		System.out.println(a);
+		Agenda a = new Agenda();
+		try {
+			a = this.getEm().find(Agenda.class, ID_Agenda);
+			System.out.println(a);
+		} catch (Exception e) {
+			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
+		}
 		this.deconnexion();
 		return a;
 	}
