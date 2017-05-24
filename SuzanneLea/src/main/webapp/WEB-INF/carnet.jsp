@@ -24,6 +24,7 @@
         <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
         <a href="dashboard" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord</a>
         <a href="carnet" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-address-book" aria-hidden="true"></i> Carnet d'adresses</a>
+        <a href="carnetpartenaires" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-address-book" aria-hidden="true"></i> Carnet Part</a>
         <a href="compterendu" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-clipboard" aria-hidden="true"></i> Comptes Rendus</a>
         <a href="agenda" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-calendar" aria-hidden="true"></i> Agenda</a>
         <a href="deconnexion" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-times" aria-hidden="true"></i> Déconnexion</a>
@@ -43,26 +44,6 @@
 
           <div class="w3-container">
             <ul>
-              <li class="w3-padding-16">
-                <span onclick="this.parentElement.style.display='none'" class="w3-button w3-white w3-xlarge w3-right">&times;</span>
-                <img src="images/avatar.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
-                <span class="w3-large">Mike</span><br>
-                <span>Médecin</span>
-              </li>
-              <li class="w3-padding-16">
-                <span onclick="this.parentElement.style.display='none'" class="w3-button w3-white w3-xlarge w3-right">&times;</span>
-                <img src="images/avatar.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
-                <span class="w3-large">Lise</span><br>
-                <span>Proche</span>
-              </li>
-              
-              <li class="w3-padding-16">
-                <span onclick="this.parentElement.style.display='none'" class="w3-button w3-white w3-xlarge w3-right">&times;</span>
-                <img src="images/avatar.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
-                <span class="w3-large">Arnaud</span><br>
-                <span>Plombier</span>
-              </li>
-
 				<li>
 				<p>Liste des aidants proches</p> 
 					<c:forEach items="${aidantsProches}" var="aidant">
