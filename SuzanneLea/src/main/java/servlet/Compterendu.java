@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.CompteRendu;
 import dao.CompteRenduDAO;
+import service.AideeService;
 
 
 //@WebServlet("/Compterendu")
@@ -26,14 +27,13 @@ public class Compterendu extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
-		Integer ID = (Integer) session.getAttribute("ID_Aidee");
-		System.out.println(ID);
+		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
 		
-		List<CompteRendu> listeCR = new ArrayList<CompteRendu>(CompteRenduDAO.getInstance().comptesRendusAidee(1));
+		List listeCR = AideeService.getInstance().allCR(IDAidee);
+		request.setAttribute("allCR", listeCR);
 		
-		request.setAttribute("comptesRendus", listeCR);
-		System.out.println(listeCR);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/compterendu.jsp").forward (request, response);
 	}
 	

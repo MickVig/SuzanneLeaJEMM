@@ -1,6 +1,7 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import bean.Personne;
 import dao.AgendaDAO;
 import dao.AidantDAO;
 import dao.AideeDAO;
+import dao.CompteRenduDAO;
 import dao.PersonneDAO;
 import dao.RelationDAO;
 
@@ -74,15 +76,25 @@ public class AideeService implements IAideeService {
 	
 	
 	/*
-	 * Recuperer la liste de tous les evenements d'un aidee
+	 * Recuperer la liste de tous les evenements d'un aidee (a partir de l'ID de l'aidee)
 	 */
 	
 	public List allRDV (Integer IDAidee){
 		List allRDV = AgendaDAO.getInstance().readAllEvenement(IDAidee);
-		System.out.println("allRDV");
-		System.out.println(allRDV);
 		return allRDV;
 	}
+	
+	
+	/*
+	 * Recuperer la liste de tous les CR d'un aidee (a partir de l'ID de l'aidee)
+	 */
+	
+	public List allCR (Integer IDAidee) {
+		List allCR = CompteRenduDAO.getInstance().comptesRendusAidee(IDAidee);
+		return allCR;
+	}
+	
+	
 	
 	
 	/*
@@ -126,14 +138,40 @@ public class AideeService implements IAideeService {
 		
 		//recuperer la date
 		//DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-		//Date date = new Date();
+		Date date = new Date();
 		//String date2 = sdf.format(date);
 		
 		
 		//creer un evenement
-		//AgendaDAO.getInstance().createEvenement(date2, titre, contenu, IDAidee, IDAidant);
+		AgendaDAO.getInstance().createEvenement(date, titre, contenu, IDAidee, IDAidant);
 		
 	}
+	
+	/*
+	 * Ajouter un nouveau CR depuis le formulaire de saisie addCR
+	 */
+	
+	public void addCR (HttpServletRequest request, HttpServletResponse response) {
+		
+		//recuperation des donnees saisies dans le formulaire
+		String commentaire = request.getParameter("contenu");
+		
+		//recuperer l'ID de l'aidant
+		
+		
+		//recuperer l'ID de l'aidee
+		HttpSession session = request.getSession();
+		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
+		
+		//recuperer la date
+		Date date = new Date();
+		
+		
+		//creer un CR
+		//CompteRenduDAO.getInstance().createCompteRendu(date, commentaire, iD_Aidant, IDAidee);
+	
+	}
+	
 	
 	
 	

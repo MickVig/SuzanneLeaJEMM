@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.AideeService;
+
 
 //@WebServlet("/AddCR")
 public class AddCR extends HttpServlet {
@@ -25,8 +27,8 @@ public class AddCR extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		doGet(request, response);
+		AideeService.getInstance().addCR(request,response);
+		response.sendRedirect("compterendu");
 	}
 
 }

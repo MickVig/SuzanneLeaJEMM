@@ -16,11 +16,15 @@ public interface IAideeService {
 	
 	public List allRDV (Integer IDAidee);
 	
+	public List allCR (Integer IDAidee) ;
+	
 	public Personne procheReferent (Integer IDAidee);
 	
 	public Personne medecinReferent (Integer IDAidee);
 	
 	public void addEvent (HttpServletRequest request, HttpServletResponse response) ;
+	
+	public void addCR (HttpServletRequest request, HttpServletResponse response);
 	
 	
 }

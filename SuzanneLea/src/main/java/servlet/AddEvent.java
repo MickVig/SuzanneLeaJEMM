@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import service.AidantService;
+import service.AideeService;
 
 
 //@WebServlet("/AddEvent")
@@ -35,8 +36,8 @@ public class AddEvent extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
+		AideeService.getInstance().addEvent(request,response);
+		response.sendRedirect("agenda");
 	}
 
 }
