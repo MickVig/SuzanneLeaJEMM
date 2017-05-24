@@ -42,7 +42,6 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 			System.out.println(listeCR);
 			// Création liste CR tout récupérer dans les CR (date, commentaire,
 			// ID_aidee, ID_aidant)
-			System.out.println(listeCR.size());
 			for (int i = 0; i < listeCR.size(); i++) {
 				List CompteRenduListe = new ArrayList();
 				CompteRendu cr = listeCR.get(i);
@@ -76,14 +75,15 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 			// ID_aidee, ID_aidant)
 
 			for (int i = 0; i < listeCR.size(); i++) {
-				List CompteRendu = new ArrayList();
+				List CompteRenduListe = new ArrayList();
 				CompteRendu cr = listeCR.get(i);
-				CompteRendu.add(cr.getDate());
-				CompteRendu.add(cr.getCommentaire());
-				CompteRendu.add(cr.getAidant());
-				CompteRendu.add(cr.getAidee());
-
-				ComptesRendus.add(CompteRendu);
+				CompteRenduListe.add(cr.getDate());
+				CompteRenduListe.add(cr.getCommentaire());
+				if(cr.getAidant()!=null) {
+					CompteRenduListe.add(cr.getAidant().getPersonne());
+				}
+				CompteRenduListe.add(cr.getAidee().getPersonne());
+				ComptesRendus.add(CompteRenduListe);
 			}
 			this.commit();
 		} catch (Exception e) {
