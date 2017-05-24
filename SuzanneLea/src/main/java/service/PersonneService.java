@@ -104,7 +104,7 @@ public class PersonneService implements IPersonneService {
 	}
 
 	/*
-	 * Inscription d'un nouvel aidant pour un aidee
+	 * Inscription d'un nouvel aidant pour un aidee : méthode deplacee dans AideeService
 	 */
 		/*public void inscriptionAidant (HttpServletRequest request, HttpServletResponse response) {
 			

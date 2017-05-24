@@ -58,7 +58,6 @@ public class AideeService implements IAideeService {
 		}
 	
 	
-	
 	/*
 	 * Recuperer la liste de tous les aidants d'un aidee (choisi avec son ID) sauf le referent
 	 */
@@ -89,6 +88,18 @@ public class AideeService implements IAideeService {
 		return medecinReferent;
 	}
 	
+	/*
+	 * Ajouter un nouvel évènement depuis le formulaire de saisie addEvent
+	 */
 	
+	public void addEvent (HttpServletRequest request, HttpServletResponse response) {
+		
+		//recuperation des donnees saisies dans le formulaire
+		String titre = request.getParameter("titre");
+		String contenu = request.getParameter("contenu");
+		String accompagnant = request.getParameter("accompagnant");
+		
+		
+	}
 	
 }

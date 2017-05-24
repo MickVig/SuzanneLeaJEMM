@@ -42,6 +42,33 @@ public class AidantService implements IAidantService{
 				
 	}
 	
+	public List<?> allAidantsByType(Integer IDType) {
+		List aidants = new ArrayList();
+		List<Personne> personnes = AidantDAO.getInstance().readAllAidantType(IDType); 
+		for(int i=0; i<personnes.size();i++){
+			List a = new ArrayList();
+			Personne p=personnes.get(i);
+			
+			Integer ID_Aidant = AidantDAO.getInstance().readAidantByPersonne(p.getID());
+			
+			a.add(ID_Aidant);
+			
+			a.add(p.getID());
+			a.add(p.getNom());
+			a.add(p.getPrenom());
+    		
+			aidants.add(a);
+		}
+		System.out.println(aidants);
+		return aidants;
+				
+	}
+	
+	
+	
+	
+	
+	
 	
 
 }
