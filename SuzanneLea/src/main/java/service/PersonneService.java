@@ -25,9 +25,8 @@ public class PersonneService implements IPersonneService {
 		}
 		return instance;
 	}
-	
+
 	Integer IDAidee;
-	
 
 	/////// Méthodes \\\\\\\
 	@Override
@@ -35,37 +34,42 @@ public class PersonneService implements IPersonneService {
 
 		String mail = request.getParameter("mail");
 		String mdp = request.getParameter("mdp");
-		
-		String messagelogin=FormulaireService.getInstance().verifLogin(mail, mdp);
-		request.setAttribute("messagelogin", messagelogin);
+		HttpSession session = request.getSession();
+		Boolean verifOK = FormulaireService.getInstance().verifLogin(mail, mdp, request);
 
-		/* Envoi vers PersonneDAO pour récupérer la personne si personne existe
-		 * La mettre en session et renvoyer true 
-		 * Sinon retourner false
-		 * Une fois la personne en session, recuperer l'ID AIdee à partir de l'ID personne avec la methode 
-		 * readAideeByPersonne
-		 * ID Aidee utilisee pour creer relation quand ajout d'un nouvel aidant
-		 */
-		Personne p = PersonneDAO.getInstance().personneExiste(mail, mdp);
+		if (verifOK) {
+			/*
+			 * Envoi vers PersonneDAO pour récupérer la personne si personne
+			 * existe La mettre en session et renvoyer true Sinon retourner
+			 * false Une fois la personne en session, recuperer l'ID AIdee à
+			 * partir de l'ID personne avec la methode readAideeByPersonne ID
+			 * Aidee utilisee pour creer relation quand ajout d'un nouvel aidant
+			 */
+			Personne p = PersonneDAO.getInstance().personneExiste(mail, mdp);
+			System.out.println(p);
+			if (p.getID() != null) {
 
-		if (p != null) {
-		
-			HttpSession session = request.getSession();
-			session.setAttribute("personne", p);
-			IDAidee = AideeDAO.getInstance().readAideeByPersonne(p.getID());
-			session.setAttribute("IDAidee", IDAidee);
-			
-			System.out.println("connexion OK");
-			return true;
+				session.setAttribute("personne", p);
+				IDAidee = AideeDAO.getInstance().readAideeByPersonne(p.getID());
+				session.setAttribute("IDAidee", IDAidee);
+
+				System.out.println("connexion OK");
+				return true;
+			} else {
+				System.out.println("erreur pas de personne");
+				return false;
+			}
 
 		} else {
-			System.out.println("erreur");
+			System.out.println("erreur de login");
+			System.out.println(session.getAttribute("messageLogin"));
 			return false;
 		}
 	}
 
-	//Inscription d'un aidee et de son aidant referent
+	// Inscription d'un aidee et de son aidant referent
 	public void inscription(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
 
 		// Personne aidee
 		String nom = request.getParameter("nom");
@@ -75,6 +79,8 @@ public class PersonneService implements IPersonneService {
 		String mail = request.getParameter("mail");
 		String mdp = request.getParameter("mdp");
 
+		Boolean verifAideeOK = FormulaireService.getInstance().verifInscription(nom, prenom, adresse, tel, mail, mdp,
+				request);
 		// Personne aidant
 		String nomref = request.getParameter("nomref");
 		String prenomref = request.getParameter("prenomref");
@@ -83,51 +89,66 @@ public class PersonneService implements IPersonneService {
 		String mailref = request.getParameter("mailref");
 		String mdpref = request.getParameter("mdpref");
 
-		/* On créé les 2 personnes à partir des 2 méthodes create des classes
+		Boolean verifRefOK = FormulaireService.getInstance().verifInscription(nomref, prenomref, adresseref, telref,
+				mailref, mdpref, request);
+
+		/*
+		 * On créé les 2 personnes à partir des 2 méthodes create des classes
 		 * DAO on différencie en aidee et aidant
 		 */
-		Personne pAidant = PersonneDAO.getInstance().createPersonne(nomref, prenomref, mailref, adresseref, telref, mdpref);
-		Personne pAidee = PersonneDAO.getInstance().createPersonne(nom, prenom, mail, adresse, tel, mdp);
+		if (verifAideeOK && verifRefOK) {
+			Personne pAidant = PersonneDAO.getInstance().createPersonne(nomref, prenomref, mailref, adresseref, telref,
+					mdpref);
+			Personne pAidee = PersonneDAO.getInstance().createPersonne(nom, prenom, mail, adresse, tel, mdp);
 
-		/* Créer la personne aidee et la personne aidant à partir des 2
-		 * personnes crees au dessus
-		 * En attibut, penser à mettre l'ID_Type en proche ID_Type = 1
-		 */
-		 Aidant aidant = AidantDAO.getInstance().createAidant(pAidant.getID(),1);
-		 Aidee aidee = AideeDAO.getInstance().createAidee(pAidee.getID());
+			/*
+			 * Créer la personne aidee et la personne aidant à partir des 2
+			 * personnes crees au dessus En attibut, penser à mettre l'ID_Type
+			 * en proche ID_Type = 1
+			 */
+			Aidant aidant = AidantDAO.getInstance().createAidant(pAidant.getID(), 1);
+			Aidee aidee = AideeDAO.getInstance().createAidee(pAidee.getID());
 
-		/* Creer la relation aidee referent proche */
-		 RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), aidee.getID_Aidee(), true);
-		 
-		 /* Creer la relation aidee referent medecin */
-		 Integer ID_medecin = Integer.valueOf(request.getParameter("medecin"));
-		 System.out.println(ID_medecin);
-		 RelationDAO.getInstance().createRelation(ID_medecin, aidee.getID_Aidee(), true);
-		 
+			/* Creer la relation aidee referent proche */
+			RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), aidee.getID_Aidee(), true);
+
+			/* Creer la relation aidee referent medecin */
+			Integer ID_medecin = Integer.valueOf(request.getParameter("medecin"));
+			System.out.println(ID_medecin);
+			RelationDAO.getInstance().createRelation(ID_medecin, aidee.getID_Aidee(), true);
+		} else {
+			System.out.println("erreur de login");
+			System.out.println(session.getAttribute("messageinscription"));
+		}
 	}
 
 	/*
-	 * Inscription d'un nouvel aidant pour un aidee : méthode deplacee dans AideeService
+	 * Inscription d'un nouvel aidant pour un aidee : méthode deplacee dans
+	 * AideeService
 	 */
-		/*public void inscriptionAidant (HttpServletRequest request, HttpServletResponse response) {
-			
-			//recuperation des donnees saisies dans le formulaire creation aidant
-			String nom = request.getParameter("nom");
-			String prenom = request.getParameter("prenom");
-			String adresse = request.getParameter("adresse");
-			String tel = request.getParameter("tel");
-			String mail = request.getParameter("mail");
-			String mdp = request.getParameter("mdp");
-			
-			//On créé une personne à partir des infos recuperees du formulaire
-			Personne pAidant = PersonneDAO.getInstance().createPersonne(nom, prenom, mail, adresse, tel, mdp);
-			
-			//Creer la personne Aidant 
-			Aidant aidant = AidantDAO.getInstance().createAidant(pAidant.getID(), 1);
-			
-			//Creer la relation aidee - aidant proche
-			 RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), IDAidee, false);
-		
-		}*/
+	/*
+	 * public void inscriptionAidant (HttpServletRequest request,
+	 * HttpServletResponse response) {
+	 * 
+	 * //recuperation des donnees saisies dans le formulaire creation aidant
+	 * String nom = request.getParameter("nom"); String prenom =
+	 * request.getParameter("prenom"); String adresse =
+	 * request.getParameter("adresse"); String tel =
+	 * request.getParameter("tel"); String mail = request.getParameter("mail");
+	 * String mdp = request.getParameter("mdp");
+	 * 
+	 * //On créé une personne à partir des infos recuperees du formulaire
+	 * Personne pAidant = PersonneDAO.getInstance().createPersonne(nom, prenom,
+	 * mail, adresse, tel, mdp);
+	 * 
+	 * //Creer la personne Aidant Aidant aidant =
+	 * AidantDAO.getInstance().createAidant(pAidant.getID(), 1);
+	 * 
+	 * //Creer la relation aidee - aidant proche
+	 * RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), IDAidee,
+	 * false);
+	 * 
+	 * }
+	 */
 
 }

@@ -2,6 +2,9 @@ package service;
 
 import java.util.regex.Pattern;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 public class FormulaireService implements IFormulaireService {
 	/////// SINGLETON \\\\\\\
 	private static IFormulaireService instance = null;
@@ -17,28 +20,26 @@ public class FormulaireService implements IFormulaireService {
 	}
 
 	/////// Méthodes \\\\\\\
-	public String verifLogin(String mail, String mdp) {
+	public Boolean verifLogin(String mail, String mdp, HttpServletRequest request) {
 		Boolean b=true;
-		String message;
+		HttpSession session = request.getSession();
 		if (Pattern.matches("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)+$", mail) != true) {
 			b = false;
+			
 		} else if (mdp.length() < 4) {
 			b = false;
 		}
-		
-		if(b) {
-			message="connexion réussie";
+		if(!b){
+			session.setAttribute("messageLogin", "Erreur de saisie : vérifier le mail et le mot de passe");
 		}
-		else {
-			message="L'adresse mail ou le mot de passe ne correspondent pas";
-		}
-		return message;
+		return b;
 	}
 
 	//verifier que les champs du formulaire inscription est rempli
-	public String verifInscription(String nom, String prenom, String adresse, String tel, String mail, String mdp) {
+	public Boolean verifInscription(String nom, String prenom, String adresse, String tel, String mail, String mdp,HttpServletRequest request) {
 		Boolean b=true;
-		String message="formulaire correctement rempli";
+		HttpSession session = request.getSession();
+		String message="";
 		if (Pattern.matches("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)+$", mail) != true) {
 			b = false;
 			message="L'adresse mail ou le mot de passe ne correspondent pas";
@@ -57,8 +58,9 @@ public class FormulaireService implements IFormulaireService {
 		}else if (tel.length()<10) {
 			b=false;
 			message="Remplir le champ telephone";
-		}		
+		}	
+		session.setAttribute("messageinscription", message);
 		System.out.println(message);
-		return message;
+		return b;
 	}
 }

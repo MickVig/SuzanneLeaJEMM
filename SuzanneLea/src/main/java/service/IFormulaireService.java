@@ -1,5 +1,7 @@
 package service;
 
+import javax.servlet.http.HttpServletRequest;
+
 public interface IFormulaireService {
 
 	/**
@@ -8,7 +10,7 @@ public interface IFormulaireService {
 	 * @param mdp : regarder si le mot de passe a au moins 5 caractères
 	 * @return envoyé message selon login ok ou non
 	 */
-	public String verifLogin(String mail, String mdp);
+	public Boolean verifLogin(String mail, String mdp, HttpServletRequest request);
 	
 	/**
 	 * verifier que le formulaire inscription a ses champs bien rempli
@@ -20,5 +22,5 @@ public interface IFormulaireService {
 	 * @param mdp
 	 * @return
 	 */
-	public String verifInscription(String nom, String prenom, String adresse, String tel, String mail, String mdp);
+	public Boolean verifInscription(String nom, String prenom, String adresse, String tel, String mail, String mdp,HttpServletRequest request);
 }
