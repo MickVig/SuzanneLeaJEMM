@@ -88,11 +88,12 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 			List<?> liste = requete.getResultList();
 
 			// on cree une nouvelle liste avec les personnes aidantes
-
-			Relation r = (Relation) liste.get(0);
-			Aidant a = r.getAidant();
-			p = a.getPersonne();
-			System.out.println(p);
+			if (liste.size() != 0) {
+				Relation r = (Relation) liste.get(0);
+				Aidant a = r.getAidant();
+				p = a.getPersonne();
+				System.out.println(p);
+			}
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
@@ -137,7 +138,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	@Override
 	public Aidee readAidee(Integer id) {
 		this.connexion();
-		Aidee a =new Aidee();
+		Aidee a = new Aidee();
 		try {
 			a = this.getEm().find(Aidee.class, id);
 			System.out.println(a);
