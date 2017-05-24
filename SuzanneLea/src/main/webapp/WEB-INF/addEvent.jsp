@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -25,7 +24,7 @@
               <h2>Ajout d'un évènement</h2>
           </div>
           <div class="w3-container w3-white w3-col s10">
-            <form id="addEven" class="w3-container " method="post" action="">
+            <form id="addEvent" class="w3-container " method="post" action="">
 
               <label for="titre" class="w3-text-teal"><b>Titre</b></label>
               <input class="w3-input w3-border w3-light-grey" id="titre" name="titre" type="text" >

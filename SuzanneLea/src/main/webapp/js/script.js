@@ -32,7 +32,7 @@ function initbtn(){
 	
 	$("#btnaddevent").on('click',function(){
 		console.log("formulaire ajout evenement");
-		$(location).attr('href',"addEven");
+		$(location).attr('href',"addEvent");
 	})
 	
 	$("#btnaddcr").on('click',function(){
