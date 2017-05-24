@@ -27,12 +27,13 @@ public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
 	@Override	
 	public Personne personneExiste(String mail, String mdp) {
 		this.connexion();
-				
+		Personne p=new Personne();	
     	Query requete=this.getEm().createQuery("SELECT p FROM Personne p WHERE p.email='"+mail+"' AND p.mdp='"+mdp+"'");
     	
     	List<?> liste = requete.getResultList();
-    	Personne p = (Personne) liste.get(0);
-    	System.out.println(p);
+    	if(liste.size()!=0) {
+    		p = (Personne) liste.get(0);
+    	}
 		this.commit();
 		this.deconnexion();
     	return p;

@@ -35,6 +35,9 @@ public class PersonneService implements IPersonneService {
 
 		String mail = request.getParameter("mail");
 		String mdp = request.getParameter("mdp");
+		
+		String messagelogin=FormulaireService.getInstance().verifLogin(mail, mdp);
+		request.setAttribute("messagelogin", messagelogin);
 
 		/* Envoi vers PersonneDAO pour récupérer la personne si personne existe
 		 * La mettre en session et renvoyer true 
