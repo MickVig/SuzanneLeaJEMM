@@ -104,21 +104,16 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 			for (int i = 0; i < 1; i++) {
 				
 				CompteRendu cr = listeCR.get(i);
-				CompteRenduListe.add(cr.getDate());
-				System.out.println(cr.getDate());
-				CompteRenduListe.add(cr.getCommentaire());
+				CompteRenduListe.add(cr);
+				CompteRenduListe.add(cr.getAidee().getPersonne());	
 				if(cr.getAidant()!=null) {
 					CompteRenduListe.add(cr.getAidant().getPersonne());
 				}
-				
-				CompteRenduListe.add(cr.getAidee().getPersonne());	
-				System.out.println(CompteRenduListe);
 			}
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
 		this.deconnexion();
-		System.out.println("CR : "+ CompteRenduListe);
 		return CompteRenduListe;
 	}
 
