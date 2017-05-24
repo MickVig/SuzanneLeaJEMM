@@ -30,7 +30,7 @@
               <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="mail" value="ginette.menut@gmail.com">
 
               <label for="mdp" class="w3-text-teal"><b>Mot de passe</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="text" value="aide1">
+              <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="password" value="aide1">
 
               <button class="w3-btn w3-blue-grey">Se Connecter</button>
             </form>
