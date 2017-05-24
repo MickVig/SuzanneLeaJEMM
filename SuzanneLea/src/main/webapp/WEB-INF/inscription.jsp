@@ -27,49 +27,49 @@
           <div class="w3-col s1">
           </div>
           <div class="w3-container w3-white w3-col s10">
-          ${messageinscription}
+          
           <form id="formaidee" class="w3-container w3-col s10" method="post" action="">
-            	
+            	${messageInscriptionAidee}
               <h3>La personne à aider</h3>
-              <label for="nom" class="w3-text-teal"><b>Nom</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="nom" name="nom" type="text" >
+              <label for="nom" class="w3-text-teal"}><b>Nom</b></label>
+              <input class="w3-input w3-border w3-light-grey" id="nom" name="nom" type="text" value="${nom1}">
 
               <label for="prenom" class="w3-text-teal"><b>Prénom</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="prenom" name="prenom" type="text" >
+              <input class="w3-input w3-border w3-light-grey" id="prenom" name="prenom" type="text" value="${prenom1}">
 
               <label for="adresse" class="w3-text-teal"><b>Adresse</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="adresse" name="adresse" type="text">
+              <input class="w3-input w3-border w3-light-grey" id="adresse" name="adresse" type="text" value="${adresse1}">
 
               <label for="tel" class="w3-text-teal"><b>Téléphone</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="tel" name="tel" type="text">
+              <input class="w3-input w3-border w3-light-grey" id="tel" name="tel" type="text" value="${telephone1}">
 
               <label for="mail" class="w3-text-teal"><b>Mail</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="mail">
+              <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="mail" value="${mail1}">
 
               <label for="mdp" class="w3-text-teal"><b>Mot de passe</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="text">
+              <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="password">
             
               <br>
               <hr>
-
+			  ${messageInscriptionRef}
               <h3>La personne référente</h3>
               <label for="nomref" class="w3-text-teal"><b>Nom</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="nomref" name="nomref" type="text" >
+              <input class="w3-input w3-border w3-light-grey" id="nomref" name="nomref" type="text" value="${nomref1}" >
 
               <label for="prenomref" class="w3-text-teal"><b>Prénom</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="prenomref" name="prenomref" type="text" >
+              <input class="w3-input w3-border w3-light-grey" id="prenomref" name="prenomref" type="text"  value="${prenomref1}">
 
               <label for="adresseref" class="w3-text-teal"><b>Adresse</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="adresseref" name="adresseref" type="text">
+              <input class="w3-input w3-border w3-light-grey" id="adresseref" name="adresseref" type="text" value="${adresseref1}">
 
               <label for="telref" class="w3-text-teal"><b>Téléphone</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="telref" name="telref" type="text">
+              <input class="w3-input w3-border w3-light-grey" id="telref" name="telref" type="text" value="${telephoneref1}">
 
               <label for="mailref" class="w3-text-teal"><b>Mail</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="mailref" name="mailref" type="mail">
+              <input class="w3-input w3-border w3-light-grey" id="mailref" name="mailref" type="mail" value="${mailref1}">
 
               <label for="mdpref" class="w3-text-teal"><b>Mot de passe</b></label>
-              <input class="w3-input w3-border w3-light-grey" id="mdpref" name="mdpref" type="text">
+              <input class="w3-input w3-border w3-light-grey" id="mdpref" name="mdpref" type="password">
           
               <br>
               <hr>

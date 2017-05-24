@@ -38,6 +38,17 @@ public class Inscription extends HttpServlet {
 			response.sendRedirect("login");
 		}
 		else {
+			request.setAttribute("nom1", request.getParameter("nom"));
+			request.setAttribute("prenom1", request.getParameter("prenom"));
+			request.setAttribute("adresse1", request.getParameter("adresse"));
+			request.setAttribute("telephone1", request.getParameter("tel"));
+			request.setAttribute("mail1", request.getParameter("mail"));
+			
+			request.setAttribute("nomref1", request.getParameter("nomref"));
+			request.setAttribute("prenomref1", request.getParameter("prenomref"));
+			request.setAttribute("adresseref1", request.getParameter("adresseref"));
+			request.setAttribute("telephoneref1", request.getParameter("telref"));
+			request.setAttribute("mailref1", request.getParameter("mailref"));
 			this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward (request, response);
 		}
 			

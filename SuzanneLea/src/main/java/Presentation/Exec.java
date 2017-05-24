@@ -4,6 +4,7 @@ import java.util.List;
 
 import bean.Agenda;
 import dao.AgendaDAO;
+import dao.AideeDAO;
 import service.FormulaireService;
 import service.PersonneService;
 
@@ -19,9 +20,7 @@ public class Exec {
 		String adresse="10 r";
 		String tel="0214325612";
 		
-		FormulaireService.getInstance().verifInscription(nom, prenom, adresse, tel, mail, mdp);
 		
-		System.out.println("fait");
 		
 
 	}

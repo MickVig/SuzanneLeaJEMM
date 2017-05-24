@@ -42,10 +42,10 @@ public class FormulaireService implements IFormulaireService {
 		String message="";
 		if (nom.length()<3) {
 			b = false;
-			message="Le nom doit avoir au moins 3 carcatères";
+			message="Le nom doit avoir au moins 3 caractères";
 		} else if (prenom.length()<3) {
 			b=false;
-			message="Le prennom doit avoir au moins 3 carcatères";
+			message="Le prenom doit avoir au moins 3 caractères";
 		} else if (adresse.length()<10) {
 			b=false;
 			message="Remplir le champ adresse";

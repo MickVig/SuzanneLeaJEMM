@@ -81,6 +81,10 @@ public class PersonneService implements IPersonneService {
 
 		Boolean verifAideeOK = FormulaireService.getInstance().verifInscription(nom, prenom, adresse, tel, mail, mdp,
 				request);
+		if (!verifAideeOK) {
+			String messageInscriptionAidee=(String) session.getAttribute("messageinscription");
+			session.setAttribute("messageInscriptionAidee", messageInscriptionAidee);
+		}
 		// Personne aidant
 		String nomref = request.getParameter("nomref");
 		String prenomref = request.getParameter("prenomref");
@@ -91,7 +95,10 @@ public class PersonneService implements IPersonneService {
 
 		Boolean verifRefOK = FormulaireService.getInstance().verifInscription(nomref, prenomref, adresseref, telref,
 				mailref, mdpref, request);
-
+		if (!verifRefOK) {
+			String messageInscriptionRef=(String) session.getAttribute("messageinscription");
+			session.setAttribute("messageInscriptionRef", messageInscriptionRef);
+		}
 		/*
 		 * On créé les 2 personnes à partir des 2 méthodes create des classes
 		 * DAO on différencie en aidee et aidant
