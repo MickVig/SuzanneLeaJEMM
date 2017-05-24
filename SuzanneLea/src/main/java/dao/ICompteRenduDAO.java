@@ -44,4 +44,11 @@ public interface ICompteRenduDAO {
 	 */
 	public CompteRendu readCompteRendu(Integer id);
 
+	/**
+	 * Afficher le dernier compte rendu concernant un aidee
+	 * @param Id_Aidee
+	 * @return
+	 */
+	public List lastCompteRendu(Integer Id_Aidee);
+
 }
