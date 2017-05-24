@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -41,16 +42,18 @@
             <ul class="w3-ul">
             	<c:forEach items="${comptesRendus}" var="compterendu">
               <li>
-			<c:set var="count" value="0"/>
-			<c:set var="count" value="${count + 1}"/>
+			<!--<c:set var="count" value="0"/>
+			<c:set var="count" value="${count + 1}"/> -->
                 <h3>CR N°${count}</h3>
-                <p>Auteur : ${aidee.get(1)}</p>
-                <p>Contenu : ${compterendu.get(1)}</p>
+                <% SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd"); %>
+                <p> Date : ${compterendu.get(0)}</p>
+                <p> Auteur : ${compterendu.get(2)}</p>
+                <p> Contenu : ${compterendu.get(1)}</p>
                 <!--  <p>Contenu : Duis ut orci non tortor faucibus egestas. Nullam aliquet massa in dictum hendrerit. Fusce dignissim ex vulputate hendrerit tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a lacus efficitur, eleifend mauris vitae, consequat risus. Integer feugiat massa ac ultrices suscipit. Cras rutrum nisl nec ligula vestibulum gravida.</p>
               -->
               </li>
               </c:forEach>
-              <!--<li>
+              <!-- <li>
                 <h3>CR N°3</h3>
                 <p>Auteur : Marc</p>
                 <p>Contenu : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non varius nisi. Maecenas euismod libero nec augue euismod imperdiet. Maecenas a dui ac augue sollicitudin lobortis eget eget est. Sed gravida urna leo, ut vehicula nibh molestie nec. Suspendisse nunc ante, gravida non lacus non, tristique porttitor mi. Vestibulum dictum posuere cursus. Ut molestie mi sed euismod sollicitudin. Mauris fermentum commodo metus.</p>
@@ -65,7 +68,7 @@
                 <p>Auteur : Marc</p>
                 <p>Contenu : Duis ut orci non tortor faucibus egestas. Nullam aliquet massa in dictum hendrerit. Fusce dignissim ex vulputate hendrerit tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a lacus efficitur, eleifend mauris vitae, consequat risus. Integer feugiat massa ac ultrices suscipit. Cras rutrum nisl nec ligula vestibulum gravida.</p>
               </li>
-                 -->
+                -->
             </ul>
           </div>
       </div>
