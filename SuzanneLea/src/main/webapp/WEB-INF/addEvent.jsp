@@ -41,11 +41,13 @@
 				
 			<label for="datepicker" class="w3-text-teal"><b>Date</b></label>
 			<input class="w3-input w3-border w3-light-grey" id="datepicker" name="datepicker" type="text"> 
+			
 			<div class="w3-row">
 				<label for="heure" class="w3-text-teal"><b>Heure</b></label><br>
 				<input class="w3-input w3-border w3-light-grey w3-quarter" id="heure" name="heure" type="text">
 				<input class="w3-input w3-border w3-light-grey w3-quarter" id="minute" name="minute" type="text"> 
 			</div>
+			
 			<label for="contenu" class="w3-text-teal"><b>Contenu</b></label>
 			<textarea id="contenu" name="contenu" class="w3-input w3-border" placeholder="Vous pouvez faire votre compte rendu"></textarea>
 
