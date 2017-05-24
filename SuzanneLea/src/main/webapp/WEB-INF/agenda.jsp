@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -63,6 +63,31 @@
                 <p>Aidant : Nicolas</p>
                 <p>Contenu : Duis ut orci non tortor faucibus egestas. Nullam aliquet massa in dictum hendrerit. Fusce dignissim ex vulputate hendrerit tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a lacus efficitur, eleifend mauris vitae, consequat risus. Integer feugiat massa ac ultrices suscipit. Cras rutrum nisl nec ligula vestibulum gravida.</p>
               </li>
+              
+              <li>
+				<h3>Liste de tous les évènements</h3> 
+				
+					<c:forEach items="${allRDV}" var="rdv">
+						<ul>
+							<li>Titre : ${rdv.get(0).titre} </li>
+							<li>Date : ${rdv.get(0).date} </li>
+							<c:if test = "${rdv.size()>1}">
+         						<li>Nom : ${rdv.get(1)}</li>
+         						<li>Prénom : ${rdv.get(2)}</li>
+      						</c:if>
+							<li>Contenu : ${rdv.get(0).contenu}</li>
+						</ul>
+						<br/>
+					</c:forEach>
+				</li>
+              
+              
+              
+              
+              
+              
+              
+              
             </ul>
           </div>
       </div>

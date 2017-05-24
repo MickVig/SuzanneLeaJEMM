@@ -64,8 +64,10 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 				List l=new ArrayList();
 				Agenda a = (Agenda) liste.get(i);
 				l.add(a);
-				l.add(a.getAidant().getPersonne().getNom());
-				l.add(a.getAidant().getPersonne().getPrenom());
+				if(a.getAidant()!=null){
+					l.add(a.getAidant().getPersonne().getNom());
+					l.add(a.getAidant().getPersonne().getPrenom());
+				}
 				listeAgenda.add(l);
 				System.out.println(l);
 			}

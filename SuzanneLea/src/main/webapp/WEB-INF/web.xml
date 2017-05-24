@@ -70,8 +70,8 @@
     <url-pattern>/carnet</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Agenda</servlet-name>
-    <servlet-class>servlet.Agenda</servlet-class>
+    <servlet-name>Calendrier</servlet-name>
+    <servlet-class>servlet.Calendrier</servlet-class>
     <init-param>
       <param-name>auteur</param-name>
       <param-value>Emilie</param-value>
@@ -79,7 +79,7 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Agenda</servlet-name>
+    <servlet-name>Calendrier</servlet-name>
     <url-pattern>/agenda</url-pattern>
   </servlet-mapping>
   <servlet>

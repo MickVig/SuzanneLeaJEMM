@@ -1,14 +1,13 @@
 package service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.Agenda;
 import bean.Aidant;
 import bean.Personne;
 import dao.AgendaDAO;
@@ -16,6 +15,7 @@ import dao.AidantDAO;
 import dao.AideeDAO;
 import dao.PersonneDAO;
 import dao.RelationDAO;
+
 
 public class AideeService implements IAideeService {
 	
@@ -72,6 +72,50 @@ public class AideeService implements IAideeService {
 	}
 	
 	
+	
+	/*
+	 * Recuperer la liste de tous les evenements d'un aidee
+	 */
+	
+	public List allRDV (Integer IDAidee){
+		List liste = AgendaDAO.getInstance().readAllEvenement2(IDAidee);
+		System.out.println(liste);
+		/*List allRDV = new ArrayList();
+		System.out.println("coucou");
+		
+		
+		
+		for(int i=0; i<liste.size(); i++){
+			List rdv = new ArrayList();
+			Agenda ag = liste.get(i);
+			System.out.println(ag);
+			
+			rdv.add(ag.getID_Agenda());
+			rdv.add(ag.getTitre());
+			rdv.add(ag.getDate());
+			rdv.add(ag.getContenu());
+			
+			if(ag.getAidant().getID_Aidant()!= null){
+				System.out.println("aidant non null");
+				Aidant aidant = ag.getAidant();
+				
+				System.out.println(aidant.getPersonne().getNom());
+				
+				Personne p = aidant.getPersonne();
+				
+				System.out.println(p);
+				rdv.add(p.getNom());
+				rdv.add(p.getPrenom());
+			}
+
+			
+			allRDV.add(rdv);
+		}
+		System.out.println(allRDV);*/
+		return liste;
+	}
+	
+	
 	/*
 	 * Recuperer le proche referent d'un aidee
 	 */
@@ -121,5 +165,7 @@ public class AideeService implements IAideeService {
 		//AgendaDAO.getInstance().createEvenement(date2, titre, contenu, IDAidee, IDAidant);
 		
 	}
+	
+	
 	
 }
