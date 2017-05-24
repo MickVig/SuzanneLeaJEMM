@@ -24,6 +24,7 @@
         <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
         <a href="dashboard" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord</a>
         <a href="carnet" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-address-book" aria-hidden="true"></i> Carnet d'adresses</a>
+        <a href="carnetpartenaires" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-address-book" aria-hidden="true"></i> Carnet Part</a>
         <a href="compterendu" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-clipboard" aria-hidden="true"></i> Comptes Rendus</a>
         <a href="agenda" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-calendar" aria-hidden="true"></i> Agenda</a>
         <a href="deconnexion" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-times" aria-hidden="true"></i> Déconnexion</a>
@@ -39,30 +40,7 @@
           </div> 
           <div class="w3-container">
             <ul class="w3-ul">
-              <li>
-                <h3>Titre : RDV Medecin</h3>
-                <p>Auteur : Jeanne</p>
-                <p>Aidant : Nicolas</p>
-                <p>Contenu : Duis ut orci non tortor faucibus egestas. Nullam aliquet massa in dictum hendrerit. Fusce dignissim ex vulputate hendrerit tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a lacus efficitur, eleifend mauris vitae, consequat risus. Integer feugiat massa ac ultrices suscipit. Cras rutrum nisl nec ligula vestibulum gravida.</p>
-              </li>
-              <li>
-                <h3>Titre : Visite de Marc</h3>
-                <p>Auteur : Marc</p>
-                <p>Aidant : Marc</p>
-                <p>Contenu : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non varius nisi. Maecenas euismod libero nec augue euismod imperdiet. Maecenas a dui ac augue sollicitudin lobortis eget eget est. Sed gravida urna leo, ut vehicula nibh molestie nec. Suspendisse nunc ante, gravida non lacus non, tristique porttitor mi. Vestibulum dictum posuere cursus. Ut molestie mi sed euismod sollicitudin. Mauris fermentum commodo metus.</p>
-              </li>
-              <li>
-                <h3>Titre : Loto</h3>
-                <p>Auteur : Jeanne</p>
-                <p>Aidant : Loic</p>
-                <p>Contenu : Proin quis metus ipsum. Curabitur sed pretium nulla. Aenean porta tortor in massa imperdiet, vitae efficitur nunc tincidunt. Aenean quis sodales lacus, aliquet venenatis lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse ac iaculis velit, a iaculis felis. Aenean non dictum lorem. Praesent a nibh tristique, porttitor sapien consectetur, euismod tortor. Vestibulum tristique lectus vitae ex laoreet vestibulum sit amet sollicitudin dolor.</p>
-              </li>
-              <li>
-                <h3>Titre : Sortie Cinéma avec Nicolas</h3>
-                <p>Auteur : Nicolas</p>
-                <p>Aidant : Nicolas</p>
-                <p>Contenu : Duis ut orci non tortor faucibus egestas. Nullam aliquet massa in dictum hendrerit. Fusce dignissim ex vulputate hendrerit tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a lacus efficitur, eleifend mauris vitae, consequat risus. Integer feugiat massa ac ultrices suscipit. Cras rutrum nisl nec ligula vestibulum gravida.</p>
-              </li>
+           
               
               <li>
 				<h3>Liste de tous les évènements</h3> 

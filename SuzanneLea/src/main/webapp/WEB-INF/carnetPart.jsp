@@ -64,14 +64,64 @@
               </li>
               
               <li>
-				<p>Liste des aidants partenaires</p> 
-					
-					<c:forEach items="${partenaires}" var="medecin">
+				<h3>Liste des aidants partenaires</h3> 
+					<h3>Médecins</h3>
+					<c:forEach items="${medecins}" var="medecin">
 						<ul>
-							<li>NOM et PRENOM : ${medecin.get(2)} ${medecin.get(3)}</li>
+							<li>Nom et Prénom : ${medecin.get(2)} ${medecin.get(3)}</li>
 							<li>Adresse : ${medecin.get(4)}</li>
 							<li>Téléphone : ${medecin.get(5)}</li>
 							<li>Email : ${medecin.get(6)}</li>
+						</ul>
+						<br/>
+					</c:forEach>
+					<h3>Infirmiers</h3>
+					<c:forEach items="${infirmiers}" var="infirmier">
+						<ul>
+							<li>Nom et Prénom : ${infirmier.get(2)} ${infirmier.get(3)}</li>
+							<li>Adresse : ${infirmier.get(4)}</li>
+							<li>Téléphone : ${infirmier.get(5)}</li>
+							<li>Email : ${infirmier.get(6)}</li>
+						</ul>
+						<br/>
+					</c:forEach>
+					<h3>Taxis</h3>
+					<c:forEach items="${taxis}" var="taxi">
+						<ul>
+							<li>Nom et Prénom : ${taxi.get(2)} ${taxi.get(3)}</li>
+							<li>Adresse : ${taxi.get(4)}</li>
+							<li>Téléphone : ${taxi.get(5)}</li>
+							<li>Email : ${taxi.get(6)}</li>
+						</ul>
+						<br/>
+					</c:forEach>
+					<h3>Plombiers</h3>
+					<c:forEach items="${plombiers}" var="plombier">
+						<ul>
+							<li>Nom et Prénom : ${plombier.get(2)} ${plombier.get(3)}</li>
+							<li>Adresse : ${plombier.get(4)}</li>
+							<li>Téléphone : ${plombier.get(5)}</li>
+							<li>Email : ${plombier.get(6)}</li>
+						</ul>
+						<br/>
+					</c:forEach>
+					<h3>Électriciens</h3>
+					<c:forEach items="${electriciens}" var="electricien">
+						<ul>
+							<li>Nom et Prénom : ${electricien.get(2)} ${electricien.get(3)}</li>
+							<li>Adresse : ${electricien.get(4)}</li>
+							<li>Téléphone : ${electricien.get(5)}</li>
+							<li>Email : ${electricien.get(6)}</li>
+						</ul>
+						<br/>
+					</c:forEach>
+					<h3>Serruriers</h3>
+					<c:forEach items="${serruriers}" var="serrurier">
+						<ul>
+							<li>Nom et Prénom : ${serrurier.get(2)} ${serrurier.get(3)}</li>
+							<li>Adresse : ${serrurier.get(4)}</li>
+							<li>Téléphone : ${serrurier.get(5)}</li>
+							<li>Email : ${serrurier.get(6)}</li>
 						</ul>
 						<br/>
 					</c:forEach>
