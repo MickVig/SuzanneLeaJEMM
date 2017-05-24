@@ -40,14 +40,8 @@ public class FormulaireService implements IFormulaireService {
 		Boolean b=true;
 		HttpSession session = request.getSession();
 		String message="";
-		if (Pattern.matches("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)+$", mail) != true) {
+		if (nom.length()<3) {
 			b = false;
-			message="L'adresse mail ou le mot de passe ne correspondent pas";
-		} else if (mdp.length() < 4) {
-			b = false;
-			message="L'adresse mail ou le mot de passe ne correspondent pas";
-		} else if (nom.length()<3) {
-			b=false;
 			message="Le nom doit avoir au moins 3 carcatères";
 		} else if (prenom.length()<3) {
 			b=false;
@@ -58,7 +52,13 @@ public class FormulaireService implements IFormulaireService {
 		}else if (tel.length()<10) {
 			b=false;
 			message="Remplir le champ telephone";
-		}	
+		} else if (Pattern.matches("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)+$", mail) != true) {
+			b=false;
+			message="L'adresse mail ou le mot de passe ne correspondent pas";
+		} else if (mdp.length() < 4) {
+			b = false;
+			message="L'adresse mail ou le mot de passe ne correspondent pas";
+		}
 		session.setAttribute("messageinscription", message);
 		System.out.println(message);
 		return b;

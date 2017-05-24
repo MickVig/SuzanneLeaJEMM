@@ -68,7 +68,7 @@ public class PersonneService implements IPersonneService {
 	}
 
 	// Inscription d'un aidee et de son aidant referent
-	public void inscription(HttpServletRequest request, HttpServletResponse response) {
+	public Boolean inscription(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 
 		// Personne aidee
@@ -116,9 +116,11 @@ public class PersonneService implements IPersonneService {
 			Integer ID_medecin = Integer.valueOf(request.getParameter("medecin"));
 			System.out.println(ID_medecin);
 			RelationDAO.getInstance().createRelation(ID_medecin, aidee.getID_Aidee(), true);
+			return true;
 		} else {
-			System.out.println("erreur de login");
+			System.out.println("erreur dans l'inscription");
 			System.out.println(session.getAttribute("messageinscription"));
+			return false;
 		}
 	}
 
