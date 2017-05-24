@@ -55,7 +55,7 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 		Query requete=this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.type.ID_Type="+ID_Type);   	
     	List<?> liste = requete.getResultList();
     	
-    	//on cree une nouvelle liste avec les informations qui nous intéresse
+    	//on cree une nouvelle liste de personne
     	List<Personne> listePersonne = new ArrayList<Personne>();
     	for (int i=0; i<liste.size(); i++) {
 			Aidant a=(Aidant) liste.get(i);
