@@ -77,7 +77,6 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 			
 			ComptesRendus.add(CompteRendu);
 		}
-		System.out.println(ComptesRendus);
 		this.commit();
 		this.deconnexion();
 		return ComptesRendus;

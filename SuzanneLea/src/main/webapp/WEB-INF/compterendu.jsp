@@ -39,17 +39,18 @@
           </div> 
           <div class="w3-container">
             <ul class="w3-ul">
+            	<c:forEach items="${comptesRendus}" var="compterendu">
               <li>
-                <h3>CR N°4</h3>
-                	<select class="w3-select" name="compterendu">
-						<c:forEach items="${compterendu}" var="compterendu">
-							<option value="${compterendu.get(0)}"></option>
-						</c:forEach>
-                	</select>
-                <p>Auteur : Jeanne</p>
-                <p>Contenu : Duis ut orci non tortor faucibus egestas. Nullam aliquet massa in dictum hendrerit. Fusce dignissim ex vulputate hendrerit tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a lacus efficitur, eleifend mauris vitae, consequat risus. Integer feugiat massa ac ultrices suscipit. Cras rutrum nisl nec ligula vestibulum gravida.</p>
+			<c:set var="count" value="0"/>
+			<c:set var="count" value="${count + 1}"/>
+                <h3>CR N°${count}</h3>
+                <p>Auteur : ${aidee.get(1)}</p>
+                <p>Contenu : ${compterendu.get(1)}</p>
+                <!--  <p>Contenu : Duis ut orci non tortor faucibus egestas. Nullam aliquet massa in dictum hendrerit. Fusce dignissim ex vulputate hendrerit tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a lacus efficitur, eleifend mauris vitae, consequat risus. Integer feugiat massa ac ultrices suscipit. Cras rutrum nisl nec ligula vestibulum gravida.</p>
+              -->
               </li>
-              <li>
+              </c:forEach>
+              <!--<li>
                 <h3>CR N°3</h3>
                 <p>Auteur : Marc</p>
                 <p>Contenu : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non varius nisi. Maecenas euismod libero nec augue euismod imperdiet. Maecenas a dui ac augue sollicitudin lobortis eget eget est. Sed gravida urna leo, ut vehicula nibh molestie nec. Suspendisse nunc ante, gravida non lacus non, tristique porttitor mi. Vestibulum dictum posuere cursus. Ut molestie mi sed euismod sollicitudin. Mauris fermentum commodo metus.</p>
@@ -64,6 +65,7 @@
                 <p>Auteur : Marc</p>
                 <p>Contenu : Duis ut orci non tortor faucibus egestas. Nullam aliquet massa in dictum hendrerit. Fusce dignissim ex vulputate hendrerit tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a lacus efficitur, eleifend mauris vitae, consequat risus. Integer feugiat massa ac ultrices suscipit. Cras rutrum nisl nec ligula vestibulum gravida.</p>
               </li>
+                 -->
             </ul>
           </div>
       </div>

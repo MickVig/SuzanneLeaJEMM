@@ -32,7 +32,7 @@ public class Compterendu extends HttpServlet {
 		
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>(CompteRenduDAO.getInstance().comptesRendusAidee(1));
 		
-		request.setAttribute("Comptesrendus", listeCR);
+		request.setAttribute("comptesRendus", listeCR);
 		System.out.println(listeCR);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/compterendu.jsp").forward (request, response);
 	}
