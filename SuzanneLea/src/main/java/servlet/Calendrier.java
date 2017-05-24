@@ -32,9 +32,9 @@ public class Calendrier extends HttpServlet {
 		System.out.println(IDAidee);
 		
 		List liste = AideeService.getInstance().allRDV(IDAidee);
-		System.out.println("liste récupéreée");
+		
 		request.setAttribute("allRDV", liste);
-		System.out.println("allRDV ok");
+	
 		this.getServletContext().getRequestDispatcher("/WEB-INF/agenda.jsp").forward (request, response);
 	}
 

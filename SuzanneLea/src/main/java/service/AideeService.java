@@ -78,41 +78,10 @@ public class AideeService implements IAideeService {
 	 */
 	
 	public List allRDV (Integer IDAidee){
-		List liste = AgendaDAO.getInstance().readAllEvenement2(IDAidee);
-		System.out.println(liste);
-		/*List allRDV = new ArrayList();
-		System.out.println("coucou");
-		
-		
-		
-		for(int i=0; i<liste.size(); i++){
-			List rdv = new ArrayList();
-			Agenda ag = liste.get(i);
-			System.out.println(ag);
-			
-			rdv.add(ag.getID_Agenda());
-			rdv.add(ag.getTitre());
-			rdv.add(ag.getDate());
-			rdv.add(ag.getContenu());
-			
-			if(ag.getAidant().getID_Aidant()!= null){
-				System.out.println("aidant non null");
-				Aidant aidant = ag.getAidant();
-				
-				System.out.println(aidant.getPersonne().getNom());
-				
-				Personne p = aidant.getPersonne();
-				
-				System.out.println(p);
-				rdv.add(p.getNom());
-				rdv.add(p.getPrenom());
-			}
-
-			
-			allRDV.add(rdv);
-		}
-		System.out.println(allRDV);*/
-		return liste;
+		List allRDV = AgendaDAO.getInstance().readAllEvenement(IDAidee);
+		System.out.println("allRDV");
+		System.out.println(allRDV);
+		return allRDV;
 	}
 	
 	

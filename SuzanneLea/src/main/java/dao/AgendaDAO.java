@@ -26,30 +26,7 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 
 	/////// Autres Requetes \\\\\\\
 	// Recuperer tous les evenement d'une personne aidee
-	public List<Agenda> readAllEvenement(Integer ID_Aidee) {
-		this.connexion();
-		List<Agenda> listeAgenda = new ArrayList<Agenda>();
-		try {
-			// On selectionne les aidants d'un certain type
-			Query requete = this.getEm().createQuery("SELECT a FROM Agenda a WHERE a.aidee.ID_Aidee=" + ID_Aidee);
-			List<Agenda> liste = requete.getResultList();
-
-			// on cree une nouvelle liste avec les informations qui nous
-			// intéresse
-
-			for (int i = 0; i < liste.size(); i++) {
-				Agenda a = (Agenda) liste.get(i);
-				listeAgenda.add(a);
-				System.out.println(a.getTitre()+" : "+a.getContenu()+", "+a.getAidant());
-			}
-		} catch (Exception e) {
-			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
-		}
-		this.deconnexion();
-		return listeAgenda;
-	}
-	
-	public List readAllEvenement2(Integer ID_Aidee) {
+	public List readAllEvenement(Integer ID_Aidee) {
 		this.connexion();
 		List listeAgenda = new ArrayList<Agenda>();
 		try {
@@ -63,10 +40,10 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 			for (int i = 0; i < liste.size(); i++) {
 				List l=new ArrayList();
 				Agenda a = (Agenda) liste.get(i);
+				a.getAidant();
 				l.add(a);
 				if(a.getAidant()!=null){
-					l.add(a.getAidant().getPersonne().getNom());
-					l.add(a.getAidant().getPersonne().getPrenom());
+					l.add(a.getAidant().getPersonne());
 				}
 				listeAgenda.add(l);
 				System.out.println(l);

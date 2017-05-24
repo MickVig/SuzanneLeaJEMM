@@ -72,8 +72,7 @@
 							<li>Titre : ${rdv.get(0).titre} </li>
 							<li>Date : ${rdv.get(0).date} </li>
 							<c:if test = "${rdv.size()>1}">
-         						<li>Nom : ${rdv.get(1)}</li>
-         						<li>Prénom : ${rdv.get(2)}</li>
+         						<li>Aidant : ${rdv.get(1).getNom()} ${rdv.get(1).getPrenom()}</li>
       						</c:if>
 							<li>Contenu : ${rdv.get(0).contenu}</li>
 						</ul>
