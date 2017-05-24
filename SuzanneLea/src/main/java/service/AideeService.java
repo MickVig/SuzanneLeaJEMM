@@ -1,9 +1,21 @@
 package service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.Aidant;
 import bean.Personne;
+import dao.AgendaDAO;
+import dao.AidantDAO;
 import dao.AideeDAO;
+import dao.PersonneDAO;
+import dao.RelationDAO;
 
 public class AideeService implements IAideeService {
 	
@@ -22,6 +34,33 @@ public class AideeService implements IAideeService {
 	
 	
 	//Méthodes
+	
+	/*
+	 * Inscription d'un nouvel aidant pour un aidee
+	 */
+		public void inscriptionAidant (HttpServletRequest request, HttpServletResponse response) {
+			HttpSession session = request.getSession();
+			Integer IDAidee = (Integer) session.getAttribute("IDAidee");
+			
+			/*recuperation des donnees saisies dans le formulaire creation aidant*/
+			String nom = request.getParameter("nom");
+			String prenom = request.getParameter("prenom");
+			String adresse = request.getParameter("adresse");
+			String tel = request.getParameter("tel");
+			String mail = request.getParameter("mail");
+			String mdp = request.getParameter("mdp");
+			
+			/*On créé une personne à partir des infos recuperees du formulaire*/
+			Personne pAidant = PersonneDAO.getInstance().createPersonne(nom, prenom, mail, adresse, tel, mdp);
+			
+			/*Creer la personne Aidant */
+			Aidant aidant = AidantDAO.getInstance().createAidant(pAidant.getID(), 1);
+			
+			/*Creer la relation aidee - aidant proche*/
+			 RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), IDAidee, false);
+		
+		}
+	
 	
 	/*
 	 * Recuperer la liste de tous les aidants d'un aidee (choisi avec son ID) sauf le referent
@@ -53,6 +92,34 @@ public class AideeService implements IAideeService {
 		return medecinReferent;
 	}
 	
+	/*
+	 * Ajouter un nouvel évènement depuis le formulaire de saisie addEvent
+	 */
 	
+	public void addEvent (HttpServletRequest request, HttpServletResponse response) {
+		
+		//recuperation des donnees saisies dans le formulaire
+		String titre = request.getParameter("titre");
+		String contenu = request.getParameter("contenu");
+		String accompagnant = request.getParameter("accompagnant");
+		
+		//pour récupérer l'ID_Aidant de l'aidant (accompagnant) sélectionné dans le formulaire
+		Integer IDAidant = Integer.valueOf(request.getParameter("accompagnant"));
+		System.out.println(IDAidant);
+		
+		//pour recuperer l'ID_Aidee de la personne qui s'est connectée pour ajouter un évènement
+		HttpSession session = request.getSession();
+		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
+		
+		//recuperer la date
+		//DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+		//Date date = new Date();
+		//String date2 = sdf.format(date);
+		
+		
+		//creer un evenement
+		//AgendaDAO.getInstance().createEvenement(date2, titre, contenu, IDAidee, IDAidant);
+		
+	}
 	
 }

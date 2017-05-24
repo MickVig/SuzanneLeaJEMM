@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -25,10 +25,16 @@
               <h2>Ajout d'un évènement</h2>
           </div>
           <div class="w3-container w3-white w3-col s10">
-            <form id="addEven" class="w3-container " method="post" action="">
+            <form id="addEvent" class="w3-container " method="post" action="">
 
               <label for="titre" class="w3-text-teal"><b>Titre</b></label>
               <input class="w3-input w3-border w3-light-grey" id="titre" name="titre" type="text" >
+			
+			<label for="date" class="w3-text-teal"><b>Date</b></label>
+             <input class="w3-input w3-border w3-light-grey" id="date" name="date" type="date" >
+
+			<label for="time" class="w3-text-teal"><b>Heure</b></label>
+             <input class="w3-input w3-border w3-light-grey" id="time" name="time" type="time" >
 
               <label for="contenu" class="w3-text-teal"><b>Contenu</b></label>
               <textarea id="contenu" name="contenu" class="w3-input w3-border" placeholder="Vous pouvez faire votre compte rendu"></textarea>
@@ -36,9 +42,9 @@
               <label for="accompagnant" class="w3-text-teal"><b>Accompagnant</b></label>
               <select class="w3-select" name="accompagnant" id="accompagnant">
                 <option value="" disabled selected>Choisir un accompagnant</option>
-                <option value="1">Accompagnant 1</option>
-                <option value="2">Accompagnant 2</option>
-                <option value="3">Accompagnant 3</option>
+                <c:forEach items="${proches}" var="aidant">
+                	<option value="${aidant.get(0)}"> ${aidant.get(2)} ${aidant.get(3)} </option>
+                </c:forEach>
               </select>
 
               <button class="w3-btn w3-blue-grey">Enregistrer</button>

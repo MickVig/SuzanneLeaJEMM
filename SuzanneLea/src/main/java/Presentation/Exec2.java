@@ -1,11 +1,16 @@
 package Presentation;
 
+import java.util.Date;
+
+import dao.CompteRenduDAO;
+import dao.ICompteRenduDAO;
+
 public class Exec2 {
 
 	public static void main(String[] args) {
-		
+	/*	
 		//lire les CR écrits dans la BDD
-		/*ICompteRenduDAO dao = CompteRenduDAO.getInstance();
+		ICompteRenduDAO dao = CompteRenduDAO.getInstance();
 		System.out.println(dao.readCompteRendu(1));
 		System.out.println(dao.readCompteRendu(2));
 		System.out.println(dao.readCompteRendu(3));
@@ -24,8 +29,8 @@ public class Exec2 {
 		Date DateCR = new Date();
 		//écrire CR dans BDD
 		dao.createCompteRendu(DateCR, "blablabla", 2, 1);
-
+*/
 		
-		*/
+		
 	}
 }

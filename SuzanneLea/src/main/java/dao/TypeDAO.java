@@ -21,7 +21,6 @@ public class TypeDAO extends ConnexionDAO implements ITypeDAO {
 		return instance;
 	}
 
-
 	/////// CRUD \\\\\\\
 
 	/*
@@ -30,10 +29,14 @@ public class TypeDAO extends ConnexionDAO implements ITypeDAO {
 	public Type createType(String type) {
 		this.connexion();
 		Type t = new Type();
-		t.setType(type);
-		this.getEm().persist(t);
-		System.out.println(t);
-		this.commit();
+		try {
+			t.setType(type);
+			this.getEm().persist(t);
+			System.out.println(t);
+			this.commit();
+		} catch (Exception e) {
+			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
+		}
 		this.deconnexion();
 		return t;
 
@@ -45,10 +48,15 @@ public class TypeDAO extends ConnexionDAO implements ITypeDAO {
 	@Override
 	public Type readType(Integer id) {
 		this.connexion();
-		Query requete=this.getEm().createQuery("SELECT t FROM Type t where t.ID_Type =" + id);
-		List<?> liste = requete.getResultList();
-    	Type t = (Type) liste.get(0);
-		this.commit();
+		Type t = new Type();
+		try {
+			Query requete = this.getEm().createQuery("SELECT t FROM Type t where t.ID_Type =" + id);
+			List<?> liste = requete.getResultList();
+			t = (Type) liste.get(0);
+			this.commit();
+		} catch (Exception e) {
+			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
+		}
 		this.deconnexion();
 		return t;
 	}
