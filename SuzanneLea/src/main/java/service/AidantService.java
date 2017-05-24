@@ -5,6 +5,7 @@ import java.util.List;
 
 import bean.Personne;
 import dao.AidantDAO;
+import dao.AideeDAO;
 
 public class AidantService implements IAidantService{
 	
@@ -42,6 +43,9 @@ public class AidantService implements IAidantService{
 				
 	}
 	
+	/*
+	 * Méthode pour lister tous les aidants selon le type de l'aidant (proche, artisan, medecin....)
+	 */
 	public List<?> allAidantsByType(Integer IDType) {
 		List aidants = new ArrayList();
 		List<Personne> personnes = AidantDAO.getInstance().readAllAidantType(IDType); 
@@ -64,7 +68,30 @@ public class AidantService implements IAidantService{
 				
 	}
 	
-	
+	/*
+	 * Méthode pour lister tous les aidants proches d'un aidee
+	 */
+	public List<?> allProchesByAidee(Integer IDAidee) {
+		List proches = new ArrayList();
+		List<Personne> personnes = AideeDAO.getInstance().allAidant(IDAidee); 
+		for(int i=0; i<personnes.size();i++){
+			List proches2 = new ArrayList();
+			Personne p=personnes.get(i);
+			
+			Integer ID_Aidant = AidantDAO.getInstance().readAidantByPersonne(p.getID());
+			
+			proches2.add(ID_Aidant);
+			
+			proches2.add(p.getID());
+			proches2.add(p.getNom());
+			proches2.add(p.getPrenom());
+    		
+			proches.add(proches2);
+		}
+		System.out.println(proches);
+		return proches;
+				
+	}
 	
 	
 	

@@ -100,6 +100,13 @@ public class AideeService implements IAideeService {
 		String accompagnant = request.getParameter("accompagnant");
 		
 		
+		
+		
+		
+		
+		
+		//creer un evenement
+		
 	}
 	
 }

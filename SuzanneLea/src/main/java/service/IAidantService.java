@@ -8,6 +8,8 @@ public interface IAidantService {
 	
 	public List<?> allAidantsByType(Integer IDType);
 	
+	public List<?> allProchesByAidee(Integer IDAidee);
+	
 	
 
 }

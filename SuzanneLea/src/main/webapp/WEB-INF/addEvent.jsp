@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -35,9 +36,9 @@
               <label for="accompagnant" class="w3-text-teal"><b>Accompagnant</b></label>
               <select class="w3-select" name="accompagnant" id="accompagnant">
                 <option value="" disabled selected>Choisir un accompagnant</option>
-                <option value="1">Accompagnant 1</option>
-                <option value="2">Accompagnant 2</option>
-                <option value="3">Accompagnant 3</option>
+                <c:forEach items="${proches}" var="aidant">
+                	<option value="${aidant.get(0)}"> ${aidant.get(2)} ${aidant.get(3)} </option>
+                </c:forEach>
               </select>
 
               <button class="w3-btn w3-blue-grey">Enregistrer</button>
