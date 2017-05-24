@@ -9,12 +9,18 @@ public interface IAideeDAO {
 	
 	/////// Autres Requetes \\\\\\\
 	/**
-	 * Fonction pour récupérer la liste de tout les aidants d'un aidee sauf le referent proche
+	 * Fonction pour récupérer la liste de tous les aidants d'un aidee sauf le referent proche
 	 * @param id		le numéro unique de l'aidee
 	 * @return			la liste des aidants
 	 */
 	public List<Personne> allAidant(Integer id);
 	
+	/**
+	 * Recuperer tous les aidants d'un aidee même le referent
+	 * @param ID_Aidee
+	 * @return
+	 */
+	public List<Personne> allAidantAvecRef(Integer ID_Aidee);
 	/**
 	 * 
 	 * @param ID_Aidee
