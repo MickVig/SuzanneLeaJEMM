@@ -26,29 +26,10 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 	
 	/////// Autres Requetes \\\\\\\
 	
+
+	//Recuperer tous les proches d'un aidee
 	@Override
-	public List<Personne> allAidant(Integer id) {
-		this.connexion();
-		//On selectionne les aidants d'un certain type
-		Query requete=this.getEm().createQuery("SELECT r FROM Relation r WHERE r.aidee.ID_Aidee="+id+"AND r.referent=0");	
-		List<?> liste = requete.getResultList();
-		    	
-		//on cree une nouvelle liste avec les personnes aidantes
-		List<Personne> resultat = new ArrayList<Personne>();
-		    for (int i=0; i<liste.size(); i++) {
-		    	Personne p=new Personne();
-		    	Relation r=(Relation) liste.get(i);
-		    	Aidant a=r.getAidant();
-		    	p=a.getPersonne();
-		    	System.out.println(p);
-		    	resultat.add(p);
-		    }
-		this.deconnexion();
-		return resultat;
-	}
-	
-	@Override
-	public List<Personne> allAidantAvecRef(Integer ID_Aidee) {
+	public List<Personne> allAidant(Integer ID_Aidee) {
 		this.connexion();
 		//On selectionne les aidants d'un certain type
 		Query requete=this.getEm().createQuery("SELECT r FROM Relation r WHERE r.aidee.ID_Aidee="+ID_Aidee);	
@@ -68,6 +49,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		return resultat;
 	}
 	
+	//Recuperer la personne proche referente
 	public Personne readProcheRef(Integer ID_Aidee) {
 		this.connexion();
 		//On selectionne les aidants d'un certain type
@@ -84,6 +66,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		return p;
 	}
 	
+	//Recuperer la personne medecin referent
 	public Personne readMedecinRef(Integer ID_Aidee) {
 		this.connexion();
 		//On selectionne les aidants d'un certain type
@@ -100,6 +83,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		return p;
 	}
 	
+	//Lire un aidee à partir d'un personne
 	public Integer readAideeByPersonne(Integer ID_Personne) {
 		this.connexion();
 		//Personne p1 = this.getEm().find(Personne.class, ID_Personne);TODO à supprimer ??

@@ -13,18 +13,12 @@ public interface IAideeDAO {
 	 * @param id		le numéro unique de l'aidee
 	 * @return			la liste des aidants
 	 */
-	public List<Personne> allAidant(Integer id);
+	public List<Personne> allAidant(Integer ID_Aidee);
 	
 	/**
 	 * Recuperer tous les aidants d'un aidee même le referent
 	 * @param ID_Aidee
 	 * @return
-	 */
-	public List<Personne> allAidantAvecRef(Integer ID_Aidee);
-	/**
-	 * 
-	 * @param ID_Aidee
-	 * @return on récupère la personne proche référente de la personne Aidee
 	 */
 	public Personne readProcheRef(Integer ID_Aidee);
 	
