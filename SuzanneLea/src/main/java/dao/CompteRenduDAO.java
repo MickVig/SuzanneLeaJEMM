@@ -146,7 +146,9 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 		try {
 			cr.setDate(date);
 			cr.setCommentaire(commentaire);
-			cr.setAidant(AidantDAO.getInstance().readAidant(ID_Aidant));
+			if(ID_Aidant!=null){
+				cr.setAidant(AidantDAO.getInstance().readAidant(ID_Aidant));
+			}
 			cr.setAidee(AideeDAO.getInstance().readAidee(ID_Aidee));
 			this.getEm().persist(cr);
 

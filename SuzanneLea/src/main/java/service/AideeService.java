@@ -137,10 +137,8 @@ public class AideeService implements IAideeService {
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
 
 		// recuperer la date
-		// DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		Date date = new Date();
-		// String date2 = sdf.format(date);
-
+	
 		// creer un evenement
 		AgendaDAO.getInstance().createEvenement(date, titre, contenu, IDAidee, IDAidant);
 	}
@@ -154,18 +152,22 @@ public class AideeService implements IAideeService {
 		// recuperation des donnees saisies dans le formulaire
 		String commentaire = request.getParameter("contenu");
 
-		// recuperer l'ID de l'aidant
-
 		// recuperer l'ID de l'aidee
 		HttpSession session = request.getSession();
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
-
+		
+		// recuperer l'ID de l'aidant
+		Integer IDAidant = null;
+		if (session.getAttribute("IDAidant")!=null) {
+			 IDAidant = (Integer) session.getAttribute("IDAidant");
+			
+		}
+		
 		// recuperer la date
 		Date date = new Date();
 
 		// creer un CR
-		// CompteRenduDAO.getInstance().createCompteRendu(date, commentaire,
-		// iD_Aidant, IDAidee);
+		 CompteRenduDAO.getInstance().createCompteRendu(date, commentaire, IDAidant, IDAidee);
 
 	}
 	
