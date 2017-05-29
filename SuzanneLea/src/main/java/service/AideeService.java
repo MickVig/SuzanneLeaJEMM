@@ -159,8 +159,7 @@ public class AideeService implements IAideeService {
 		Date date = new Date();
 
 		// creer un CR
-		// CompteRenduDAO.getInstance().createCompteRendu(date, commentaire,
-		// iD_Aidant, IDAidee);
+		// CompteRenduDAO.getInstance().createCompteRendu(date, commentaire, iD_Aidant, IDAidee);
 
 	}
 
