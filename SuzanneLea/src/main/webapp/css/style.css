@@ -1,9 +1,7 @@
-
 /******** Générale Dashboard (layout) ********/
 
-.w3-main h1, h2{
+h1, h2, h3, h4{
   text-align: center
-  /*margin-left: 200px;*/
 }
 
 #menu ul{
@@ -45,12 +43,13 @@ section{
 	font-weight: bold;
 }
 
-/*** Page comptes rendus ***/
+/*** Liste ***/
 .liste{
 	width: 80%;
 	margin: 0 auto;
 }
 .liste>li{
+	padding:0;
 	margin-bottom: 2%;
 }
 .liste>li:nth-of-type(odd){
@@ -60,6 +59,19 @@ section{
 .liste>li:nth-of-type(even){
 	background-color:#8bc34a;
 }
+.liste>li>ul{
+	border: 2px solid #ffc107;
+}
+.liste>li>ul>li:first-of-type{
+	background-color:#ffc107;
+}
+
+/*** Liste 2nd niveau ***/
+.liste2{
+	width: 80%;
+	margin: 4% auto;
+}
+
 
 /*** Formulaires générale ***/
 form{

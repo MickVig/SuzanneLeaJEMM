@@ -83,8 +83,8 @@
                 <li>
                     <h4>Médecins</h4>
                     <c:forEach items="${medecins}" var="medecin">
-                      <ul class="w3-ul">
-                        <li>Nom et Prénom : ${medecin.get(2)} ${medecin.get(3)}</li>
+                      <ul class="w3-ul liste2">
+                        <li>${medecin.get(2)} ${medecin.get(3)}</li>
                         <li>Adresse : ${medecin.get(4)}</li>
                         <li>Téléhone : ${medecin.get(5)}</li>
                         <li>Email : ${medecin.get(6)}</li>
@@ -94,8 +94,8 @@
                 <li>
                     <h4>Infirmiers</h4>
                     <c:forEach items="${infirmiers}" var="infirmier">
-                      <ul class="w3-ul">
-                        <li>Nom et Prénom : ${infirmier.get(2)} ${infirmier.get(3)}</li>
+                      <ul class="w3-ul liste2">
+                        <li>${infirmier.get(2)} ${infirmier.get(3)}</li>
                         <li>Adresse : ${infirmier.get(4)}</li>
                         <li>Téléhone : ${infirmier.get(5)}</li>
                         <li>Email : ${infirmier.get(6)}</li>
@@ -105,8 +105,8 @@
                 <li>
                     <h4>Taxis</h4>
                     <c:forEach items="${taxis}" var="taxi">
-                      <ul class="w3-ul">
-                       <li>Nom et Prénom : ${taxi.get(2)} ${taxi.get(3)}</li>
+                      <ul class="w3-ul liste2">
+                       <li>${taxi.get(2)} ${taxi.get(3)}</li>
                        <li>Adresse : ${taxi.get(4)}</li>
                         <li>Téléhone : ${taxi.get(5)}</li>
                        <li>Email : ${taxi.get(6)}</li>
@@ -116,8 +116,8 @@
                 <li>
                     <h4>Plombiers</h4>
                     <c:forEach items="${plombiers}" var="plombier">
-                      <ul class="w3-ul">
-                        <li>Nom et Prénom : ${plombier.get(2)} ${plombier.get(3)}</li>
+                      <ul class="w3-ul liste2">
+                        <li>${plombier.get(2)} ${plombier.get(3)}</li>
                         <li>Adresse : ${plombier.get(4)}</li>
                         <li>Téléhone : ${plombier.get(5)}</li>
                         <li>Email : ${plombier.get(6)}</li>
@@ -127,8 +127,8 @@
                 <li>
                     <h4>Electriciens</h4>
                     <c:forEach items="${electriciens}" var="electricien">
-                      <ul class="w3-ul">
-                        <li>Nom et Prénom : ${electricien.get(2)} ${electricien.get(3)}</li>
+                      <ul class="w3-ul liste2">
+                        <li>${electricien.get(2)} ${electricien.get(3)}</li>
                         <li>Adresse : ${electricien.get(4)}</li>
                         <li>Téléhone : ${electricien.get(5)}</li>
                         <li>Email : ${electricien.get(6)}</li>
@@ -138,8 +138,8 @@
                 <li>
                     <h4>Serruriers</h4>
                     <c:forEach items="${serruriers}" var="serrurier">
-                      <ul class="w3-ul">
-                        <li>Nom et Prénom : ${serrurier.get(2)} ${serrurier.get(3)}</li>
+                      <ul class="w3-ul liste2">
+                        <li>${serrurier.get(2)} ${serrurier.get(3)}</li>
                         <li>Adresse : ${serrurier.get(4)}</li>
                         <li>Téléhone : ${serrurier.get(5)}</li>
                         <li>Email : ${serrurier.get(6)}</li>
