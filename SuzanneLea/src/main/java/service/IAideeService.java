@@ -26,5 +26,8 @@ public interface IAideeService {
 	
 	public void addCR (HttpServletRequest request, HttpServletResponse response);
 	
+	public List lastCompteRendu(Integer Id_Aidee);
+	
+	public Agenda nextEvenement(Integer Id_Aidee);
 	
 }

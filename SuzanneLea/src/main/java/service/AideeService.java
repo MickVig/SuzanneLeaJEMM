@@ -168,5 +168,13 @@ public class AideeService implements IAideeService {
 		// iD_Aidant, IDAidee);
 
 	}
+	
+	public List lastCompteRendu(Integer Id_Aidee) {
+		return CompteRenduDAO.getInstance().lastCompteRendu(Id_Aidee);
+	}
+	
+	public Agenda nextEvenement(Integer Id_Aidee){
+		return AgendaDAO.getInstance().nextEvenement(Id_Aidee);
+	}
 
 }
