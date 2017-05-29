@@ -56,7 +56,7 @@ function initbtn(){
 
 	$("#btnlogout").on('click',function(){
 		console.log("formulaire ajout aidant");
-		$(location).attr('href',"index");
+		$(location).attr('href',"deconnexion");
 	})
 	
 

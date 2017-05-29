@@ -25,11 +25,8 @@ public class Calendrier extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("la redirection vers agenda est OK");
-		
 		HttpSession session = request.getSession();
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
-		System.out.println(IDAidee);
 		
 		List liste = AideeService.getInstance().allRDV(IDAidee);
 		
@@ -40,7 +37,6 @@ public class Calendrier extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		doGet(request, response);
 	}
 

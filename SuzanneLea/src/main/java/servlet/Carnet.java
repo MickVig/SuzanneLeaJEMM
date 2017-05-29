@@ -26,8 +26,6 @@ public class Carnet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("la redirection vers carnet est OK");
-		
 		HttpSession session = request.getSession();
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
 		List<Personne> liste = new ArrayList<Personne>(AideeService.getInstance().allAidantsProches(IDAidee));
@@ -37,7 +35,6 @@ public class Carnet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		doGet(request, response);
 	}
 

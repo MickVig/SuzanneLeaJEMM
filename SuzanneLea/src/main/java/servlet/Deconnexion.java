@@ -23,14 +23,13 @@ public class Deconnexion extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		System.out.println("Deconnexion OK");
-		
+	
 		this.getServletContext().getRequestDispatcher("/index.jsp").forward (request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		doGet(request, response);
 	}
 

@@ -23,8 +23,6 @@ public class Dashboard extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("la redirection vers dashboard est OK");
-		
 		HttpSession session = request.getSession();
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
 		Personne p = AideeService.getInstance().procheReferent(IDAidee);

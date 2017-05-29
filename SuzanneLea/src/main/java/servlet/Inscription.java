@@ -27,8 +27,6 @@ public class Inscription extends HttpServlet {
 		List<?> liste = new ArrayList(AidantService.getInstance().allMedecins());
 		request.setAttribute("medecins", liste);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward (request, response);
-		
-
 	}
 
 	

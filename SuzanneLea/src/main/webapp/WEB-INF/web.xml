@@ -4,6 +4,7 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>servlet.Login</servlet-class>
@@ -17,6 +18,7 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>Inscription</servlet-name>
     <servlet-class>servlet.Inscription</servlet-class>
@@ -30,6 +32,23 @@
     <servlet-name>Inscription</servlet-name>
     <url-pattern>/inscription</url-pattern>
   </servlet-mapping>
+  
+  
+    <servlet>
+    <servlet-name>Deconnexion</servlet-name>
+    <servlet-class>servlet.Deconnexion</servlet-class>
+    <init-param>
+      <param-name>auteur</param-name>
+      <param-value>Emilie</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Deconnexion</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>CreateAidant</servlet-name>
     <servlet-class>servlet.CreateAidant</servlet-class>
@@ -132,30 +151,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CarnetPartenaires</servlet-name>
-    <url-pattern>/carnetpartenaires</url-pattern>
+    <url-pattern>/carnetPart</url-pattern>
   </servlet-mapping>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <servlet>
-    <servlet-name>Deconnexion</servlet-name>
-    <servlet-class>servlet.Deconnexion</servlet-class>
-    <init-param>
-      <param-name>auteur</param-name>
-      <param-value>Emilie</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Deconnexion</servlet-name>
-    <url-pattern>/deconnexion</url-pattern>
-  </servlet-mapping>
 </web-app>
