@@ -44,6 +44,10 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 				Agenda a = (Agenda) liste.get(i);
 				a.getAidant();
 				l.add(a);
+				Date d=a.getDate();
+				SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm"); 
+				String date = formatDate.format(d);
+				l.add(date);
 				if(a.getAidant()!=null){
 					l.add(a.getAidant().getPersonne());
 				}
