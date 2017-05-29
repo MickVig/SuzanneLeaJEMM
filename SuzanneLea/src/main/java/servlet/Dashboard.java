@@ -1,12 +1,15 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.Agenda;
 import bean.Personne;
 import service.AideeService;
 
@@ -29,6 +32,10 @@ public class Dashboard extends HttpServlet {
 		Personne p2 = AideeService.getInstance().medecinReferent(IDAidee);
 		request.setAttribute("procheReferent", p);
 		request.setAttribute("medecinReferent", p2);
+		List cr=AideeService.getInstance().lastCompteRendu(IDAidee);
+		request.setAttribute("dernierCR", cr);
+		Agenda a=AideeService.getInstance().nextEvenement(IDAidee);
+		request.setAttribute("prochainEvenement", a);
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/dashboard.jsp").forward (request, response);
 	}
