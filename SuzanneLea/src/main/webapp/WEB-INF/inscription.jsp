@@ -27,47 +27,47 @@
 
               <div class="w3-container w3-white">
                 <form id="formaidee"  method="post" action="">
-                  
-                    <h3>La personne à aider</h3>
-                    <label for="nom" class="w3-text-teal">Nom</label>
-                    <input class="w3-input w3-border w3-light-grey" id="nom" name="nom" type="text" >
-                    <br>
-                    <label for="prenom" class="w3-text-teal">Prénom</label>
-                    <input class="w3-input w3-border w3-light-grey" id="prenom" name="prenom" type="text" >
-                    <br>
-                    <label for="adresse" class="w3-text-teal">Adresse</label>
-                    <input class="w3-input w3-border w3-light-grey" id="adresse" name="adresse" type="text">
-                    <br>
-                    <label for="tel" class="w3-text-teal">Téléhone</label>
-                    <input class="w3-input w3-border w3-light-grey" id="tel" name="tel" type="text">
-                    <br>
-                    <label for="mail" class="w3-text-teal">Mail</label>
-                    <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="email">
-                    <br>
-                    <label for="mdp" class="w3-text-teal">Mot de passe</label>
-                    <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="text">
-                  
+                  	${messageInscriptionAidee}
+	                    <h3>La personne à aider</h3>
+	                    <label for="nom" class="w3-text-teal">Nom</label>
+	                    <input class="w3-input w3-border w3-light-grey" id="nom" name="nom" type="text" value="${nom1}">
+	                    <br>
+	                    <label for="prenom" class="w3-text-teal">Prénom</label>
+	                    <input class="w3-input w3-border w3-light-grey" id="prenom" name="prenom" type="text" value="${prenom1}">
+	                    <br>
+	                    <label for="adresse" class="w3-text-teal">Adresse</label>
+	                    <input class="w3-input w3-border w3-light-grey" id="adresse" name="adresse" type="text" value="${adresse1}">
+	                    <br>
+	                    <label for="tel" class="w3-text-teal">Téléhone</label>
+	                    <input class="w3-input w3-border w3-light-grey" id="tel" name="tel" type="text" value="${telephone1}">
+	                    <br>
+	                    <label for="mail" class="w3-text-teal">Mail</label>
+	                    <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="email" value="${mail1}">
+	                    <br>
+	                    <label for="mdp" class="w3-text-teal">Mot de passe</label>
+	                    <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="password">
+	                  
                     <br>
                     <hr>
 
                     <h3>La personne référente</h3>
                     <label for="nomref" class="w3-text-teal">Nom</label>
-                    <input class="w3-input w3-border w3-light-grey" id="nomref" name="nomref" type="text" >
+                    <input class="w3-input w3-border w3-light-grey" id="nomref" name="nomref" type="text" value="${nomref1}">
                     <br>
                     <label for="prenomref" class="w3-text-teal">Prénom</label>
-                    <input class="w3-input w3-border w3-light-grey" id="prenomref" name="prenomref" type="text" >
+                    <input class="w3-input w3-border w3-light-grey" id="prenomref" name="prenomref" type="text" value="${prenomref1}">
                     <br>
                     <label for="adresseref" class="w3-text-teal">Adresse</label>
-                    <input class="w3-input w3-border w3-light-grey" id="adresseref" name="adresseref" type="text">
+                    <input class="w3-input w3-border w3-light-grey" id="adresseref" name="adresseref" type="text" value="${adresseref1}">
                     <br>
                     <label for="telref" class="w3-text-teal">Téléhone</label>
-                    <input class="w3-input w3-border w3-light-grey" id="telref" name="telref" type="text">
+                    <input class="w3-input w3-border w3-light-grey" id="telref" name="telref" type="text" value="${telephoneref1}">
                     <br>
                     <label for="mailref" class="w3-text-teal">Mail</label>
-                    <input class="w3-input w3-border w3-light-grey" id="mailref" name="mailref" type="email">
+                    <input class="w3-input w3-border w3-light-grey" id="mailref" name="mailref" type="email" value="${mailref1}">
                     <br>
                     <label for="mdpref" class="w3-text-teal">Mot de passe</label>
-                    <input class="w3-input w3-border w3-light-grey" id="mdpref" name="mdpref" type="text">
+                    <input class="w3-input w3-border w3-light-grey" id="mdpref" name="mdpref" type="password">
                 
                     <br>
                     <hr>

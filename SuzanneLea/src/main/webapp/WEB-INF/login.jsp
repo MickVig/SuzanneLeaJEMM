@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -35,6 +35,7 @@
               <button class="w3-btn w3-amber">Se Connecter</button>
             </form>
           </div>
+          ${messageLogin}
       </div>
 
 
