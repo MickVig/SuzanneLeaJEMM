@@ -6,30 +6,35 @@
     <title>Suzanne &amp; Léa</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
   </head>
   <body>
 
-      <header class="w3-container w3-pink">
-        <h1 class="w3-center">Suzanne &amp; Léa</h1>
+      <header class="w3-container w3-indigo">
+        <h1>Autonomia</h1>
       </header>
       
       <div class="w3-main">
+      	<div class="w3-container w3-pink">
+            <h2>Suzanne &amp; Léa</h2>
+        </div>
+      	<section >
           <div class="w3-container ">
               <p>Suzanne &amp; Léa est une solution innovante d'entraide destinée à <b>accompagner et sécuriser le quotidien</b> des personnes fragilisées et <b>faciliter l'intervention </b> des aidants.</p>
           </div>
-          <div class="w3-container">
+          <div class="w3-container w3-center">
             <h2>LA PREMIERE APPLICATION DEDIE AUX AIDEES ET AUX AIDANTS !</h2>
+            <img alt="les handicaps et dépendances" src="images/handicaps.PNG">
             <p> Vous pouvez dès maintenant vous enregistrer :</p>
               <button id="btnlogin" class="w3-btn w3-green w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Connexion</button>
               <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-pencil" aria-hidden="true"></i> Inscription</button>
           </div>
+        </section>
+        <section>
           <div class="w3-container">
             <p>Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
             <ul>
@@ -56,6 +61,7 @@
               </li>
             </ul>
           </div>
+        </section>
       </div>
 
 

@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -22,7 +21,7 @@
       <div class="w3-main">
           <div class="w3-container w3-teal">
             <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
-            <h1>Carnet d'adresse</h1>
+            <h2>Carnet d'adresse</h2>
           </div>
           <div id="menu">
             <ul class="w3-row w3-ul">
@@ -73,7 +72,7 @@
 
           <section>
             <div class="w3-container">
-              <button id="btnaddcontact" class="w3-button w3-large w3-amber">Nouveau Contact <i class="fa fa-pencil" aria-hidden="true"></i></button>
+              <button id="btnaddcontact" class="w3-button w3-large w3-amber">Nouvel aidant <i class="fa fa-pencil" aria-hidden="true"></i></button>
             </div>
 
             <h2>Liste des aidants proches</h2> 

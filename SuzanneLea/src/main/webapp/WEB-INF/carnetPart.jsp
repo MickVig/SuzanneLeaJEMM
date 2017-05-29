@@ -21,7 +21,6 @@
       
       <div class="w3-main" >
           <div class="w3-container w3-teal">
-            <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
             <h1>Carnet d'adresse</h1>
           </div>
           <div id="menu">
@@ -72,10 +71,6 @@
           </div>
 
           <section>
-            <div class="w3-container">
-              <button id="btnaddcontact" class="w3-button w3-large w3-amber">Nouveau Contact <i class="fa fa-plus" aria-hidden="true"></i></button>
-            </div> 
-
             <h3>Liste des aidants partenaires</h3> 
 
             <div class="w3-container">

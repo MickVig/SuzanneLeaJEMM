@@ -26,7 +26,7 @@
             <div class="w3-container">
               <button id="btncr" class="w3-button w3-large w3-amber">Retour aux Comptes Rendus <i class="fa fa-clipboard" aria-hidden="true"></i></button>
             </div> 
-            <div class="w3-container w3-white">
+            <div class="w3-container">
               <form id="formaidant" method="post" action="">
 
                 <label for="contenu" class="w3-text-teal">Compte rendu</label>

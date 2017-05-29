@@ -25,7 +25,7 @@
           <section>
               <button id="btnaccueil" class="w3-btn w3-amber w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Accueil</button>
 
-              <div class="w3-container w3-white">
+              <div class="w3-container">
                 <form id="formaidee"  method="post" action="">
                   	${messageInscriptionAidee}
 	                    <h3>La personne à aider</h3>

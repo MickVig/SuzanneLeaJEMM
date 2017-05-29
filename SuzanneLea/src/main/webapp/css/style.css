@@ -1,3 +1,15 @@
+/**** Index ****/
+body{
+	background-color:#fdf5e6;
+}
+img{
+	width:80%;
+}
+
+
+
+
+
 /******** Générale Dashboard (layout) ********/
 
 h1, h2, h3, h4{
@@ -21,6 +33,7 @@ h1, h2, h3, h4{
 
 section{
 	padding: 2% 4%;
+	
 }
 
 /*** Page Dashboard ***/
