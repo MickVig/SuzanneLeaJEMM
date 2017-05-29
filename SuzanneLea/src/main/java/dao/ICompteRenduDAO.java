@@ -11,14 +11,14 @@ public interface ICompteRenduDAO {
 	/////// Autres Requetes \\\\\\\
 	
 	/**
-	 * Fonction pour RECUPERER tout les CR écrit sur l'aidee sélectionner
+	 * Fonction pour RECUPERER tous les CR écrit sur l'aidee sélectionner
 	 * @param id		le numéro unique de l'aidee
 	 * @return			la liste des comptes rendus
 	 */
 	public List<CompteRendu> comptesRendusAidee(Integer id);
 	
 	/**
-	 * Fonction pour RECUPERER tout les CR écrit par l'aidant sélectionner
+	 * Fonction pour RECUPERER tous les CR écrit par l'aidant sélectionner
 	 * @param id		le numéro unique de l'aidant
 	 * @return			la liste des comptes rendus
 	 */
