@@ -26,10 +26,15 @@ public class CreateAidant extends HttpServlet {
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	AideeService.getInstance().inscriptionAidant(request,response);
-	response.sendRedirect("carnet");
-	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		if (AideeService.getInstance().inscriptionAidant(request, response)) {
+			response.sendRedirect("carnet");
+		}
+		else {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/createAidant.jsp").forward (request, response);
+		}
+
 	}
 
 }

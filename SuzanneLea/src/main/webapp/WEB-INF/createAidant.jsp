@@ -26,6 +26,7 @@
                 <button id="btncarnet" class="w3-button w3-large w3-amber">Retour au Carnet Proches <i class="fa fa-users" aria-hidden="true"></i></button>
               </div>
               <div class="w3-container w3-white">
+             	 ${messageinscription}
                 <form id="formaidant"  method="post" action="">
 
                   <label for="nom" class="w3-text-teal">Nom</label>
