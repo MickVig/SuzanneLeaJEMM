@@ -24,7 +24,7 @@ function initbtn(){
 	/*** BOUTON PAGE LOGIN & INSCRIPTION ***/
 	$("#btnaccueil").on('click',function(){
 		console.log("index");
-		$(location).attr('href',"index");
+		$(location).attr('href',"index.jsp");
 	})
 
 
@@ -69,7 +69,7 @@ function initbtn(){
 	/*** BOUTON PAGE AGENDA ***/
 	$("#btnaddevent").on('click',function(){
 		console.log("formulaire ajout evenement");
-		$(location).attr('href',"addEven");
+		$(location).attr('href',"addEvent");
 	})
 	/*** BOUTON PAGE COMPTES RENDUS ***/
 	$("#btnaddcr").on('click',function(){

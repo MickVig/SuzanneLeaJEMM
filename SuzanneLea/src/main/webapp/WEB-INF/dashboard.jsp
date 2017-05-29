@@ -79,7 +79,7 @@
 		</div>
 
 		<div class="w3-container">
-			<h2>Bienvenue dans votre espace personnel ${personne.prenom} ${personne.nom} </h2>
+			<h2>Bienvenue dans votre espace personnel ${personne.prenom} ${personne.nom} !</h2>
 		</div>
 
 		<section id="infodash"> 

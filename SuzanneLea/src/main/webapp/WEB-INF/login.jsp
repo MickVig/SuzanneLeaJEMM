@@ -14,28 +14,29 @@
   </head>
   <body>
 
-      <header class="w3-container">
+      <header class="w3-container w3-pink">
         <h1 class="w3-center">Suzanne &amp; Léa</h1>
       </header>
       <div class="w3-container w3-teal">
               <h2>Connexion</h2>
       </div>
       <div class="w3-main">
-          
-          <button id="btnaccueil" class="w3-btn w3-amber w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Accueil</button>
-
-          <div class="w3-container w3-white">
-            <form id="formlogin" method="post" action="">
-              <label for="mail" class="w3-text-teal">Mail</label>
-              <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="email" value="ginette.menut@gmail.com" >
-              <br>
-              <label for="mdp" class="w3-text-teal">Mot de passe</label>
-              <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="text" value="aide1">
-            
-              <button class="w3-btn w3-amber">Se Connecter</button>
-            </form>
-          </div>
-          ${messageLogin}
+          <section>
+	          <button id="btnaccueil" class="w3-btn w3-amber w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Accueil</button>
+	
+	          <div class="w3-container w3-white">
+	            <form id="formlogin" method="post" action="">
+	              <label for="mail" class="w3-text-teal">Mail</label>
+	              <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="email" value="ginette.menut@gmail.com" >
+	              <br>
+	              <label for="mdp" class="w3-text-teal">Mot de passe</label>
+	              <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="text" value="aide1">
+	            
+	              <button class="w3-btn w3-amber">Se Connecter</button>
+	            </form>
+	          </div>
+	          ${messageLogin}
+	         </section>
       </div>
 
 

@@ -26,17 +26,17 @@
           </div>
           <div class="w3-container">
             <h2>LA PREMIERE APPLICATION DEDIE AUX AIDEES ET AUX AIDANTS !</h2>
-            <p> Vous pouvez dès maintenant vous enregistrer</p>
+            <p> Vous pouvez dès maintenant vous enregistrer :</p>
               <button id="btnlogin" class="w3-btn w3-green w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Connexion</button>
               <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-plus" aria-hidden="true"></i> Créer</button>
           </div>
           <div class="w3-container">
-            <p>Les outils mis à votre disposition par Suzanne &amp; Léa</p>
+            <p>Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
             <ul>
               <li>
                 <h4>Tableau de bord de synthèse dédié aux aidants</h4>
                 <ul>
-                  <li>Accès aux comptes rendus : famille, assitant à domicile, employé d'un agence, ...</li>
+                  <li>Accès aux comptes rendus : famille, assitant à domicile, employé d'une agence, ...</li>
                   <li>Suivi et stockage des données physiologiques</li>
                 </ul>
               </li>
@@ -51,7 +51,7 @@
                 <h4>Système d'alerte</h4>
                 <ul>
                   <li>Traitement des appels d'urgence </li>
-                  <li>Détection de situation anormales (chutes, durée de sortie supérieur à la normale,...)</li>
+                  <li>Détection de situations anormales (chutes, durée de sortie supérieure à la normale,...)</li>
                 </ul>
               </li>
             </ul>
