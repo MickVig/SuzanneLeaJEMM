@@ -209,7 +209,7 @@ public class AideeService implements IAideeService {
 	/*
 	 * Recuperer le prochain evenement dans l'agenda à partir de l'ID d'une personne aidee
 	 */
-	public Agenda nextEvenement(Integer Id_Aidee){
+	public List nextEvenement(Integer Id_Aidee){
 		return AgendaDAO.getInstance().nextEvenement(Id_Aidee);
 	}
 

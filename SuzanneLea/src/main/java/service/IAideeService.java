@@ -82,6 +82,6 @@ public interface IAideeService {
 	 * @param Id_Aidee
 	 * @return
 	 */
-	public Agenda nextEvenement(Integer Id_Aidee);
+	public List nextEvenement(Integer Id_Aidee);
 	
 }

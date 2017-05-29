@@ -34,8 +34,8 @@ public class Dashboard extends HttpServlet {
 		request.setAttribute("medecinReferent", p2);
 		List cr=AideeService.getInstance().lastCompteRendu(IDAidee);
 		request.setAttribute("dernierCR", cr);
-		Agenda a=AideeService.getInstance().nextEvenement(IDAidee);
-		request.setAttribute("prochainEvenement", a);
+		List a=AideeService.getInstance().nextEvenement(IDAidee);
+		request.setAttribute("prochainEvenement", a.get(0));
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/dashboard.jsp").forward (request, response);
 	}

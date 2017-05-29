@@ -48,8 +48,8 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 				List CompteRenduListe = new ArrayList();
 				CompteRendu cr = listeCR.get(i);
 				Date d=cr.getDate();
-				SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy"); 
-				String date = formatDateJour.format(d);
+				SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy"); 
+				String date = formatDate.format(d);
 				CompteRenduListe.add(date);
 				CompteRenduListe.add(cr.getCommentaire());
 				if(cr.getAidant()!=null) {
@@ -110,6 +110,10 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 			for (int i = 0; i < 1; i++) {				
 				CompteRendu cr = listeCR.get(i);
 				CompteRenduListe.add(cr);
+				Date d=cr.getDate();
+				SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy"); 
+				String date = formatDate.format(d);
+				CompteRenduListe.add(date);
 				p1=cr.getAidee().getPersonne();
 				System.out.println(p1);
 				CompteRenduListe.add(p1);	
@@ -118,6 +122,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 					System.out.println(p2);
 					CompteRenduListe.add(p2);
 				}
+				
 			}
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");

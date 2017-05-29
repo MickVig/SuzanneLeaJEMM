@@ -1,5 +1,7 @@
 package dao;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -68,7 +70,6 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 			// on cree une liste d'agenda
 			for (int i = 0; i < liste.size(); i++) {
 				Agenda a = (Agenda) liste.get(i);
-				System.out.println(a);
 				listeAgenda.add(a);
 			}
 		} catch (Exception e) {
@@ -79,17 +80,26 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 	}
 
 	// Retourne le prochain evenement
-	public Agenda nextEvenement(Integer ID_Aidee) {
-		Agenda a = new Agenda();
+	public List nextEvenement(Integer ID_Aidee) {
+		List listeAgenda=new ArrayList();
 		try {
 			if (nextAllEvenement(ID_Aidee).size() != 0) {
-				a = nextAllEvenement(ID_Aidee).get(0);
-				System.out.println(a);
+				List l=new ArrayList();
+				Agenda a = nextAllEvenement(ID_Aidee).get(0);
+				l.add(a);
+				Date d=a.getDate();
+				//HH pour format 24h, hh pour format 12h
+				SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm"); 
+				String date = formatDate.format(d);
+				l.add(date);
+				System.out.println(date);
+				listeAgenda.add(l);
+				System.out.println(listeAgenda);
 			}
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
-		return a;
+		return listeAgenda;
 	}
 	
 	/////// CRUD \\\\\\\

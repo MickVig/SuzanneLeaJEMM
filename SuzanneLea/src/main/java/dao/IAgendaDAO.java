@@ -40,11 +40,11 @@ public interface IAgendaDAO {
 
 	
 	/**
-	 * Retourne le prochain evenement à venir pour une personne aidee
+	 * Retourne le prochain evenement à venir pour une personne aidee(agenda et date)
 	 * @param ID_Aidee
 	 * @return
 	 */
-	public Agenda nextEvenement (Integer ID_Aidee);
+	public List nextEvenement(Integer ID_Aidee);
 	
 	
 	/**

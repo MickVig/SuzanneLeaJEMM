@@ -102,21 +102,21 @@
 			<div>
 				<ul class="w3-ul ">
 					<li>Dernier compte rendu</li>
+					<c:if test="${dernierCR.size()==4}">
+						<li>Auteur : ${dernierCR.get(3).getNom()}
+							${dernierCR.get(3).getPrenom()}</li>
+					</c:if>
 					<c:if test="${dernierCR.size()==3}">
-						<li>Auteur : ${dernierCR.get(2).getNom()}
-							${dernierCR.get(2).getPrenom()}</li>
+						<li>Auteur : ${dernierCR.get(2).getNom()} ${dernierCR.get(2).getPrenom()}</li>
 					</c:if>
-					<c:if test="${dernierCR.size()==2}">
-						<li>Auteur : ${dernierCR.get(1).getNom()} ${dernierCR.get(1).getPrenom()}</li>
-					</c:if>
-					<li>Date : ${dernierCR.get(0).getDate()}</li>
+					<li>Date : ${dernierCR.get(1)}</li>
 					<li>Contenu : ${dernierCR.get(0).getCommentaire()}</li>
 				</ul>
 				<ul class="w3-ul ">
 					<li>Prochain évènement</li>
-					<li>Titre : ${prochainEvenement.titre}</li>
-					<li>Date : ${prochainEvenement.date}</li>
-					<li>Contenu : ${prochainEvenement.contenu}</li>
+					<li>Titre : ${prochainEvenement.get(0).titre}</li>
+					<li>Date : ${prochainEvenement.get(1)}</li>
+					<li>Contenu : ${prochainEvenement.get(0).contenu}</li>
 				</ul>
 			</div>
 		</section>

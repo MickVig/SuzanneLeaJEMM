@@ -79,10 +79,10 @@
             
             <div class="w3-container">
               <ul class="liste w3-ul">
-              	<c:forEach items="${allCR}" var="cr">
+              	<c:forEach items="${allCR}" var="cr" varStatus="status">
                 	<li>
 	                    <ul class="w3-ul">
-	                      <li> Compte-rendu N° </li>
+	                      <li> Compte-rendu N°${status.index} </li>
 	                      <li> Date: ${cr.get(0)}</li>
 	                      <c:if test = "${cr.size()==4}">
 	                          <li>Auteur : ${cr.get(2).getNom()} ${cr.get(2).getPrenom()}</li>
