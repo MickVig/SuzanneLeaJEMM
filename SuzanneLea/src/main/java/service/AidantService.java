@@ -35,11 +35,10 @@ public class AidantService implements IAidantService {
 		for (int i = 0; i < personnes.size(); i++) {
 			List m = new ArrayList();
 			Personne p = personnes.get(i);
-
+			//Envoie vers AidantDAO pour récuperer l'ID d'unaidant à partir de la personne
 			Integer ID_Aidant = AidantDAO.getInstance().readAidantByPersonne(p.getID());
-
+			//On met dans une liste les informations qui nous intéressent
 			m.add(ID_Aidant);
-
 			m.add(p.getID());
 			m.add(p.getNom());
 			m.add(p.getPrenom());
@@ -61,11 +60,9 @@ public class AidantService implements IAidantService {
 		for (int i = 0; i < personnes.size(); i++) {
 			List a = new ArrayList();
 			Personne p = personnes.get(i);
-
+			//Envoie vers AidantDAO pour récuperer l'ID d'unaidant à partir de la personne
 			Integer ID_Aidant = AidantDAO.getInstance().readAidantByPersonne(p.getID());
-
 			a.add(ID_Aidant);
-
 			a.add(p.getID());
 			a.add(p.getNom());
 			a.add(p.getPrenom());
@@ -88,11 +85,9 @@ public class AidantService implements IAidantService {
 		for (int i = 0; i < personnes.size(); i++) {
 			List proches2 = new ArrayList();
 			Personne p = personnes.get(i);
-
+			//Envoie vers AidantDAO pour récuperer l'ID d'unaidant à partir de la personne
 			Integer ID_Aidant = AidantDAO.getInstance().readAidantByPersonne(p.getID());
-
 			proches2.add(ID_Aidant);
-
 			proches2.add(p.getID());
 			proches2.add(p.getNom());
 			proches2.add(p.getPrenom());

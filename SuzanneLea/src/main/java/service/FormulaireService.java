@@ -42,7 +42,7 @@ public class FormulaireService implements IFormulaireService {
 	}
 	
 
-	//Verifier que les champs du formulaire inscription est rempli
+	//Verifier que les champs du formulaire inscription sont rempli
 	public Boolean verifInscription(String nom, String prenom, String adresse, String tel, String mail, String mdp,HttpServletRequest request) {
 		Boolean b=true;
 		HttpSession session = request.getSession();

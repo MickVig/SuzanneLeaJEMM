@@ -35,9 +35,7 @@ public class PersonneService implements IPersonneService {
 	/*
 	 * Méthode qui permet de vérifier que lorsqu'une personne essaie de se
 	 * connecter elle existe dans la BDD
-	 */
-	
-	
+	 */	
 	public boolean connexion(HttpServletRequest request, HttpServletResponse response) {
 
 		String mail = request.getParameter("mail");
@@ -91,6 +89,7 @@ public class PersonneService implements IPersonneService {
 		String mail = request.getParameter("mail");
 		String mdp = request.getParameter("mdp");
 
+		//verifier si la premiere partie de formulaire est remplie
 		Boolean verifAideeOK = FormulaireService.getInstance().verifInscription(nom, prenom, adresse, tel, mail, mdp,
 				request);
 		if (!verifAideeOK) {
@@ -105,6 +104,7 @@ public class PersonneService implements IPersonneService {
 		String mailref = request.getParameter("mailref");
 		String mdpref = request.getParameter("mdpref");
 
+		//verifier si la deuxieme partie du formulaire est remplie
 		Boolean verifRefOK = FormulaireService.getInstance().verifInscription(nomref, prenomref, adresseref, telref,
 				mailref, mdpref, request);
 		if (!verifRefOK) {

@@ -42,6 +42,7 @@ public class AideeService implements IAideeService {
 	public Boolean inscriptionAidant(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
+		//Savoir si on peut faire l'inscription ou pas
 		Boolean b = false;
 		/*
 		 * recuperation des donnees saisies dans le formulaire creation aidant
@@ -52,7 +53,7 @@ public class AideeService implements IAideeService {
 		String tel = request.getParameter("tel");
 		String mail = request.getParameter("mail");
 		String mdp = request.getParameter("mdp");
-
+		//si le formulaire est correctement rempli alors on crée la personne, l'aidant et la relation et on la met en BDD
 		if (FormulaireService.getInstance().verifInscription(nom, prenom, adresse, tel, mail, mdp, request)) {
 			/*
 			 * On créé une personne à partir des infos recuperees du formulaire
@@ -71,7 +72,6 @@ public class AideeService implements IAideeService {
 
 	/*
 	 * Recuperer la liste de tous les aidants d'un aidee (choisi avec son ID)
-	 * sauf le referent
 	 */
 	public List<Personne> allAidantsProches(Integer IDAidee) {
 		List<Personne> aidantsProches = AideeDAO.getInstance().allAidant(IDAidee);
@@ -133,7 +133,7 @@ public class AideeService implements IAideeService {
 		String h=request.getParameter("heure");
 		String m=request.getParameter("minute");
 		System.out.println("rdv : "+d+", heure : "+ h+" minute "+m);
-		//Mettre string dans le bon ordre
+		//Mettre date string dans le bon ordre
 		StringBuilder d1 = new StringBuilder();
 		d1.append(d.charAt(6));
 		d1.append(d.charAt(7));
@@ -152,11 +152,9 @@ public class AideeService implements IAideeService {
 		d1.append(":");
 		d1.append("00");
 		
-		System.out.println("date :" + d1);
 		//convertir string en date
-		String s = "2011-07-08 03:48:45";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		Date dat = sdf.parse(d1.toString());
+		Date dateEvnmt = sdf.parse(d1.toString());
 
 		// pour récupérer l'ID_Aidant de l'aidant (accompagnant) sélectionné
 		// dans le formulaire
@@ -170,7 +168,7 @@ public class AideeService implements IAideeService {
 		
 	
 		// creer un evenement
-		AgendaDAO.getInstance().createEvenement(dat, titre, contenu, IDAidee, IDAidant);
+		AgendaDAO.getInstance().createEvenement(dateEvnmt, titre, contenu, IDAidee, IDAidant);
 	}
 
 	/*
@@ -201,10 +199,16 @@ public class AideeService implements IAideeService {
 
 	}
 	
+	/*
+	 * recuperer le dernier compte rendu à partir de l'ID d'un aidee
+	 */
 	public List lastCompteRendu(Integer Id_Aidee) {
 		return CompteRenduDAO.getInstance().lastCompteRendu(Id_Aidee);
 	}
 	
+	/*
+	 * Recuperer le prochain evenement dans l'agenda à partir de l'ID d'une personne aidee
+	 */
 	public Agenda nextEvenement(Integer Id_Aidee){
 		return AgendaDAO.getInstance().nextEvenement(Id_Aidee);
 	}
