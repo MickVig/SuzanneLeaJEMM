@@ -42,6 +42,10 @@ public class PersonneService implements IPersonneService {
 		String mdp = request.getParameter("mdp");
 		HttpSession session = request.getSession();
 		Boolean verifOK = FormulaireService.getInstance().verifLogin(mail, mdp, request);
+		Boolean typeOk=false;
+		session.setAttribute("messageLoginAide", "");
+		session.setAttribute("messageLogin", "");
+		
 
 		if (verifOK) {
 			/*
@@ -53,6 +57,7 @@ public class PersonneService implements IPersonneService {
 			 */
 			Personne p = PersonneDAO.getInstance().personneExiste(mail, mdp);
 			System.out.println(p);
+			
 			if (p.getID() != null) {
 
 				session.setAttribute("personne", p);
@@ -60,9 +65,19 @@ public class PersonneService implements IPersonneService {
 				session.setAttribute("IDAidee", IDAidee);
 
 				System.out.println("connexion OK");
+				if(IDAidee!=null) {
 				return true;
+				}
+				
+				else {
+					String message ="Vous êtes enregisté comme aidant, votre session n'est pas encore disponible";
+					session.setAttribute("messageLoginAide", message);
+					return false;
+				}
 			} else {
 				System.out.println("erreur pas de personne");
+				String message="Erreur dans le mail ou le mot de passe";
+				session.setAttribute("messageLogin", message);
 				return false;
 			}
 

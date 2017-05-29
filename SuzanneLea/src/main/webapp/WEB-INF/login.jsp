@@ -25,6 +25,8 @@
 	          <button id="btnaccueil" class="w3-btn w3-amber w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Accueil</button>
 				<button id="btncreate" class="w3-btn w3-amber w3-xlarge"><i class="fa fa-pencil" aria-hidden="true"></i> Inscription</button>
 	          <div class="w3-container">
+	          	${messageLoginAide}
+	          	${messageLogin}
 	            <form id="formlogin" method="post" action="">
 	              <label for="mail" class="w3-text-teal">Mail</label>
 	              <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="email" value="ginette.menut@gmail.com" >
@@ -35,7 +37,7 @@
 	              <button class="w3-btn w3-amber">Se Connecter</button>
 	            </form>
 	          </div>
-	          ${messageLogin}
+	          
 	         </section>
       </div>
 

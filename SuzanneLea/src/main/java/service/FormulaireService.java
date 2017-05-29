@@ -29,6 +29,7 @@ public class FormulaireService implements IFormulaireService {
 	public Boolean verifLogin(String mail, String mdp, HttpServletRequest request) {
 		Boolean b=true;
 		HttpSession session = request.getSession();
+		session.setAttribute("messageLogin", "");
 		if (Pattern.matches("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)+$", mail) != true) {
 			b = false;
 			
@@ -47,6 +48,7 @@ public class FormulaireService implements IFormulaireService {
 		Boolean b=true;
 		HttpSession session = request.getSession();
 		String message="";
+		session.setAttribute("messageinscription", message);
 		if (nom.length()<3) {
 			b = false;
 			message="Le nom doit avoir au moins 3 caractères";
