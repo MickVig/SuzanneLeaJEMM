@@ -19,7 +19,13 @@ public class FormulaireService implements IFormulaireService {
 		return instance;
 	}
 
-	/////// Méthodes \\\\\\\
+	//Methodes
+	
+	/*
+	 * Méthode qui permet de verifier le format de saisie de l'adrese mail lors de la connexion
+	 * et la longueur du mot de passe qui doit être d'au moins 4 caracteres
+	 */
+	
 	public Boolean verifLogin(String mail, String mdp, HttpServletRequest request) {
 		Boolean b=true;
 		HttpSession session = request.getSession();
@@ -34,8 +40,9 @@ public class FormulaireService implements IFormulaireService {
 		}
 		return b;
 	}
+	
 
-	//verifier que les champs du formulaire inscription est rempli
+	//Verifier que les champs du formulaire inscription est rempli
 	public Boolean verifInscription(String nom, String prenom, String adresse, String tel, String mail, String mdp,HttpServletRequest request) {
 		Boolean b=true;
 		HttpSession session = request.getSession();
@@ -60,7 +67,6 @@ public class FormulaireService implements IFormulaireService {
 			message="L'adresse mail ou le mot de passe ne correspondent pas";
 		}
 		session.setAttribute("messageinscription", message);
-		System.out.println(message);
 		return b;
 	}
 }
