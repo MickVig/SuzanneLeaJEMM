@@ -38,10 +38,10 @@ public class AideeService implements IAideeService {
 	/*
 	 * Inscription d'un nouvel aidant pour un aidee
 	 */
-	public void inscriptionAidant(HttpServletRequest request, HttpServletResponse response) {
+	public Boolean inscriptionAidant(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
-
+		Boolean b = false;
 		/*
 		 * recuperation des donnees saisies dans le formulaire creation aidant
 		 */
@@ -52,15 +52,20 @@ public class AideeService implements IAideeService {
 		String mail = request.getParameter("mail");
 		String mdp = request.getParameter("mdp");
 
-		/* On créé une personne à partir des infos recuperees du formulaire */
-		Personne pAidant = PersonneDAO.getInstance().createPersonne(nom, prenom, mail, adresse, tel, mdp);
+		if (FormulaireService.getInstance().verifInscription(nom, prenom, adresse, tel, mail, mdp, request)) {
+			/*
+			 * On créé une personne à partir des infos recuperees du formulaire
+			 */
+			Personne pAidant = PersonneDAO.getInstance().createPersonne(nom, prenom, mail, adresse, tel, mdp);
 
-		/* Creer la personne Aidant */
-		Aidant aidant = AidantDAO.getInstance().createAidant(pAidant.getID(), 1);
+			/* Creer la personne Aidant */
+			Aidant aidant = AidantDAO.getInstance().createAidant(pAidant.getID(), 1);
 
-		/* Creer la relation aidee - aidant proche */
-		RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), IDAidee, false);
-
+			/* Creer la relation aidee - aidant proche */
+			RelationDAO.getInstance().createRelation(aidant.getID_Aidant(), IDAidee, false);
+			b = true;
+		}
+		return b;
 	}
 
 	/*
@@ -159,7 +164,8 @@ public class AideeService implements IAideeService {
 		Date date = new Date();
 
 		// creer un CR
-		// CompteRenduDAO.getInstance().createCompteRendu(date, commentaire, iD_Aidant, IDAidee);
+		// CompteRenduDAO.getInstance().createCompteRendu(date, commentaire,
+		// iD_Aidant, IDAidee);
 
 	}
 

@@ -21,6 +21,7 @@ public interface IAgendaDAO {
 	 */
 	public Agenda createEvenement(Date date, String titre, String contenu, Integer ID_Aidee, Integer ID_Aidant);
 
+	
 	/**
 	 * Lire l'evenement d'un agenda
 	 * @param ID_Agenda
@@ -37,18 +38,22 @@ public interface IAgendaDAO {
 	 */
 	public List<Agenda> nextAllEvenement(Integer ID_Aidee);
 
+	
 	/**
 	 * Retourne le prochain evenement à venir pour une personne aidee
 	 * @param ID_Aidee
 	 * @return
 	 */
 	public Agenda nextEvenement (Integer ID_Aidee);
+	
+	
 	/**
 	 * retourne tous les evenements concernant une personne aidee
 	 * @param ID_Aidee
 	 * @return
 	 */
 	public List readAllEvenement(Integer ID_Aidee);
+	
 	
 	/**
 	 * Modifier un evenement de l'agenda
@@ -60,6 +65,7 @@ public interface IAgendaDAO {
 	 */
 	public void updateEvenement(Date date, String titre, String contenu, Aidee aidee, Aidant aidant);
 
+	
 	/**
 	 * Supprimer un evenement de l'agenda
 	 * @param id

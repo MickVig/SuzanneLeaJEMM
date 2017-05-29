@@ -55,24 +55,23 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 
 	// Recuperer la personne proche referente
 	public Personne readProcheRef(Integer ID_Aidee) {
-		this.connexion();
 		Personne p = new Personne();
+		this.connexion();
 		try {
 			// On selectionne les aidants d'un certain type
 			Query requete = this.getEm().createQuery("SELECT r FROM Relation r WHERE r.aidee.ID_Aidee=" + ID_Aidee
 					+ "AND r.referent=1 AND r.aidant.type.ID_Type=1");
 			List<?> liste = requete.getResultList();
-
-			// on cree une nouvelle liste avec les personnes aidantes
-
+			
+			//une seule personne dans la liste que l'on recupere
 			Relation r = (Relation) liste.get(0);
-			Aidant a = r.getAidant();
-			p = a.getPersonne();
+			p=r.getAidant().getPersonne();
 			System.out.println(p);
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
 		this.deconnexion();
+		
 		return p;
 	}
 
@@ -108,6 +107,7 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 			Query requete = this.getEm().createQuery("SELECT a FROM Aidee a WHERE a.personne.ID=" + ID_Personne);
 			if (requete.getResultList().size() != 0) {
 				a = (Aidee) requete.getResultList().get(0);
+				System.out.println(a);
 			}
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
@@ -138,7 +138,6 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 		Aidee a = new Aidee();
 		try {
 			a = this.getEm().find(Aidee.class, id);
-			System.out.println(a);
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}

@@ -25,7 +25,7 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 	}
 
 	/////// Autres Requetes \\\\\\\
-	// Recuperer tous les evenement d'une personne aidee
+	// Recuperer tous les evenements d'une personne aidee
 	public List readAllEvenement(Integer ID_Aidee) {
 		this.connexion();
 		List listeAgenda = new ArrayList<Agenda>();
@@ -45,8 +45,8 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 				if(a.getAidant()!=null){
 					l.add(a.getAidant().getPersonne());
 				}
-				listeAgenda.add(l);
 				System.out.println(l);
+				listeAgenda.add(l);
 			}
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
@@ -64,14 +64,12 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 			Query requete = this.getEm().createQuery("SELECT a FROM Agenda a WHERE a.aidee.ID_Aidee=" + ID_Aidee
 					+ "AND a.date>CURRENT_DATE ORDER BY a.date");
 			List<Agenda> liste = requete.getResultList();
-
-			// on cree une nouvelle liste avec les informations qui nous
-			// intéresse
-
+			
+			// on cree une liste d'agenda
 			for (int i = 0; i < liste.size(); i++) {
 				Agenda a = (Agenda) liste.get(i);
+				System.out.println(a);
 				listeAgenda.add(a);
-				System.out.println(a.getTitre() + " : " + a.getContenu() + " (" + a.getDate() + ")");
 			}
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
@@ -86,14 +84,14 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 		try {
 			if (nextAllEvenement(ID_Aidee).size() != 0) {
 				a = nextAllEvenement(ID_Aidee).get(0);
+				System.out.println(a);
 			}
-			// System.out.println(a.getTitre() + " : " + a.getContenu() + " (" +
-			// a.getDate() + ")");
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
 		return a;
 	}
+	
 	/////// CRUD \\\\\\\
 
 	@Override

@@ -10,7 +10,7 @@ import bean.Personne;
 
 public interface IAideeService {
 	
-	public void inscriptionAidant (HttpServletRequest request, HttpServletResponse response);
+	public Boolean inscriptionAidant (HttpServletRequest request, HttpServletResponse response);
 
 	public List<Personne> allAidantsProches(Integer IDAidee);
 	

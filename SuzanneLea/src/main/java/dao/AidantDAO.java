@@ -36,13 +36,12 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 			// on cree une nouvelle liste de personne
 
 			for (int i = 0; i < liste.size(); i++) {
+				//à partir de l'aidant n recupere la personne
 				Aidant a = (Aidant) liste.get(i);
 				Personne p = a.getPersonne();
 				System.out.println(p);
 				listePersonne.add(p);
 			}
-			System.out.println(listePersonne);
-
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
@@ -50,12 +49,14 @@ public class AidantDAO extends ConnexionDAO implements IAidantDAO {
 		return listePersonne;
 	}
 
+	//recuperer ID d'un aidant à partir de l'id de la personne
 	public Integer readAidantByPersonne(Integer ID_Personne) {
 		this.connexion();
 		Aidant a = new Aidant();
 		try {
 			Query requete = this.getEm().createQuery("SELECT a FROM Aidant a WHERE a.personne.ID=" + ID_Personne);
 			a = (Aidant) requete.getResultList().get(0);
+			System.out.println(a);
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}

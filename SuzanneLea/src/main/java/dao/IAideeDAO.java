@@ -9,25 +9,33 @@ public interface IAideeDAO {
 	
 	/////// Autres Requetes \\\\\\\
 	/**
-	 * Fonction pour récupérer la liste de tous les aidants d'un aidee sauf le referent proche
+	 * Fonction pour récupérer la liste de tous les aidants d'un aidee
 	 * @param id		le numéro unique de l'aidee
 	 * @return			la liste des aidants
 	 */
 	public List<Personne> allAidant(Integer ID_Aidee);
 	
 	/**
-	 * Recuperer tous les aidants d'un aidee même le referent
+	 * Recuperer le proche referent
 	 * @param ID_Aidee
 	 * @return
 	 */
 	public Personne readProcheRef(Integer ID_Aidee);
 	
 	/**
-	 * 
+	 *recupere le medecin referent
 	 * @param ID_Aidee
 	 * @return retourne le medecin referent de la personne aidee
 	 */
 	public Personne readMedecinRef(Integer ID_Aidee);
+	
+	
+	/**
+	 * recuperer ID d'un aidee à partir d'une personne
+	 * @param ID_Personne
+	 * @return l'id_aidee à partir de l'id_personne
+	 */
+	public Integer readAideeByPersonne(Integer ID_Personne);
 	
 	
 	
@@ -46,13 +54,7 @@ public interface IAideeDAO {
 	 * @param id	Numéro unique de l'aidee à lire
 	 */
 	public Aidee readAidee(Integer id);
-	
-	/**
-	 * 
-	 * @param ID_Personne
-	 * @return l'id_aidee à partir de l'id_personne
-	 */
-	public Integer readAideeByPersonne(Integer ID_Personne);
+
 	/**
 	 * Fonction pour MODIFIER un aidee dans la BDD
 	 * @param p			la personne aidee
