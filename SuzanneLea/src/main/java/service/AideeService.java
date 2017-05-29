@@ -1,6 +1,7 @@
 package service;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -120,12 +121,42 @@ public class AideeService implements IAideeService {
 	 * Ajouter un nouvel évènement depuis le formulaire de saisie addEvent
 	 */
 
-	public void addEvent(HttpServletRequest request, HttpServletResponse response) {
+	public void addEvent(HttpServletRequest request, HttpServletResponse response) throws ParseException {
 
 		// recuperation des donnees saisies dans le formulaire
 		String titre = request.getParameter("titre");
 		String contenu = request.getParameter("contenu");
 		String accompagnant = request.getParameter("accompagnant");
+		
+		// recuperer la date
+		String d=request.getParameter("datepicker");
+		String h=request.getParameter("heure");
+		String m=request.getParameter("minute");
+		System.out.println("rdv : "+d+", heure : "+ h+" minute "+m);
+		//Mettre string dans le bon ordre
+		StringBuilder d1 = new StringBuilder();
+		d1.append(d.charAt(6));
+		d1.append(d.charAt(7));
+		d1.append(d.charAt(8));
+		d1.append(d.charAt(9));
+		d1.append("-");
+		d1.append(d.charAt(3));
+		d1.append(d.charAt(4));
+		d1.append("-");
+		d1.append(d.charAt(0));
+		d1.append(d.charAt(1));
+		d1.append(" ");
+		d1.append(h);
+		d1.append(":");
+		d1.append(m);
+		d1.append(":");
+		d1.append("00");
+		
+		System.out.println("date :" + d1);
+		//convertir string en date
+		String s = "2011-07-08 03:48:45";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date dat = sdf.parse(d1.toString());
 
 		// pour récupérer l'ID_Aidant de l'aidant (accompagnant) sélectionné
 		// dans le formulaire
@@ -136,11 +167,10 @@ public class AideeService implements IAideeService {
 		HttpSession session = request.getSession();
 		Integer IDAidee = (Integer) session.getAttribute("IDAidee");
 
-		// recuperer la date
-		Date date = new Date();
+		
 	
 		// creer un evenement
-		AgendaDAO.getInstance().createEvenement(date, titre, contenu, IDAidee, IDAidant);
+		AgendaDAO.getInstance().createEvenement(dat, titre, contenu, IDAidee, IDAidant);
 	}
 
 	/*

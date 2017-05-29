@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ExceptionDAO;
 import service.AidantService;
 import service.AideeService;
 
@@ -36,7 +38,11 @@ public class AddEvent extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AideeService.getInstance().addEvent(request,response);
+		try {
+			AideeService.getInstance().addEvent(request,response);
+		} catch (ParseException e) {
+			throw new ExceptionDAO("Arreur dans le parse");
+		}
 		response.sendRedirect("agenda");
 	}
 

@@ -1,5 +1,6 @@
 package service;
 
+import java.text.ParseException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,7 @@ public interface IAideeService {
 	
 	public Personne medecinReferent (Integer IDAidee);
 	
-	public void addEvent (HttpServletRequest request, HttpServletResponse response) ;
+	public void addEvent(HttpServletRequest request, HttpServletResponse response) throws ParseException;
 	
 	public void addCR (HttpServletRequest request, HttpServletResponse response);
 	
