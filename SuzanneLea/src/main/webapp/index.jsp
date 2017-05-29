@@ -14,13 +14,13 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
   </head>
-  <body class="w3-dark-grey">
+  <body>
 
-      <header class="w3-container">
+      <header class="w3-container w3-pink">
         <h1 class="w3-center">Suzanne &amp; Léa</h1>
       </header>
       
-      <main class="w3-main">
+      <div class="w3-main">
           <div class="w3-container ">
               <p>Suzanne &amp; Léa est une solution innovante d'entraide destinée à <b>accompagner et sécuriser le quotidien</b> des personnes fragilisées et <b>faciliter l'intervention </b> des aidants.</p>
           </div>
@@ -56,7 +56,7 @@
               </li>
             </ul>
           </div>
-      </main>
+      </div>
 
 
   </body>

@@ -1,33 +1,75 @@
- /* Remove the navbar's default margin-bottom and rounded borders */ 
-.navbar {
-  margin-bottom: 0;
-  border-radius: 0;
+
+/******** Générale Dashboard (layout) ********/
+
+.w3-main h1, h2{
+  text-align: center
+  /*margin-left: 200px;*/
 }
 
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {height: 450px}
-
-/* Set gray background color and 100% height */
-.sidenav {
-  padding-top: 20px;
-  background-color: #f1f1f1;
-  height: 100%;
+#menu ul{
+	padding: 1% 5%;
 }
 
-/* Set black background color, white text and some padding */
-footer {
-  background-color: #555;
-  color: white;
-  padding: 15px;
+#menu ul li{
+	text-align: center;
+}
+#menu ul li:hover{
+	cursor: pointer;
 }
 
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
-  }
-  .row.content {
-    height:auto;
-  } 
+#menu ul li i{
+	font-size: 150%;
+}
+
+section{
+	padding: 2% 4%;
+}
+
+/*** Page Dashboard ***/
+
+#infodash div{
+	margin-bottom: 2%;
+}
+#infodash div {
+	display: flex;
+	flex-flow: : row nowrap;
+	justify-content: space-around;
+}
+#infodash div:first-of-type ul{
+	background-color:#87CEEB;
+}
+#infodash div:last-of-type ul{
+	background-color:#8bc34a;
+}
+#infodash ul li:first-child{
+	font-weight: bold;
+}
+
+/*** Page comptes rendus ***/
+.liste{
+	width: 80%;
+	margin: 0 auto;
+}
+.liste>li{
+	margin-bottom: 2%;
+}
+.liste>li:nth-of-type(odd){
+	background-color:#87CEEB;
+}
+
+.liste>li:nth-of-type(even){
+	background-color:#8bc34a;
+}
+
+/*** Formulaires générale ***/
+form{
+	padding: 5% 10%;
+}
+form label{
+	font-size: 140%;
+}
+form button{
+	width: 20%;
+	margin: 2% 40%;
+	
 }

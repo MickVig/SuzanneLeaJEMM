@@ -7,97 +7,114 @@
 <title>Suzanne &amp; Léa</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./fontawesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="./css/w3.css">
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/jquery-3.2.1.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
 <script src="./js/script.js"></script>
 </head>
 <body>
 
-	<header class="w3-container w3-dark-grey">
+	<header class="w3-container w3-pink">
 		<h1 class="w3-center">
-			<a href="#" class="w3-hover-text-teal">Suzanne &amp; Léa</a>
+			Suzanne &amp; Léa
 		</h1>
 	</header>
 
-	<div
-		class="w3-sidebar w3-bar-block w3-collapse w3-card-2 w3-dark-grey w3-animate-left"
-		style="width: 200px;" id="mySidebar">
-		<button class="w3-bar-item w3-button w3-large w3-hide-large"onclick="w3_close()">Close &times;</button>
-		<a href="dashboard" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord</a> 
-		<a href="carnet" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-address-book" aria-hidden="true"></i> Carnet d'adresses</a>
-		<a href="carnetpartenaires" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-address-book" aria-hidden="true"></i> Carnet Part</a>
-		<a href="compterendu" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-clipboard" aria-hidden="true"></i> Comptes Rendus</a> 
-		<a href="agenda" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-calendar" aria-hidden="true"></i> Agenda</a> 
-		<a href="deconnexion" class="w3-bar-item w3-button w3-text-white"><i class="fa fa-times" aria-hidden="true"></i> Déconnexion</a>
-	</div>
-
-	<div class="w3-main" style="margin-left: 200px">
-		<div class="w3-container w3-teal">
-			<button class="w3-button w3-teal w3-xlarge w3-hide-large"
-				onclick="w3_open()">&#9776;</button>
-			<h1>Tableau de bord</h1>
+	<div class="w3-main" >
+		<div class="w3-container w3-teal w3-row">
+			<button class="w3-button w3-teal w3-xlarge w3-hide-large w3-quarter"
+				onclick="w3_open()">
+				<i class="fa fa-bars" aria-hidden="true"></i> 
+				Menu
+			</button>
+			<h1 class="w3-repos">Tableau de bord</h1>
 		</div>
+
+		<div id="menu">
+			<ul class="w3-row w3-ul">
+				<li id="btndashboard" class="w3-col m2 w3-teal w3-text-white w3-hover-amber">
+					<h4>
+						<i class="fa fa-tachometer" aria-hidden="true"></i>
+						<br>
+						Tableau de bord
+					</h4>
+				</li>
+				<li id="btncarnet" class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
+					<h4>
+						<i class="fa fa-users" aria-hidden="true"></i>
+						<br>
+						Carnet Proches
+					</h4>
+				</li>
+				<li id="btncarnetpart" class="w3-col m2 w3-teal w3-text-white w3-hover-amber">
+					<h4>
+						<i class="fa fa-address-book" aria-hidden="true"></i>
+						<br>
+						Carnet Partenaires
+					</h4>
+				</li>
+				<li id="btncr" class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
+					<h4>
+						<i class="fa fa-clipboard" aria-hidden="true"></i>
+						<br>
+						Comptes Rendus
+					</h4>
+				</li>
+				<li id="btnagenda" class="w3-col m2 w3-teal w3-text-white w3-hover-amber">
+					<h4>
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+						<br>
+						Agenda
+					</h4>
+				</li>
+				<li id="btnlogout" class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
+					<h4>
+						<i class="fa fa-times" aria-hidden="true"></i>
+						<br>
+						Déconnexion
+					</h4>
+				</li>
+			</ul>
+		</div>
+
 		<div class="w3-container">
-			<h2>Bonjour ${personne.prenom} ${personne.nom} - Bienvenue dans votre espace personnel</h2>
-		</div>
-		<div>
-			<div>
-				<h3>
-					<i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord
-				</h3>
-			</div>
-			<div>
-				<h3>
-					<i class="fa fa-address-book" aria-hidden="true"></i> Carnet d'adresses
-				</h3>
-			</div>
-			<div>
-				<h3>
-					<i class="fa fa-clipboard" aria-hidden="true"></i> Comptes Rendus
-				</h3>
-			</div>
-			<div>
-				<h3>
-					<i class="fa fa-calendar" aria-hidden="true"></i> Agenda
-				</h3>
-			</div>
+			<h2>Bienvenue dans votre espace personnel ${personne.prenom} ${personne.nom} </h2>
 		</div>
 
-		<br />
-		<p>Aidant référent :</p>
-		<ul>
-			<li>NOM et PRENOM : ${procheReferent.nom}
-				${procheReferent.prenom}</li>
-			<li>Adresse : ${procheReferent.adresse}</li>
-			<li>Telephone : ${procheReferent.tel}</li>
-			<li>Email : ${procheReferent.email }</li>
-		</ul>
-
-		<br />
-		<p>Medecin référent :</p>
-		<ul>
-			<li>NOM et PRENOM : ${medecinReferent.nom}
-				${medecinReferent.prenom}</li>
-			<li>Adresse : ${medecinReferent.adresse}</li>
-			<li>Telephone : ${medecinReferent.tel}</li>
-			<li>Email : ${medecinReferent.email }</li>
-		</ul>
-
-
+		<section id="infodash"> 
+			<h2>Informations</h2>
+			<div>
+				<ul class="w3-ul ">
+					<li>Aidant référent</li>
+					<li>NOM et PRENOM : ${procheReferent.nom} ${procheReferent.prenom}</li>
+					<li>Adresse : ${procheReferent.adresse}</li>
+					<li>Telephone : ${procheReferent.tel}</li>
+					<li>Email : ${procheReferent.email }</li>
+				</ul>
+				<ul class="w3-ul ">
+					<li>Medecin référent</li>
+					<li>NOM et PRENOM : ${medecinReferent.nom} ${medecinReferent.prenom}</li>
+					<li>Adresse : ${medecinReferent.adresse}</li>
+					<li>Telephone : ${medecinReferent.tel}</li>
+					<li>Email : ${medecinReferent.email }</li>
+				</ul>
+			</div>
+			<div>
+				<ul class="w3-ul ">
+					<li>Dernier compte rendu</li>
+					<li>Auteur : ${procheReferent.nom} ${procheReferent.prenom}</li>
+					<li>Date : ${procheReferent.adresse}</li>
+					<li>Contenu : ${procheReferent.tel}</li>
+				</ul>
+				<ul class="w3-ul ">
+					<li>Prochain évènement</li>
+					<li>Titre : ${medecinReferent.nom} ${medecinReferent.prenom}</li>
+					<li>Contenu : ${medecinReferent.adresse}</li>
+					<li>Accompagnant : ${medecinReferent.tel}</li>
+				</ul>
+			</div>
+		</section>
 	</div>
-
-
 </body>
-
-<script>
-	
-</script>
-
-
-
-
 </html>
