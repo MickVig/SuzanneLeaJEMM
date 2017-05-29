@@ -111,9 +111,9 @@
 				</ul>
 				<ul class="w3-ul ">
 					<li>Prochain évènement</li>
-					<li>${prochainEvenement.titre}</li>
-					<li>Date : ${prochainEvenement.date}</li>
-					<li>Contenu : ${prochainEvenement.contenu}</li>
+					<li>Titre : ${prochainEvenement.get(0).titre}</li>
+					<li>Date : ${prochainEvenement.get(1)}</li>
+					<li>Contenu : ${prochainEvenement.get(0).contenu}</li>
 				</ul>
 			</div>
 		</section>
