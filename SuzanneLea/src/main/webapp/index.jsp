@@ -28,13 +28,13 @@
           </div>
           <div class="w3-container w3-center">
             <h2>LA PREMIERE APPLICATION DEDIE AUX AIDEES ET AUX AIDANTS !</h2>
-            <img alt="les handicaps et dépendances" src="images/handicaps.PNG">
+            <img class="w3-image" alt="les handicaps et dépendances" src="images/handicaps.PNG">
             <p> Vous pouvez dès maintenant vous enregistrer :</p>
               <button id="btnlogin" class="w3-btn w3-green w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Connexion</button>
               <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-pencil" aria-hidden="true"></i> Inscription</button>
           </div>
         </section>
-        <section>
+        <section id="outils">
           <div class="w3-container">
             <p>Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
             <ul>

@@ -4,12 +4,13 @@ body{
 }
 img{
 	width:80%;
+	border: 5px solid #f0e68c;
 }
-
-
-
-
-
+#outils ul{
+	display: flex;
+	flex-flow: : row nowrap;
+	justify-content: space-around;
+}
 /******** Générale Dashboard (layout) ********/
 
 h1, h2, h3, h4{
@@ -38,25 +39,22 @@ section{
 
 /*** Page Dashboard ***/
 
-#infodash div{
+#infosdash div{
 	margin-bottom: 2%;
 }
-#infodash div {
+#infosdash div {
 	display: flex;
 	flex-flow: : row nowrap;
 	justify-content: space-around;
 }
-#infodash div ul{
+#infosdash div ul{
 	width : 45%;
+	border: 2px solid #f0e68c;
 }
-#infodash div:first-of-type ul{
-	background-color:#87CEEB;
-}
-#infodash div:last-of-type ul{
-	background-color:#8bc34a;
-}
-#infodash ul li:first-child{
+
+#infosdash ul li:first-child{
 	font-weight: bold;
+	background-color:#f0e68c;
 }
 
 /*** Liste ***/
@@ -67,26 +65,18 @@ section{
 .liste>li{
 	padding:0;
 	margin-bottom: 2%;
-}
-.liste>li:nth-of-type(odd){
-	background-color:#87CEEB;
+	border: 2px solid #f0e68c;
 }
 
-.liste>li:nth-of-type(even){
-	background-color:#8bc34a;
-	
-}
-.liste>li>ul{
-	border: 2px solid #ffc107;
-}
 .liste>li>ul>li:first-of-type{
-	background-color:#ffc107;
+	background-color:#f0e68c;
 }
 
 /*** Liste 2nd niveau ***/
 .liste2{
-	width: 80%;
+	width: 95%;
 	margin: 4% auto;
+	border: 2px solid #f0e68c;
 }
 
 
