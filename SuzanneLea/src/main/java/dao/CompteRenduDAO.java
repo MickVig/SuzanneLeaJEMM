@@ -1,5 +1,6 @@
 package dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -46,7 +47,10 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 			for (int i = 0; i < listeCR.size(); i++) {
 				List CompteRenduListe = new ArrayList();
 				CompteRendu cr = listeCR.get(i);
-				CompteRenduListe.add(cr.getDate());
+				Date d=cr.getDate();
+				SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy"); 
+				String date = formatDateJour.format(d);
+				CompteRenduListe.add(date);
 				CompteRenduListe.add(cr.getCommentaire());
 				if(cr.getAidant()!=null) {
 					CompteRenduListe.add(cr.getAidant().getPersonne());
@@ -100,7 +104,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 		Personne p1=new Personne();
 		Personne p2=new Personne();
 		try {
-			Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE ID_Aidee ="+Id_Aidee+"AND cr.date<CURRENT_DATE ORDER BY cr.date desc");
+			Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE ID_Aidee ="+Id_Aidee+"AND cr.date<CURRENT_TIMESTAMP ORDER BY cr.date desc");
 			listeCR = requete.getResultList();
 			
 			for (int i = 0; i < 1; i++) {				

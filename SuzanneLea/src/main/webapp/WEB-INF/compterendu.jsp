@@ -83,6 +83,7 @@
                 	<li>
 	                    <ul class="w3-ul">
 	                      <li> Compte-rendu N° </li>
+	                      <li> Date: ${cr.get(0)}</li>
 	                      <c:if test = "${cr.size()==4}">
 	                          <li>Auteur : ${cr.get(2).getNom()} ${cr.get(2).getPrenom()}</li>
 	                      </c:if>

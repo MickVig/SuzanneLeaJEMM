@@ -62,7 +62,7 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 		try {
 			// On selectionne les aidants d'un certain type
 			Query requete = this.getEm().createQuery("SELECT a FROM Agenda a WHERE a.aidee.ID_Aidee=" + ID_Aidee
-					+ "AND a.date>CURRENT_DATE ORDER BY a.date");
+					+ "AND a.date>CURRENT_TIMESTAMP ORDER BY a.date");
 			List<Agenda> liste = requete.getResultList();
 			
 			// on cree une liste d'agenda
