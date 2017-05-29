@@ -23,7 +23,7 @@
       <div class="w3-main">
           <section>
 	          <button id="btnaccueil" class="w3-btn w3-amber w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Accueil</button>
-	
+				<button id="btncreate" class="w3-btn w3-amber w3-xlarge"><i class="fa fa-pencil" aria-hidden="true"></i> Inscription</button>
 	          <div class="w3-container w3-white">
 	            <form id="formlogin" method="post" action="">
 	              <label for="mail" class="w3-text-teal">Mail</label>

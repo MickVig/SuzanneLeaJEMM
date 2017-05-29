@@ -72,7 +72,7 @@
 
           <section>
             <div class="w3-container">
-              <button id="btnaddcr" class="w3-button w3-large w3-amber">Nouveau Compte Rendu <i class="fa fa-plus" aria-hidden="true"></i></button>
+              <button id="btnaddcr" class="w3-button w3-large w3-amber">Nouveau Compte Rendu <i class="fa fa-pencil" aria-hidden="true"></i></button>
             </div> 
 
             <h2>Liste des comptes rendus</h2>

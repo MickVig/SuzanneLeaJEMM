@@ -73,7 +73,7 @@
 
           <section>
             <div class="w3-container">
-              <button id="btnaddcontact" class="w3-button w3-large w3-amber">Nouveau Contact <i class="fa fa-plus" aria-hidden="true"></i></button>
+              <button id="btnaddcontact" class="w3-button w3-large w3-amber">Nouveau Contact <i class="fa fa-pencil" aria-hidden="true"></i></button>
             </div>
 
             <h2>Liste des aidants proches</h2> 

@@ -28,7 +28,7 @@
             <h2>LA PREMIERE APPLICATION DEDIE AUX AIDEES ET AUX AIDANTS !</h2>
             <p> Vous pouvez dès maintenant vous enregistrer :</p>
               <button id="btnlogin" class="w3-btn w3-green w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Connexion</button>
-              <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-plus" aria-hidden="true"></i> Créer</button>
+              <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-pencil" aria-hidden="true"></i> Inscription</button>
           </div>
           <div class="w3-container">
             <p>Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
