@@ -92,18 +92,6 @@
                     </ul>
                   </c:forEach>
                 </li> 
-                <li>
-                  <c:forEach items="${allRDV}" var="rdv">
-                    <ul class="w3-ul">
-                      <li>Titre : ${rdv.get(0).titre} </li>
-                      <li>Date : ${rdv.get(0).date} </li>
-                      <c:if test = "${rdv.size()>1}">
-                            <li>Aidant : ${rdv.get(1).getNom()} ${rdv.get(1).getPrenom()}</li>
-                          </c:if>
-                      <li>Contenu : ${rdv.get(0).contenu}</li>
-                    </ul>
-                  </c:forEach>
-                </li>
               </ul>
             </div>
           </section>

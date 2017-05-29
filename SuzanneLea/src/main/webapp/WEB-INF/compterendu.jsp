@@ -93,20 +93,6 @@
                     </ul>
                   </c:forEach>
                 </li>
-                <li>
-                  <c:forEach items="${allCR}" var="cr">
-                    <ul class="w3-ul">
-                      <li> Compte-rendu N° </li>
-                      <c:if test = "${cr.size()==4}">
-                          <li>Auteur : ${cr.get(2).getNom()} ${cr.get(2).getPrenom()}</li>
-                      </c:if>
-                      <c:if test = "${cr.size()==3}">
-                          <li>Auteur : ${cr.get(2).getNom()} ${cr.get(2).getPrenom()}</li>
-                      </c:if>
-                      <li>Commentaire : ${cr.get(1)}</li>
-                    </ul>
-                  </c:forEach>
-                </li>
               </ul>
             </div>
           </section>

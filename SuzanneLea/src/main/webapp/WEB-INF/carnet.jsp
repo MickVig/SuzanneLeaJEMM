@@ -80,29 +80,18 @@
 
             <div class="w3-container">
               <ul class="liste w3-ul">
-        				<li>
-        					<c:forEach items="${aidantsProches}" var="aidant">
-        						<ul class="w3-ul">
-        							<li>NOM et PRENOM : ${aidant.nom} ${aidant.prenom}</li>
-        							<li>Adresse : ${aidant.adresse}</li>
-        							<li>Telephone : ${aidant.tel}</li>
-        							<li>Email : ${aidant.email }</li>
-        						</ul>
-        						<br/>
-        					</c:forEach>
-        				</li>
-                <li>
-                  <c:forEach items="${aidantsProches}" var="aidant">
-                    <ul class="w3-ul">
-                      <li>NOM et PRENOM : ${aidant.nom} ${aidant.prenom}</li>
-                      <li>Adresse : ${aidant.adresse}</li>
-                      <li>Telephone : ${aidant.tel}</li>
-                      <li>Email : ${aidant.email }</li>
-                    </ul>
-                    <br/>
-                  </c:forEach>
-                </li>
-  			       </ul>
+   				<li>
+   					<c:forEach items="${aidantsProches}" var="aidant">
+   						<ul class="w3-ul">
+   							<li>NOM et PRENOM : ${aidant.nom} ${aidant.prenom}</li>
+   							<li>Adresse : ${aidant.adresse}</li>
+   							<li>Telephone : ${aidant.tel}</li>
+   							<li>Email : ${aidant.email }</li>
+   						</ul>
+   						<br/>
+   					</c:forEach>
+   				</li>
+  			  </ul>
             </div> 
           </section>
       </div>

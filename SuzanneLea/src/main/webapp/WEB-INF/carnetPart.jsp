@@ -90,25 +90,9 @@
                         <li>Email : ${medecin.get(6)}</li>
                       </ul>
                     </c:forEach>
-                    <c:forEach items="${medecins}" var="medecin">
-                      <ul class="w3-ul">
-                        <li>Nom et Prénom : ${medecin.get(2)} ${medecin.get(3)}</li>
-                        <li>Adresse : ${medecin.get(4)}</li>
-                        <li>Téléhone : ${medecin.get(5)}</li>
-                        <li>Email : ${medecin.get(6)}</li>
-                      </ul>
-                    </c:forEach>
                 </li>
                 <li>
                     <h4>Infirmiers</h4>
-                    <c:forEach items="${infirmiers}" var="infirmier">
-                      <ul class="w3-ul">
-                        <li>Nom et Prénom : ${infirmier.get(2)} ${infirmier.get(3)}</li>
-                        <li>Adresse : ${infirmier.get(4)}</li>
-                        <li>Téléhone : ${infirmier.get(5)}</li>
-                        <li>Email : ${infirmier.get(6)}</li>
-                      </ul>
-                    </c:forEach>
                     <c:forEach items="${infirmiers}" var="infirmier">
                       <ul class="w3-ul">
                         <li>Nom et Prénom : ${infirmier.get(2)} ${infirmier.get(3)}</li>
@@ -142,14 +126,6 @@
                 </li>
                 <li>
                     <h4>Electriciens</h4>
-                    <c:forEach items="${electriciens}" var="electricien">
-                      <ul class="w3-ul">
-                        <li>Nom et Prénom : ${electricien.get(2)} ${electricien.get(3)}</li>
-                        <li>Adresse : ${electricien.get(4)}</li>
-                        <li>Téléhone : ${electricien.get(5)}</li>
-                        <li>Email : ${electricien.get(6)}</li>
-                      </ul>
-                    </c:forEach>
                     <c:forEach items="${electriciens}" var="electricien">
                       <ul class="w3-ul">
                         <li>Nom et Prénom : ${electricien.get(2)} ${electricien.get(3)}</li>
