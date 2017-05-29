@@ -27,10 +27,10 @@
           <div class="w3-container w3-white">
             <form id="formlogin" method="post" action="">
               <label for="mail" class="w3-text-teal">Mail</label>
-              <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="email" >
+              <input class="w3-input w3-border w3-light-grey" id="mail" name="mail" type="email" value="ginette.menut@gmail.com" >
               <br>
               <label for="mdp" class="w3-text-teal">Mot de passe</label>
-              <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="text">
+              <input class="w3-input w3-border w3-light-grey" id="mdp" name="mdp" type="text" value="aide1">
             
               <button class="w3-btn w3-amber">Se Connecter</button>
             </form>
