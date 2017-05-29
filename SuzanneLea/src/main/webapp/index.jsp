@@ -34,9 +34,9 @@
               <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-pencil" aria-hidden="true"></i> Inscription</button>
           </div>
         </section>
-        <section id="outils">
+        <section id="outils" >
           <div class="w3-container">
-            <p>Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
+            <p class="w3-center">Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
             <ul>
               <li>
                 <h4>
