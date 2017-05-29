@@ -6,10 +6,17 @@ img{
 	width:80%;
 	border: 5px solid #f0e68c;
 }
-#outils ul{
+
+#outils div>ul{
+	list-style-type:none;
 	display: flex;
 	flex-flow: : row nowrap;
 	justify-content: space-around;
+}
+
+#outils i{
+	font-size: 150%;
+	text-align:center;
 }
 /******** Générale Dashboard (layout) ********/
 

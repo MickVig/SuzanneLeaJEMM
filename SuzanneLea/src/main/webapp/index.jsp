@@ -39,21 +39,31 @@
             <p>Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
             <ul>
               <li>
-                <h4>Tableau de bord de synthèse dédié aux aidants</h4>
+                <h4>
+                	<i class="fa fa-tachometer" aria-hidden="true"></i>
+                	<br>Tableau de bord de synthèse dédié aux aidants
+                </h4>
                 <ul>
                   <li>Accès aux comptes rendus : famille, assitant à domicile, employé d'une agence, ...</li>
                   <li>Suivi et stockage des données physiologiques</li>
                 </ul>
               </li>
               <li>
-                <h4>Gestion du quotidien</h4>
+                <h4>
+                	<i class="fa fa-clipboard" aria-hidden="true"></i>
+                	<br>Gestion du quotidien
+                </h4>
                 <ul>
                   <li>Agenda familial : organisation des visites et des événnements, RDV médical, ...</li>
                   <li> Moyen de Paiement partagé ("cagnotte") et sécurisé pour la gestion des aléas du quotidien</li>
                 </ul>
               </li>
               <li>
-                <h4>Système d'alerte</h4>
+              	
+                <h4>
+                	<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                	<br>Système d'alerte
+                </h4>
                 <ul>
                   <li>Traitement des appels d'urgence </li>
                   <li>Détection de situations anormales (chutes, durée de sortie supérieure à la normale,...)</li>

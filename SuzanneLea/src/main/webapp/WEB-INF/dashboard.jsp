@@ -51,8 +51,7 @@
 						Carnet Partenaires
 					</h4>
 				</li>
-				<li id="btncr"
-					class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
+				<li id="btncr" class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
 					<h4>
 						<i class="fa fa-clipboard" aria-hidden="true"></i> <br>
 						Comptes Rendus
