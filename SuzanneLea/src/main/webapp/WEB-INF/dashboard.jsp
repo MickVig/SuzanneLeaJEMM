@@ -16,62 +16,58 @@
 <body>
 
 	<header class="w3-container w3-pink">
-		<h1 class="w3-center">
-			Suzanne &amp; Léa
-		</h1>
+		<h1 class="w3-center">Suzanne &amp; Léa</h1>
 	</header>
 
-	<div class="w3-main" >
+	<div class="w3-main">
 		<div class="w3-container w3-teal w3-row">
 			<button class="w3-button w3-teal w3-xlarge w3-hide-large w3-quarter"
 				onclick="w3_open()">
-				<i class="fa fa-bars" aria-hidden="true"></i> 
-				Menu
+				<i class="fa fa-bars" aria-hidden="true"></i> Menu
 			</button>
 			<h1 class="w3-repos">Tableau de bord</h1>
 		</div>
 
 		<div id="menu">
 			<ul class="w3-row w3-ul">
-				<li id="btndashboard" class="w3-col m2 w3-teal w3-text-white w3-hover-amber">
+				<li id="btndashboard"
+					class="w3-col m2 w3-teal w3-text-white w3-hover-amber">
 					<h4>
-						<i class="fa fa-tachometer" aria-hidden="true"></i>
-						<br>
+						<i class="fa fa-tachometer" aria-hidden="true"></i> <br>
 						Tableau de bord
 					</h4>
 				</li>
-				<li id="btncarnet" class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
+				<li id="btncarnet"
+					class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
 					<h4>
-						<i class="fa fa-users" aria-hidden="true"></i>
-						<br>
-						Carnet Proches
+						<i class="fa fa-users" aria-hidden="true"></i> <br> Carnet
+						Proches
 					</h4>
 				</li>
-				<li id="btncarnetpart" class="w3-col m2 w3-teal w3-text-white w3-hover-amber">
+				<li id="btncarnetpart"
+					class="w3-col m2 w3-teal w3-text-white w3-hover-amber">
 					<h4>
-						<i class="fa fa-address-book" aria-hidden="true"></i>
-						<br>
+						<i class="fa fa-address-book" aria-hidden="true"></i> <br>
 						Carnet Partenaires
 					</h4>
 				</li>
-				<li id="btncr" class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
+				<li id="btncr"
+					class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
 					<h4>
-						<i class="fa fa-clipboard" aria-hidden="true"></i>
-						<br>
+						<i class="fa fa-clipboard" aria-hidden="true"></i> <br>
 						Comptes Rendus
 					</h4>
 				</li>
-				<li id="btnagenda" class="w3-col m2 w3-teal w3-text-white w3-hover-amber">
+				<li id="btnagenda"
+					class="w3-col m2 w3-teal w3-text-white w3-hover-amber">
 					<h4>
-						<i class="fa fa-calendar" aria-hidden="true"></i>
-						<br>
-						Agenda
+						<i class="fa fa-calendar" aria-hidden="true"></i> <br> Agenda
 					</h4>
 				</li>
-				<li id="btnlogout" class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
+				<li id="btnlogout"
+					class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
 					<h4>
-						<i class="fa fa-times" aria-hidden="true"></i>
-						<br>
+						<i class="fa fa-times" aria-hidden="true"></i> <br>
 						Déconnexion
 					</h4>
 				</li>
@@ -79,22 +75,25 @@
 		</div>
 
 		<div class="w3-container">
-			<h2>Bienvenue dans votre espace personnel ${personne.prenom} ${personne.nom} !</h2>
+			<h2>Bienvenue dans votre espace personnel ${personne.prenom}
+				${personne.nom} !</h2>
 		</div>
 
-		<section id="infodash"> 
+		<section id="infodash">
 			<h2>Informations</h2>
 			<div>
 				<ul class="w3-ul ">
 					<li>Aidant référent</li>
-					<li>NOM et PRENOM : ${procheReferent.nom} ${procheReferent.prenom}</li>
+					<li>NOM et PRENOM : ${procheReferent.nom}
+						${procheReferent.prenom}</li>
 					<li>Adresse : ${procheReferent.adresse}</li>
 					<li>Telephone : ${procheReferent.tel}</li>
 					<li>Email : ${procheReferent.email }</li>
 				</ul>
 				<ul class="w3-ul ">
 					<li>Medecin référent</li>
-					<li>NOM et PRENOM : ${medecinReferent.nom} ${medecinReferent.prenom}</li>
+					<li>NOM et PRENOM : ${medecinReferent.nom}
+						${medecinReferent.prenom}</li>
 					<li>Adresse : ${medecinReferent.adresse}</li>
 					<li>Telephone : ${medecinReferent.tel}</li>
 					<li>Email : ${medecinReferent.email }</li>
@@ -103,15 +102,21 @@
 			<div>
 				<ul class="w3-ul ">
 					<li>Dernier compte rendu</li>
-					<li>Auteur : ${procheReferent.nom} ${procheReferent.prenom}</li>
-					<li>Date : ${procheReferent.adresse}</li>
-					<li>Contenu : ${procheReferent.tel}</li>
+					<c:if test="${dernierCR.size()==3}">
+						<li>Auteur : ${dernierCR.get(2).getNom()}
+							${dernierCR.get(2).getPrenom()}</li>
+					</c:if>
+					<c:if test="${dernierCR.size()==2}">
+						<li>Auteur : ${dernierCR.get(1).getNom()} ${dernierCR.get(1).getPrenom()}</li>
+					</c:if>
+					<li>Date : ${dernierCR.get(0).getDate()}</li>
+					<li>Contenu : ${dernierCR.get(0).getCommentaire()}</li>
 				</ul>
 				<ul class="w3-ul ">
 					<li>Prochain évènement</li>
-					<li>Titre : ${medecinReferent.nom} ${medecinReferent.prenom}</li>
-					<li>Contenu : ${medecinReferent.adresse}</li>
-					<li>Accompagnant : ${medecinReferent.tel}</li>
+					<li>Titre : ${prochainEvenement.titre}</li>
+					<li>Date : ${prochainEvenement.date}</li>
+					<li>Contenu : ${prochainEvenement.contenu}</li>
 				</ul>
 			</div>
 		</section>

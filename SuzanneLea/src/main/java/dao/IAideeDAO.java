@@ -16,14 +16,14 @@ public interface IAideeDAO {
 	public List<Personne> allAidant(Integer ID_Aidee);
 	
 	/**
-	 * Recuperer le proche referent
+	 * Recuperer la personne proche referente
 	 * @param ID_Aidee
 	 * @return
 	 */
 	public Personne readProcheRef(Integer ID_Aidee);
 	
 	/**
-	 *recupere le medecin referent
+	 *recupere la personne medecin referente
 	 * @param ID_Aidee
 	 * @return retourne le medecin referent de la personne aidee
 	 */

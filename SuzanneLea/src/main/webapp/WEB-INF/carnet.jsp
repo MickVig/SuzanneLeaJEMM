@@ -65,7 +65,7 @@
                 <h4>
                   <i class="fa fa-times" aria-hidden="true"></i>
                   <br>
-                  D?onnexion
+                  Déconnexion
                 </h4>
               </li>
             </ul>

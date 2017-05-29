@@ -16,7 +16,7 @@ public interface IAidantDAO {
 	public List<Personne> readAllAidantType(Integer ID_Type);
 	
 	/**
-	 * Foncgtion pour récuperer l'ID d'un Aidant à partir de l'Ide d'une personne
+	 * Fonction pour récuperer l'ID d'un Aidant à partir de l'Id d'une personne
 	 * @param ID_Personne
 	 * @return ID_Aidant correspondant
 	 */

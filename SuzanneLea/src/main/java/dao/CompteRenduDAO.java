@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import bean.CompteRendu;
+import bean.Personne;
 
 public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 
@@ -94,20 +95,24 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 	@Override
 	public List lastCompteRendu(Integer Id_Aidee) {
 		this.connexion();
-		//List ComptesRendus = new ArrayList();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
 		List CompteRenduListe = new ArrayList();
+		Personne p1=new Personne();
+		Personne p2=new Personne();
 		try {
 			Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE ID_Aidee ="+Id_Aidee+"AND cr.date<CURRENT_DATE ORDER BY cr.date desc");
 			listeCR = requete.getResultList();
 			
-			for (int i = 0; i < 1; i++) {
-				
+			for (int i = 0; i < 1; i++) {				
 				CompteRendu cr = listeCR.get(i);
 				CompteRenduListe.add(cr);
-				CompteRenduListe.add(cr.getAidee().getPersonne());	
+				p1=cr.getAidee().getPersonne();
+				System.out.println(p1);
+				CompteRenduListe.add(p1);	
 				if(cr.getAidant()!=null) {
-					CompteRenduListe.add(cr.getAidant().getPersonne());
+					p2=cr.getAidant().getPersonne();
+					System.out.println(p2);
+					CompteRenduListe.add(p2);
 				}
 			}
 		} catch (Exception e) {
