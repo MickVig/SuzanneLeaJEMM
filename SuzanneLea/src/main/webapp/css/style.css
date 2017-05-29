@@ -33,6 +33,9 @@ section{
 	flex-flow: : row nowrap;
 	justify-content: space-around;
 }
+#infodash div ul{
+	width : 45%;
+}
 #infodash div:first-of-type ul{
 	background-color:#87CEEB;
 }
