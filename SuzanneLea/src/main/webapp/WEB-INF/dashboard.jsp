@@ -51,8 +51,7 @@
 						Carnet Partenaires
 					</h4>
 				</li>
-				<li id="btncr"
-					class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
+				<li id="btncr" class="w3-col m2 w3-pink w3-text-white w3-hover-amber">
 					<h4>
 						<i class="fa fa-clipboard" aria-hidden="true"></i> <br>
 						Comptes Rendus
@@ -79,21 +78,19 @@
 				${personne.nom} !</h2>
 		</div>
 
-		<section id="infodash">
+		<section id="infosdash">
 			<h2>Informations</h2>
 			<div>
 				<ul class="w3-ul ">
 					<li>Aidant référent</li>
-					<li>NOM et PRENOM : ${procheReferent.nom}
-						${procheReferent.prenom}</li>
+					<li>${procheReferent.nom} ${procheReferent.prenom}</li>
 					<li>Adresse : ${procheReferent.adresse}</li>
 					<li>Telephone : ${procheReferent.tel}</li>
 					<li>Email : ${procheReferent.email }</li>
 				</ul>
 				<ul class="w3-ul ">
 					<li>Medecin référent</li>
-					<li>NOM et PRENOM : ${medecinReferent.nom}
-						${medecinReferent.prenom}</li>
+					<li>${medecinReferent.nom} ${medecinReferent.prenom}</li>
 					<li>Adresse : ${medecinReferent.adresse}</li>
 					<li>Telephone : ${medecinReferent.tel}</li>
 					<li>Email : ${medecinReferent.email }</li>
@@ -114,9 +111,9 @@
 				</ul>
 				<ul class="w3-ul ">
 					<li>Prochain évènement</li>
-					<li>Titre : ${prochainEvenement.get(0).titre}</li>
-					<li>Date : ${prochainEvenement.get(1)}</li>
-					<li>Contenu : ${prochainEvenement.get(0).contenu}</li>
+					<li>${prochainEvenement.titre}</li>
+					<li>Date : ${prochainEvenement.date}</li>
+					<li>Contenu : ${prochainEvenement.contenu}</li>
 				</ul>
 			</div>
 		</section>

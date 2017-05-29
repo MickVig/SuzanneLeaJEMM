@@ -28,32 +28,42 @@
           </div>
           <div class="w3-container w3-center">
             <h2>LA PREMIERE APPLICATION DEDIE AUX AIDEES ET AUX AIDANTS !</h2>
-            <img alt="les handicaps et dépendances" src="images/handicaps.PNG">
+            <img class="w3-image" alt="les handicaps et dépendances" src="images/handicaps.PNG">
             <p> Vous pouvez dès maintenant vous enregistrer :</p>
               <button id="btnlogin" class="w3-btn w3-green w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Connexion</button>
               <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-pencil" aria-hidden="true"></i> Inscription</button>
           </div>
         </section>
-        <section>
+        <section id="outils" >
           <div class="w3-container">
-            <p>Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
+            <p class="w3-center">Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
             <ul>
               <li>
-                <h4>Tableau de bord de synthèse dédié aux aidants</h4>
+                <h4>
+                	<i class="fa fa-tachometer" aria-hidden="true"></i>
+                	<br>Tableau de bord de synthèse dédié aux aidants
+                </h4>
                 <ul>
                   <li>Accès aux comptes rendus : famille, assitant à domicile, employé d'une agence, ...</li>
                   <li>Suivi et stockage des données physiologiques</li>
                 </ul>
               </li>
               <li>
-                <h4>Gestion du quotidien</h4>
+                <h4>
+                	<i class="fa fa-clipboard" aria-hidden="true"></i>
+                	<br>Gestion du quotidien
+                </h4>
                 <ul>
                   <li>Agenda familial : organisation des visites et des événnements, RDV médical, ...</li>
                   <li> Moyen de Paiement partagé ("cagnotte") et sécurisé pour la gestion des aléas du quotidien</li>
                 </ul>
               </li>
               <li>
-                <h4>Système d'alerte</h4>
+              	
+                <h4>
+                	<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                	<br>Système d'alerte
+                </h4>
                 <ul>
                   <li>Traitement des appels d'urgence </li>
                   <li>Détection de situations anormales (chutes, durée de sortie supérieure à la normale,...)</li>
