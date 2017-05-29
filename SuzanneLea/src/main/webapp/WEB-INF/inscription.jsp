@@ -39,7 +39,7 @@
 	                    <label for="adresse" class="w3-text-teal">Adresse</label>
 	                    <input class="w3-input w3-border " id="adresse" name="adresse" type="text" value="${adresse1}">
 	                    <br>
-	                    <label for="tel" class="w3-text-teal">Téléhone</label>
+	                    <label for="tel" class="w3-text-teal">Téléphone</label>
 	                    <input class="w3-input w3-border " id="tel" name="tel" type="text" value="${telephone1}">
 	                    <br>
 	                    <label for="mail" class="w3-text-teal">Mail</label>
@@ -61,7 +61,7 @@
                     <label for="adresseref" class="w3-text-teal">Adresse</label>
                     <input class="w3-input w3-border " id="adresseref" name="adresseref" type="text" value="${adresseref1}">
                     <br>
-                    <label for="telref" class="w3-text-teal">Téléhone</label>
+                    <label for="telref" class="w3-text-teal">Téléphone</label>
                     <input class="w3-input w3-border " id="telref" name="telref" type="text" value="${telephoneref1}">
                     <br>
                     <label for="mailref" class="w3-text-teal">Mail</label>

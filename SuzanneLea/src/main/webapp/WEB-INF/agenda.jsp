@@ -74,7 +74,7 @@
 		<section>
 			<div class="w3-container">
 				<button id="btnaddevent" class="w3-button w3-large w3-amber">
-					Ajouter un événement <i class="fa fa-pencil" aria-hidden="true"></i>
+					Nouvel événement <i class="fa fa-pencil" aria-hidden="true"></i>
 				</button>
 			</div>
 
