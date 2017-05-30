@@ -37,51 +37,58 @@ public class PersonneService implements IPersonneService {
 	 * connecter elle existe dans la BDD
 	 */	
 	public boolean connexion(HttpServletRequest request, HttpServletResponse response) {
-
+		// On récupère les paramètres de connexion (mail et mot de passe)
 		String mail = request.getParameter("mail");
 		String mdp = request.getParameter("mdp");
+		// On récupère la session
 		HttpSession session = request.getSession();
+		// On vérifie que les paramètres de connexion
 		Boolean verifOK = FormulaireService.getInstance().verifLogin(mail, mdp, request);
-		Boolean typeOk=false;
+		// On initialise les messages d'erreurs
 		session.setAttribute("messageLoginAide", "");
 		session.setAttribute("messageLogin", "");
 		
-
+		// Si la vérification des paramètres renvoie True
 		if (verifOK) {
-			/*
-			 * Envoi vers PersonneDAO pour récupérer la personne si personne
-			 * existe La mettre en session et renvoyer true Sinon retourner
-			 * false Une fois la personne en session, recuperer l'ID AIdee à
-			 * partir de l'ID personne avec la methode readAideeByPersonne ID
-			 * Aidee utilisee pour creer relation quand ajout d'un nouvel aidant
-			 */
-			Personne p = PersonneDAO.getInstance().personneExiste(mail, mdp);
-			System.out.println(p);
 			
+			// Alors, envoi vers PersonneDAO pour récupérer les informations de la personne si personne existe
+			Personne p = PersonneDAO.getInstance().personneExiste(mail, mdp);
+			
+			// Si la personne existe dans la base de données
 			if (p.getID() != null) {
+ 
+				// Alors on la met en session et on renvoie true
 
 				session.setAttribute("personne", p);
+				/* 
+				*  Une fois la personne en session, recuperer l'ID AIdee à partir de l'ID personne avec la methode readAideeByPersonne
+				*  IDAidee est enregistré dans la session (utilisé pour creer les relations quand ajout d'un nouvel aidant)
+				*/
 				IDAidee = AideeDAO.getInstance().readAideeByPersonne(p.getID());
 				session.setAttribute("IDAidee", IDAidee);
 
-				System.out.println("connexion OK");
+				// Si la personne est une personne Aidee 
 				if(IDAidee!=null) {
-				return true;
-				}
-				
-				else {
+					// Alors retourne True pour se connecter au dashboard
+					return true;
+				}else {
+					// Sinon on retourne false après avoir enregistré un message d'erreur en session pour l'afficher sur la page login
 					String message ="Vous êtes enregisté comme aidant, votre session n'est pas encore disponible";
 					session.setAttribute("messageLoginAide", message);
 					return false;
-				}
+				}	
 			} else {
-				System.out.println("erreur pas de personne");
+				/* Si la personne n'existe pas dans la base de données 
+				 * on retourne false après avoir enregistré un message d'erreur en session pour l'afficher sur la page login
+				 */
 				String message="Erreur dans le mail ou le mot de passe";
 				session.setAttribute("messageLogin", message);
 				return false;
 			}
-
 		} else {
+			/* Si la vérification des paramètres renvoie false
+			 * on retourne false après avoir enregistré un message d'erreur en session pour l'afficher sur la page login
+			 */
 			System.out.println("erreur de login");
 			System.out.println(session.getAttribute("messageLogin"));
 			return false;
