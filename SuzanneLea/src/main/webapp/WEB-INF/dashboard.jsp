@@ -84,14 +84,14 @@
 			<div>
 				<ul class="w3-ul ">
 					<li>Aidant référent</li>
-					<li>${procheReferent.nom}${procheReferent.prenom}</li>
+					<li>${procheReferent.nom} ${procheReferent.prenom}</li>
 					<li>Adresse : ${procheReferent.adresse}</li>
 					<li>Telephone : ${procheReferent.tel}</li>
 					<li>Email : ${procheReferent.email }</li>
 				</ul>
 				<ul class="w3-ul ">
 					<li>Medecin référent</li>
-					<li>${medecinReferent.nom}${medecinReferent.prenom}</li>
+					<li>${medecinReferent.nom} ${medecinReferent.prenom}</li>
 					<li>Adresse : ${medecinReferent.adresse}</li>
 					<li>Telephone : ${medecinReferent.tel}</li>
 					<li>Email : ${medecinReferent.email }</li>
