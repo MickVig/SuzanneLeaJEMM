@@ -28,20 +28,26 @@ public class PersonneDAO extends ConnexionDAO implements IPersonneDAO {
 	 */
 	@Override
 	public Personne personneExiste(String mail, String mdp) {
+		//ouverture de la connexion
 		this.connexion();
+		//on créer une nouvelle personne pour sauvegarder les informations
 		Personne p = new Personne();
 		try {
+			//on récupère la personne grâce à mail et mot de passe si elle existe
 			Query requete = this.getEm()
 					.createQuery("SELECT p FROM Personne p WHERE p.email='" + mail + "' AND p.mdp='" + mdp + "'");
-
+			//on récupère la personne dans une liste qui contient un élément
 			List<?> liste = requete.getResultList();
+			//Si la liste est non vide, on récupère la personne
 			if (liste.size() != 0) {
+				//une seule personne dans la liste donc on récupère la première
 				p = (Personne) liste.get(0);
 			}
 			this.commit();
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
+		//fermeture de la connexion
 		this.deconnexion();
 		return p;
 	}

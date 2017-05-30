@@ -101,18 +101,26 @@ public class AideeDAO extends ConnexionDAO implements IAideeDAO {
 
 	// Lire un aidee à partir d'un personne
 	public Integer readAideeByPersonne(Integer ID_Personne) {
+		//ouverture de connexion
 		this.connexion();
+		//on crée un nouvel Aidee pour stocker les informations
 		Aidee a = new Aidee();
 		try {
+			//on recupère un aidee en fonction de l'ID de la personne
 			Query requete = this.getEm().createQuery("SELECT a FROM Aidee a WHERE a.personne.ID=" + ID_Personne);
+			//si la personne existe et que c'est un aidee, on recupère le resultat dans une liste
 			if (requete.getResultList().size() != 0) {
+				//la liste ne contient qu'un seul element car l'ID est unique
+				//on récupère donc le premier element de la liste
 				a = (Aidee) requete.getResultList().get(0);
 				System.out.println(a);
 			}
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
 		}
+		//deconnexion
 		this.deconnexion();
+		//On renvoie l'ID de l'aidee
 		return a.getID_Aidee();
 	}
 
