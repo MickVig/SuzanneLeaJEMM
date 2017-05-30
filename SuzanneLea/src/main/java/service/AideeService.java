@@ -140,17 +140,18 @@ public class AideeService implements IAideeService {
 		d1.append(d.charAt(8));
 		d1.append(d.charAt(9));
 		d1.append("-");
-		d1.append(d.charAt(3));
-		d1.append(d.charAt(4));
-		d1.append("-");
 		d1.append(d.charAt(0));
 		d1.append(d.charAt(1));
+		d1.append("-");
+		d1.append(d.charAt(3));
+		d1.append(d.charAt(4));
 		d1.append(" ");
 		d1.append(h);
 		d1.append(":");
 		d1.append(m);
 		d1.append(":");
 		d1.append("00");
+		
 		
 		//convertir string en date
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");

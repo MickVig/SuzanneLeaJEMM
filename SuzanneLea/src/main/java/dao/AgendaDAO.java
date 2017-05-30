@@ -97,6 +97,8 @@ public class AgendaDAO extends ConnexionDAO implements IAgendaDAO {
 				// HH pour format 24h, hh pour format 12h
 				SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 				String date = formatDate.format(d);
+				
+				
 				l.add(date);
 				System.out.println(date);
 				listeAgenda.add(l);
