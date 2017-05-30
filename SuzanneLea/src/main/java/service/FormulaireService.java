@@ -27,16 +27,26 @@ public class FormulaireService implements IFormulaireService {
 	 */
 	
 	public Boolean verifLogin(String mail, String mdp, HttpServletRequest request) {
+		/* On crée d'un booléan qui sera retourné
+ 		*  on récupère la session
+ 		*  on initialise le message d'erreur login
+ 		*/
 		Boolean b=true;
 		HttpSession session = request.getSession();
 		session.setAttribute("messageLogin", "");
+		
+		// Si le mail passé en argument n'est pas un mail 
 		if (Pattern.matches("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)+$", mail) != true) {
+			// Alors le boolean égale false
 			b = false;
 			
-		} else if (mdp.length() < 4) {
+		} else if (mdp.length() < 4) {	// Si le mot de passe fait moins de 4 caractères
+			// Alors le boolean égale false
 			b = false;
 		}
+		// Si le booléan égale false
 		if(!b){
+			// Alors on enregistre un message d'erreur dans la session
 			session.setAttribute("messageLogin", "Erreur de saisie : vérifier le mail et le mot de passe");
 		}
 		return b;
