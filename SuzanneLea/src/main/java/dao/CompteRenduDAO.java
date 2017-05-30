@@ -47,12 +47,12 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 			for (int i = 0; i < listeCR.size(); i++) {
 				List CompteRenduListe = new ArrayList();
 				CompteRendu cr = listeCR.get(i);
-				Date d=cr.getDate();
-				SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy"); 
+				Date d = cr.getDate();
+				SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
 				String date = formatDate.format(d);
 				CompteRenduListe.add(date);
 				CompteRenduListe.add(cr.getCommentaire());
-				if(cr.getAidant()!=null) {
+				if (cr.getAidant() != null) {
 					CompteRenduListe.add(cr.getAidant().getPersonne());
 				}
 				CompteRenduListe.add(cr.getAidee().getPersonne());
@@ -83,7 +83,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 				CompteRendu cr = listeCR.get(i);
 				CompteRenduListe.add(cr.getDate());
 				CompteRenduListe.add(cr.getCommentaire());
-				if(cr.getAidant()!=null) {
+				if (cr.getAidant() != null) {
 					CompteRenduListe.add(cr.getAidant().getPersonne());
 				}
 				CompteRenduListe.add(cr.getAidee().getPersonne());
@@ -95,34 +95,37 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 		this.deconnexion();
 		return ComptesRendus;
 	}
-	
+
 	@Override
 	public List lastCompteRendu(Integer Id_Aidee) {
 		this.connexion();
 		List<CompteRendu> listeCR = new ArrayList<CompteRendu>();
 		List CompteRenduListe = new ArrayList();
-		Personne p1=new Personne();
-		Personne p2=new Personne();
+		Personne p1 = new Personne();
+		Personne p2 = new Personne();
 		try {
-			Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE ID_Aidee ="+Id_Aidee+"AND cr.date<CURRENT_TIMESTAMP ORDER BY cr.date desc");
+			Query requete = this.getEm().createQuery("SELECT cr FROM CompteRendu cr WHERE ID_Aidee =" + Id_Aidee
+					+ "AND cr.date<CURRENT_TIMESTAMP ORDER BY cr.date desc");
 			listeCR = requete.getResultList();
-			
-			for (int i = 0; i < 1; i++) {				
-				CompteRendu cr = listeCR.get(i);
-				CompteRenduListe.add(cr);
-				Date d=cr.getDate();
-				SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy"); 
-				String date = formatDate.format(d);
-				CompteRenduListe.add(date);
-				p1=cr.getAidee().getPersonne();
-				System.out.println(p1);
-				CompteRenduListe.add(p1);	
-				if(cr.getAidant()!=null) {
-					p2=cr.getAidant().getPersonne();
-					System.out.println(p2);
-					CompteRenduListe.add(p2);
+
+			if (listeCR.size() > 0) {
+				for (int i = 0; i < 1; i++) {
+					CompteRendu cr = listeCR.get(i);
+					CompteRenduListe.add(cr);
+					Date d = cr.getDate();
+					SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+					String date = formatDate.format(d);
+					CompteRenduListe.add(date);
+					p1 = cr.getAidee().getPersonne();
+					System.out.println(p1);
+					CompteRenduListe.add(p1);
+					if (cr.getAidant() != null) {
+						p2 = cr.getAidant().getPersonne();
+						System.out.println(p2);
+						CompteRenduListe.add(p2);
+					}
+
 				}
-				
 			}
 		} catch (Exception e) {
 			throw new ExceptionDAO("Anomalie lors de l'execution de la requete");
@@ -162,7 +165,7 @@ public class CompteRenduDAO extends ConnexionDAO implements ICompteRenduDAO {
 		try {
 			cr.setDate(date);
 			cr.setCommentaire(commentaire);
-			if(ID_Aidant!=null){
+			if (ID_Aidant != null) {
 				cr.setAidant(AidantDAO.getInstance().readAidant(ID_Aidant));
 			}
 			cr.setAidee(AideeDAO.getInstance().readAidee(ID_Aidee));
