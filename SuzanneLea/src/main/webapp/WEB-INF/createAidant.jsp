@@ -27,7 +27,7 @@
               </div>
               <div class="w3-container">
              	 ${messageinscription}
-                <form id="formaidant"  method="post" action="">
+                <form id="formaidant"  method="post" action="createAidant">
 
                   <label for="nom" class="w3-text-teal">Nom</label>
                   <input class="w3-input w3-border" id="nom" name="nom" type="text" >

@@ -27,7 +27,7 @@
 	          <div class="w3-container">
 	          	${messageLoginAide}
 	          	${messageLogin}
-	            <form id="formlogin" method="post" action="">
+	            <form id="formlogin" method="post" action="login">
 	              <label for="mail" class="w3-text-teal">Mail</label>
 	              <input class="w3-input w3-border" id="mail" name="mail" type="email" >
 	              <br>

@@ -37,7 +37,7 @@
 				</button>
 			</div>
 			<div class="w3-container">
-				<form id="addEven" method="post" action="">
+				<form id="addEven" method="post" action="addEvent">
 
 					<label for="titre" class="w3-text-teal">Titre</label> 
 					<input class="w3-input w3-border" id="titre" name="titre" type="text">

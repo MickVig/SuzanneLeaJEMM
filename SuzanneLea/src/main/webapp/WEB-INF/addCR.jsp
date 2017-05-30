@@ -27,7 +27,7 @@
               <button id="btncr" class="w3-button w3-large w3-amber">Retour aux Comptes Rendus <i class="fa fa-clipboard" aria-hidden="true"></i></button>
             </div> 
             <div class="w3-container">
-              <form id="formaidant" method="post" action="">
+              <form id="formaidant" method="post" action="addCR">
 
                 <label for="contenu" class="w3-text-teal">Compte rendu</label>
                 <textarea id="contenu" name="contenu" class="w3-input w3-border" placeholder="Vous pouvez faire votre compte rendu"></textarea>
