@@ -29,10 +29,10 @@
 	          	${messageLogin}
 	            <form id="formlogin" method="post" action="">
 	              <label for="mail" class="w3-text-teal">Mail</label>
-	              <input class="w3-input w3-border" id="mail" name="mail" type="email" value="ginette.menut@gmail.com" >
+	              <input class="w3-input w3-border" id="mail" name="mail" type="email" >
 	              <br>
 	              <label for="mdp" class="w3-text-teal">Mot de passe</label>
-	              <input class="w3-input w3-border" id="mdp" name="mdp" type="password" value="aide1">
+	              <input class="w3-input w3-border" id="mdp" name="mdp" type="password">
 	            
 	              <button class="w3-btn w3-amber">Se Connecter</button>
 	            </form>
