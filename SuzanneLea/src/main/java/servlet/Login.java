@@ -9,26 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.PersonneService;
 
-
-//@WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    
-    public Login() {
-        
+    public Login() {  
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward (request, response);
-	
 	}
-
-	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Si la fonction connexion() renvois true
+		// Si la fonction connexion() renvoie true
 		if(PersonneService.getInstance().connexion(request, response)){
 			// Alors on redirige vers la servlet Dashboard via l'url /dashboard
 			response.sendRedirect("dashboard");
@@ -36,7 +28,5 @@ public class Login extends HttpServlet {
 			// Sinon on reste sur la page login avec affichage d'un message d'erreur 
 			this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward (request, response);
 		}
-		
 	}
-
 }
