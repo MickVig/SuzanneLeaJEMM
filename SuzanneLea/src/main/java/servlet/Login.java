@@ -28,10 +28,12 @@ public class Login extends HttpServlet {
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Si la fonction connexion() renvois true
 		if(PersonneService.getInstance().connexion(request, response)){
-			//Pour rediriger vers la servlet Dashboard via l'url dashboard
+			// Alors on redirige vers la servlet Dashboard via l'url /dashboard
 			response.sendRedirect("dashboard");
 		}else{
+			// Sinon on reste sur la page login avec affichage d'un message d'erreur 
 			this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward (request, response);
 		}
 		
