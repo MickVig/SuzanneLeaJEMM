@@ -21,6 +21,7 @@
       <div class="w3-main">
       	<div class="w3-container w3-pink">
             <h2>Suzanne &amp; Léa</h2>
+		<h3>message test</h3>
         </div>
       	<section >
           <div class="w3-container ">
