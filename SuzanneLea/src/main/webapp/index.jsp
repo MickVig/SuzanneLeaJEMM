@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <title>Suzanne &amp; Léa</title>
+    <title>Suzanne &amp; Lï¿½a</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
@@ -17,36 +17,36 @@
       <header class="w3-container w3-indigo">
         <h1>Autonomia</h1>
       </header>
-      
+      <!-- -->
       <div class="w3-main">
       	<div class="w3-container w3-pink">
-            <h2>Suzanne &amp; Léa</h2>
+            <h2>Suzanne &amp; Lï¿½a</h2>
 		<h3>message test</h3>
         </div>
       	<section >
           <div class="w3-container ">
-              <p>Suzanne &amp; Léa est une solution innovante d'entraide destinée à <b>accompagner et sécuriser le quotidien</b> des personnes fragilisées et <b>faciliter l'intervention </b> des aidants.</p>
+              <p>Suzanne &amp; Lï¿½a est une solution innovante d'entraide destinï¿½e ï¿½ <b>accompagner et sï¿½curiser le quotidien</b> des personnes fragilisï¿½es et <b>faciliter l'intervention </b> des aidants.</p>
           </div>
           <div class="w3-container w3-center">
             <h2>LA PREMIERE APPLICATION DEDIE AUX AIDEES ET AUX AIDANTS !</h2>
-            <img class="w3-image" alt="les handicaps et dépendances" src="images/handicaps.PNG">
-            <p> Vous pouvez dès maintenant vous enregistrer :</p>
+            <img class="w3-image" alt="les handicaps et dï¿½pendances" src="images/handicaps.PNG">
+            <p> Vous pouvez dï¿½s maintenant vous enregistrer :</p>
               <button id="btnlogin" class="w3-btn w3-green w3-xlarge"><i class="fa fa-user" aria-hidden="true"></i> Connexion</button>
               <button id="btncreate" class="w3-btn w3-indigo w3-xlarge"><i class="fa fa-pencil" aria-hidden="true"></i> Inscription</button>
           </div>
         </section>
         <section id="outils" >
           <div class="w3-container">
-            <p class="w3-center">Les outils mis à votre disposition par Suzanne &amp; Léa :</p>
+            <p class="w3-center">Les outils mis ï¿½ votre disposition par Suzanne &amp; Lï¿½a :</p>
             <ul>
               <li>
                 <h4>
                 	<i class="fa fa-tachometer" aria-hidden="true"></i>
-                	<br>Tableau de bord de synthèse dédié aux aidants
+                	<br>Tableau de bord de synthï¿½se dï¿½diï¿½ aux aidants
                 </h4>
                 <ul>
-                  <li>Accès aux comptes rendus : famille, assitant à domicile, employé d'une agence, ...</li>
-                  <li>Suivi et stockage des données physiologiques</li>
+                  <li>Accï¿½s aux comptes rendus : famille, assitant ï¿½ domicile, employï¿½ d'une agence, ...</li>
+                  <li>Suivi et stockage des donnï¿½es physiologiques</li>
                 </ul>
               </li>
               <li>
@@ -55,19 +55,19 @@
                 	<br>Gestion du quotidien
                 </h4>
                 <ul>
-                  <li>Agenda familial : organisation des visites et des événnements, RDV médical, ...</li>
-                  <li> Moyen de Paiement partagé ("cagnotte") et sécurisé pour la gestion des aléas du quotidien</li>
+                  <li>Agenda familial : organisation des visites et des ï¿½vï¿½nnements, RDV mï¿½dical, ...</li>
+                  <li> Moyen de Paiement partagï¿½ ("cagnotte") et sï¿½curisï¿½ pour la gestion des alï¿½as du quotidien</li>
                 </ul>
               </li>
               <li>
               	
                 <h4>
                 	<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                	<br>Système d'alerte
+                	<br>Systï¿½me d'alerte
                 </h4>
                 <ul>
                   <li>Traitement des appels d'urgence </li>
-                  <li>Détection de situations anormales (chutes, durée de sortie supérieure à la normale,...)</li>
+                  <li>Dï¿½tection de situations anormales (chutes, durï¿½e de sortie supï¿½rieure ï¿½ la normale,...)</li>
                 </ul>
               </li>
             </ul>
